@@ -1,0 +1,10 @@
+footer{
+    a{
+        color:white;
+        transition:  .3s ease-in;
+        &:hover{
+            color:#bc9b44;
+            box-shadow:  0 0 50px #bc9b44,
+        }
+    }
+}

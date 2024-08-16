@@ -1,0 +1,25 @@
+
+
+html,body{
+    height: 100%;
+}
+
+// bootstrap css reset
+.btn-close:focus{
+	box-shadow:none !important;
+}
+.btn:active{
+	border-color: transparent !important;
+}
+
+.form-control.is-invalid:focus {
+    box-shadow: none !important;
+}
+
+.form-select:focus{
+    box-shadow: none;
+}
+
+.btn.show{
+    border-color: transparent;
+}

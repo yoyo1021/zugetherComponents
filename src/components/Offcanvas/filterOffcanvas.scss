@@ -1,0 +1,16 @@
+.offcanvas{
+    visibility: visible;
+    .filterBtn{
+        right: -49px;
+        top:250px;
+        -webkit-writing-mode: vertical-rl;
+        writing-mode: vertical-rl;
+    }
+}
+@media (max-width:768px) {
+    .offcanvas.show{
+        .filterBtn{
+             display: none;
+        }
+    }
+}
