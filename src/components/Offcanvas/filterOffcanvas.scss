@@ -1,11 +1,11 @@
 .offcanvas{
     visibility: visible;
     .filterBtn{
-        right: -100px;
+        right: -49px;
         top:250px;
-        //-webkit-writing-mode: vertical-rl;
+        -webkit-writing-mode: vertical-lr;
         writing-mode: vertical-lr;
-        transform: rotate(0deg);
+        
     }
 }
 @media (max-width:768px) {
