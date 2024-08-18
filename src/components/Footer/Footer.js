@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 export default function Footer() {
     return (
         <>
-            <footer className="bg-dark py-4">
+            <footer className="bg-primary py-4">
                 <div className="container">
                     <ul className="d-flex align-items-center justify-content-center ">
                         <li className="px-3 py-3"><NavLink to="/">HOME</NavLink></li>
