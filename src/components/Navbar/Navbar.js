@@ -69,7 +69,7 @@ export default function Navbar() {
             <ul className="menu bg-primary" ref={menuRef}>
                 <li className="nav-item"><NavLink to='/' className="navLink w-100 p-3 text-secondary">HOME</NavLink></li>
                 <li className="nav-item"><NavLink to='/about' className="navLink w-100 p-3 text-secondary">ABOUT</NavLink></li>
-                <li className="nav-item"><NavLink to='/' className="navLink w-100 p-3 text-secondary">CONTACT</NavLink></li>
+                <li className="nav-item"><NavLink to='/contact' className="navLink w-100 p-3 text-secondary">CONTACT</NavLink></li>
                 {isLogin ? (
                     <>
                         <li className="nav-item">
