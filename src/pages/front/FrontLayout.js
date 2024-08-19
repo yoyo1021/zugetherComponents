@@ -16,9 +16,9 @@ export default function FrontLayout(){
     return(
         <>
         <Navbar />
-            <div className="" style={{flexGrow:1}}>
+            <section style={{flexGrow:1}}>
                 <Outlet></Outlet>
-            </div>
+            </section>
             {showGoTop?(<GoTopButton />) :(<></>)}
         <Footer />
         </>
