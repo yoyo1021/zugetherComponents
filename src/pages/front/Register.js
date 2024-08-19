@@ -144,7 +144,7 @@ export default function Register() {
                             required: '請輸入自我介紹',
                             maxLength: {
                                 value: 200,
-                                message: '自我較紹不多於 200 字'
+                                message: '自我介紹不多於 200 字'
                             },
                         }}
                         placeholder='請輸入自我介紹，最多 200 字'
