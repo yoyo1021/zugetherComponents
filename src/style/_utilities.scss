@@ -23,3 +23,28 @@ html,body{
 .btn.show{
     border-color: transparent;
 }
+
+.object-cover{
+    object-fit: cover;
+}
+
+//about page
+.about{
+    background-image: url('../assets/images/aboutBg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    opacity: .5;
+    border-radius: 5px;
+    box-shadow:0 0 30px 10px rgb(249 241 215);
+}
+
+.aboutImg{
+    opacity: .5;
+}
+.aboutTxt{
+    font-size: 24px;
+    @media (max-width:768px) {
+        font-size: 16px;
+    }
+}
