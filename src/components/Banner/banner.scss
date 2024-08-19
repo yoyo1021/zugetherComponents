@@ -1,0 +1,46 @@
+@import "bootstrap/scss/functions";
+@import '../../style//variables';
+
+
+.object-cover{
+    object-fit: cover;
+}
+
+.swiper-button-prev, .swiper-button-next{
+    color:$primary;
+}
+
+.swiper-pagination-bullet-active{
+    background-color: beige;
+}
+
+.bannerTxt{
+    position: absolute;
+    right:25%;
+    left: 25%;
+    bottom: 50%;
+    text-align: center;
+    color: $secondary;
+    background-color: $primary;
+    font-size: 48px;
+    font-weight: bold;
+    border-radius: 50px;
+    opacity: .8;
+    padding: 15px 10px;
+    @media (max-width:920px) {
+        right:20%;
+        left: 20%;
+        font-size: 36px;
+    }
+    @media (max-width:590px) {
+        right:20%;
+        left: 20%;
+        font-size: 24px;
+    }
+    @media (max-width:410px) {
+        right:15%;
+        left: 15%;
+        font-size: 20px;
+    }
+}
+
