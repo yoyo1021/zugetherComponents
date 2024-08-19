@@ -8,6 +8,7 @@ import Register from './pages/front/Register';
 import About from './pages/front/About';
 import User from './pages/front/User'
 import NotFound from './pages/NotFound';
+import Contact from './pages/front/Contact';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Route path='' element={<Home />}></Route>
           <Route path='signup' element={<Register />}></Route>
           <Route path='about' element={<About />}></Route>
+          <Route path='contact' element={<Contact />}></Route>
           <Route path='user' element={<User />}></Route>
         </Route>
         <Route path='*' element={<NotFound />}></Route>
