@@ -9,9 +9,14 @@ import About from './pages/front/About';
 import User from './pages/front/User'
 import NotFound from './pages/NotFound';
 import Contact from './pages/front/Contact';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 function App() {
+  useEffect(()=>{
+    AOS.init();
+  },[])
   return (
     <>
       <Routes>

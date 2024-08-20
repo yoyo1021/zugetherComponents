@@ -15,7 +15,7 @@ export function GoTopButton(){
           })
     }
     return(
-        <button type="button" className="btn btn-primary goTopBtn d-sm-none" onClick={goTop}>
+        <button type="button" data-aos="zoom-in" className="btn btn-secondary goTopBtn d-md-none" onClick={goTop}>
             <i className="bi bi-caret-up-fill"></i>
         </button>
     )
