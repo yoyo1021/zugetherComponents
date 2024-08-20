@@ -58,7 +58,7 @@ export default function Home() {
                                 num={'02'}
                                 icon={'bi bi-arrows-angle-expand'}
                                 title={'更大更舒適的空間'}
-                                content={'透過合租，你可以與室友共同分擔租金，節省租屋成本。'} />
+                                content={'以較低的成本享有更大、更舒適的生活空間，也能享受更多的個人和公共空間。'} />
                         </div>
                         <div className="col">
                             <AdvantageCard

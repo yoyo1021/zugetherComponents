@@ -1,7 +1,7 @@
-import aboutBg from '../../assets/images/aboutBg.jpg'
+//import aboutBg from '../../assets/images/aboutBg.jpg'
 export default function About() {
     return (
-        <section className='container py-5 h-100'>
+        <section className='container  d-flex flex-column align-items-center  py-5 h-100'>
             <h1 className="text-center ">關於我們</h1>
             <hr className="w-100 pb-3" style={{ borderWidth: '3px', borderColor: 'red' }} />
             <div className="about">

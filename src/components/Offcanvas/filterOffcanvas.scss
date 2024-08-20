@@ -1,3 +1,6 @@
+@import "bootstrap/scss/functions";
+@import '../../style/variables';
+
 .offcanvas{
     visibility: visible;
     .filterBtn{
@@ -5,7 +8,7 @@
         top:250px;
         -webkit-writing-mode: vertical-lr;
         writing-mode: vertical-lr;
-        
+        border:1px solid $secondary;
     }
 }
 @media (max-width:768px) {
