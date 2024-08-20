@@ -6,9 +6,9 @@ export default function Footer() {
             <footer className="bg-primary py-4">
                 <div className="container">
                     <ul className="d-flex align-items-center justify-content-center ">
-                        <li className="px-3 py-3"><NavLink to="/">HOME</NavLink></li>
-                        <li className="px-3 py-3"><NavLink to='/about'>ABOUT</NavLink></li>
-                        <li className="px-3 py-3"><NavLink to=''>CONTACT</NavLink></li>
+                        <li className="px-3 py-3"><NavLink to="/">首頁</NavLink></li>
+                        <li className="px-3 py-3"><NavLink to='/about'>關於我們</NavLink></li>
+                        <li className="px-3 py-3"><NavLink to='/contact'>聯絡我們</NavLink></li>
                     </ul>
                     <ul className="d-md-flex align-items-center justify-content-center text-white text-center">
                         <li className="px-3 py-3"><a href="tel:+0912345678"><i className="bi bi-telephone me-3"></i>0912345678</a></li>
