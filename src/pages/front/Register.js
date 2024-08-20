@@ -3,6 +3,7 @@ import { Input, Textarea, Checkbox, Radio } from "../../components/Input/Input";
 import { useNavigate } from "react-router-dom";
 import Alert from "../../components/Alert/Alert";
 import { useState } from "react";
+import PageTitle from "../../components/PageTitle/PageTitle";
 export default function Register() {
     const {
         register,
@@ -27,6 +28,7 @@ export default function Register() {
         <>
             <div className="container py-3">
                 <Alert alertTxt={'註冊成功'} color={'success'} status={registerStatus}></Alert>
+                <PageTitle title={'註冊會員'}/>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <Input
                         type='email'

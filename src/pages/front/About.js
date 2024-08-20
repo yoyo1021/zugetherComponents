@@ -1,9 +1,9 @@
-//import aboutBg from '../../assets/images/aboutBg.jpg'
+//import aboutBg from '../../assets/images/aboutBg.jpg';
+import PageTitle from "../../components/PageTitle/PageTitle";
 export default function About() {
     return (
-        <section className='container  d-flex flex-column align-items-center  py-5 h-100'>
-            <h1 className="text-center ">關於我們</h1>
-            <hr className="w-100 pb-3" style={{ borderWidth: '3px', borderColor: 'red' }} />
+        <section className='container  d-flex flex-column align-items-center  py-5'>
+            <PageTitle title={'關於我們'} />
             <div className="about">
                 <p className='p-3 fw-bold aboutTxt lh-base'>
                     我們致力於開發一個全新的合租平台，旨在為使用者提供一個方便且可靠的管道來滿足您的租屋需求。無論您是希望找到志同道合的合租夥伴，還是想更深入地了解潛在的室友，我們的平台都能滿足您的需求。

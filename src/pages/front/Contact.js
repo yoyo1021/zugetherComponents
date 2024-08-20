@@ -2,6 +2,7 @@ import { Input, Textarea } from "../../components/Input/Input";
 import Alert  from "../../components/Alert/Alert";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import PageTitle from "../../components/PageTitle/PageTitle";
 export default function Contact() {
     const {
         register,
@@ -27,8 +28,7 @@ export default function Contact() {
     return (
         <div className="contact container py-5">
             <Alert alertTxt={'感謝您的留言，已將留言傳送給管理者'} color={'success'} status={isSend}> </Alert>
-            <h1 className="text-center ">填寫個人資料</h1>
-            <hr className="w-100 pb-3" style={{borderWidth:'3px', borderColor:'red'}}/>
+            <PageTitle title={'填寫個人資料'} />
             <form onSubmit={handleSubmit(onSubmit)}>
                 <Input
                     type='text'
