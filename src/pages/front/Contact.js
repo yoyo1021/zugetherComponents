@@ -26,7 +26,8 @@ export default function Contact() {
     }
     return (
         <div className="contact container py-5">
-            <Alert alertTxt={'感謝您的留言，已將留言傳送給管理者'} color={'success'} status={isSend}> </Alert>            <h1 className="text-center ">填寫個人資料</h1>
+            <Alert alertTxt={'感謝您的留言，已將留言傳送給管理者'} color={'success'} status={isSend}> </Alert>
+            <h1 className="text-center ">填寫個人資料</h1>
             <hr className="w-100 pb-3" style={{borderWidth:'3px', borderColor:'red'}}/>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <Input
