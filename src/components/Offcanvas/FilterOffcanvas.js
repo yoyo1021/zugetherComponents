@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import './filterOffcanvas.scss';
 import { Offcanvas } from 'bootstrap';
 import Range from '../Range/Range';
@@ -6,10 +7,12 @@ import { AddressSelect } from '../Select/Select';
 import { useForm } from 'react-hook-form';
 
 
+
 export default function FilterOffcanvas() {
     const filterRef = useRef(null);
     const [open, setOpen] = useState(true);
     const [amount, setAmount] = useState(5000);
+    const navigate = useNavigate();
     const {
         register,
         handleSubmit,
@@ -42,6 +45,9 @@ export default function FilterOffcanvas() {
         console.log(data);
         setOpen(true);
         filterRef.current.hide();
+        setTimeout(() => {
+            navigate('/rooms');
+        }, 2000);
     }
     return (
         <>
