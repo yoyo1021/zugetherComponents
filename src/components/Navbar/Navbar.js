@@ -65,25 +65,28 @@ export default function Navbar() {
 
     return (<>
         <nav className="navbar bg-primary">
-            <a className="logo" onClick={() => navigate('/')}>Logo</a>
+            <NavLink to='/' className="logo" >Logo</NavLink>
             <ul className="menu bg-primary" ref={menuRef}>
-                <li className="nav-item"><NavLink to='/' className="navLink w-100 p-3 text-secondary">HOME</NavLink></li>
-                <li className="nav-item"><NavLink to='/about' className="navLink w-100 p-3 text-secondary">ABOUT</NavLink></li>
-                <li className="nav-item"><NavLink to='/contact' className="navLink w-100 p-3 text-secondary">CONTACT</NavLink></li>
+                <li className="nav-item"><NavLink to='/articles' className="navLink w-100 p-3 text-secondary">文章區</NavLink></li>
                 {isLogin ? (
                     <>
+                        <li className="nav-item"><button type="button" className="navLink btn w-100 p-2 text-secondary">我的收藏</button></li>
+                        <li className="nav-item">
+                            <button type="button" className="navLink btn w-100 p-2 text-secondary">
+                                <i className="bi bi-chat-fill me-2"></i>聊天室
+                            </button>
+                        </li>
                         <li className="nav-item">
                             <button type="button" className="navLink btn w-100 p-2 text-secondary" onClick={() => navigate('/user')}>
                                 <i className="bi bi-person-fill me-2"></i>{userName}
                             </button>
                         </li>
-
                         <li className="nav-item"><button type="button" className="navLink btn w-100 p-2 text-secondary" onClick={logout}>登出</button></li>
 
                     </>
                 ) : (
                     <>
-                        <li className="nav-item"><button type="button" className="navLink btn w-100 p-2 text-secondary" onClick={openLoginModal}>登入</button></li>
+                        <li className="nav-item"><button type="button" className="navLink btn w-100 p-2 text-secondary" onClick={openLoginModal}>登入 / 註冊</button></li>
                     </>
                 )}
 
