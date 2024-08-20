@@ -33,9 +33,9 @@ export default function Home() {
                             <h5>你可以搜尋合適的室友及房間</h5>
                         </div>
                         <div className="col ">
-                            <div>
-                                <img src={friends1} className="object-cover w-100  rounded" alt=""/>
-                            </div>
+                            <figure>
+                                <img src={friends1} className="object-cover w-100  rounded" alt="" />
+                            </figure>
                         </div>
                     </div>
                 </div>
@@ -45,7 +45,8 @@ export default function Home() {
                 <div className="container">
                     <h1 className="text-center text-white mb-5">合租好處</h1>
                     <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 gy-5">
-                        <div className="col">
+                        <div data-aos="fade-down"
+                            className="col">
                             <AdvantageCard
                                 num={'01'}
                                 icon={'bi bi-coin'}
@@ -53,14 +54,14 @@ export default function Home() {
                                 content={'透過合租，你可以與室友共同分擔租金，節省租屋成本。'}
                             />
                         </div>
-                        <div className="col">
+                        <div data-aos="fade-down" className="col">
                             <AdvantageCard
                                 num={'02'}
                                 icon={'bi bi-arrows-angle-expand'}
                                 title={'更大更舒適的空間'}
                                 content={'以較低的成本享有更大、更舒適的生活空間，也能享受更多的個人和公共空間。'} />
                         </div>
-                        <div className="col">
+                        <div data-aos="fade-down" className="col">
                             <AdvantageCard
                                 num={'03'}
                                 icon={'bi bi-person-plus'}
