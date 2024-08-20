@@ -44,7 +44,7 @@ export default function Home() {
             <section className="py-5 bg-primary">
                 <div className="container">
                     <h1 className="text-center text-white mb-5">合租好處</h1>
-                    <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-5 g-md-3">
+                    <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 gy-5">
                         <div className="col">
                             <AdvantageCard
                                 num={'01'}
