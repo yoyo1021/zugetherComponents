@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/zugetherComponents/static/css/main.69139dc9.css",
-    "main.js": "/zugetherComponents/static/js/main.28add0ad.js",
+    "main.js": "/zugetherComponents/static/js/main.17ed4ccb.js",
     "static/js/453.ed3810f9.chunk.js": "/zugetherComponents/static/js/453.ed3810f9.chunk.js",
     "static/media/banner.jpg": "/zugetherComponents/static/media/banner.f37a5e4fe031d4d1a377.jpg",
     "static/media/aboutBg.jpg": "/zugetherComponents/static/media/aboutBg.69bd9515a8ca8e199799.jpg",
@@ -13,11 +13,11 @@
     "static/media/logo.png": "/zugetherComponents/static/media/logo.e4271ebe086f72620c77.png",
     "index.html": "/zugetherComponents/index.html",
     "main.69139dc9.css.map": "/zugetherComponents/static/css/main.69139dc9.css.map",
-    "main.28add0ad.js.map": "/zugetherComponents/static/js/main.28add0ad.js.map",
+    "main.17ed4ccb.js.map": "/zugetherComponents/static/js/main.17ed4ccb.js.map",
     "453.ed3810f9.chunk.js.map": "/zugetherComponents/static/js/453.ed3810f9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.69139dc9.css",
-    "static/js/main.28add0ad.js"
+    "static/js/main.17ed4ccb.js"
   ]
 }
