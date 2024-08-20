@@ -6,7 +6,10 @@ import FrontLayout from './pages/front/FrontLayout';
 import Home from './pages/front/Home';
 import Register from './pages/front/Register';
 import About from './pages/front/About';
-import User from './pages/front/User'
+import Articles from './pages/front/Articles';
+import ArticleDetail from './pages/front/ArticleDetail';
+import Rooms from './pages/front/Rooms';
+import User from './pages/front/User';
 import NotFound from './pages/NotFound';
 import Contact from './pages/front/Contact';
 import AOS from 'aos';
@@ -25,6 +28,9 @@ function App() {
           <Route path='signup' element={<Register />}></Route>
           <Route path='about' element={<About />}></Route>
           <Route path='contact' element={<Contact />}></Route>
+          <Route path='articles' element={<Articles/>}></Route>
+          <Route path='articles/:id' element={<ArticleDetail/>}></Route>
+          <Route path='rooms' element={<Rooms/>}></Route>
           <Route path='user' element={<User />}></Route>
         </Route>
         <Route path='*' element={<NotFound />}></Route>
