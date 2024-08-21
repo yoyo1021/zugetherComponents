@@ -1,6 +1,12 @@
+import { useParams, Link } from "react-router-dom";
+
+
 export default function RoomDetail() {
+    const { id } = useParams();
+    console.log(id)
     return (
-        <>
+        <section className="container py-5">
+            <Link to='/rooms'><button type="button" className="btn btn-outline-primary">上一頁</button></Link>
             <span className="material-symbols-outlined">
                 bed
             </span>
@@ -31,6 +37,8 @@ export default function RoomDetail() {
             <span className="material-symbols-outlined">
                 shower
             </span>
-        </>
+
+            <br />
+        </section>
     )
 }
