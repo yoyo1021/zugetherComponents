@@ -43,12 +43,15 @@ export function AddressSelect({ register }) {
 }
 
 export function Select({labelName,id,options,register}){
-    console.log(options)
+    const [val,setVal] = useState()
+    function changeOption(e){
+        setVal(e.target.value)
+    }
     return(
         <>
         <label className='mb-3'> {labelName} </label>
             <div className="mb-3">
-                <select className="form-select" {...register(id)} value={id}>
+                <select className="form-select" {...register(id)} value={val} onChange={changeOption}>
                     {options.map((value, i) => {
                         return (
                             <option key={i} value={value}>{value}</option>
