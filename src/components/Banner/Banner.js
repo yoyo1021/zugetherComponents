@@ -36,7 +36,6 @@ export default function Banner({ datas }) {
                                 <>
                                     <div className="bannerTxt">
                                         {data.text}
-                                        
                                     </div>
                                 </>
 
