@@ -1,6 +1,8 @@
-.card{
+.advantageCard{
+    .card{
     transition: .3s ease-in-out;
     &:hover{
         transform: scale(1.05);
     }
+}
 }
