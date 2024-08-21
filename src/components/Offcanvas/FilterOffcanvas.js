@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import './filterOffcanvas.scss';
 import { Offcanvas } from 'bootstrap';
 import Range from '../Range/Range';
-import { AddressSelect } from '../Select/Select';
+import { AddressSelect, Select } from '../Select/Select';
 import { useForm } from 'react-hook-form';
 
 
@@ -13,6 +13,7 @@ export default function FilterOffcanvas() {
     const [open, setOpen] = useState(true);
     const [amount, setAmount] = useState(5000);
     const navigate = useNavigate();
+    const roomStyle = ['所有房型', '兩人一室套房', '兩人一室雅房', '三人一室套房', '三人一室雅房'];
     const {
         register,
         handleSubmit,
@@ -69,11 +70,11 @@ export default function FilterOffcanvas() {
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="pb-3">
                             <AddressSelect register={register} />
-                            <Range register={register} id={'amount'} min={5000} max={50000} step={1000} lableTxt={'金額'} rangeVal={amount} setRangeVal={setAmount} />
+                            <Range register={register} id={'amount'} min={5000} max={50000} step={1000} lableTxt={'租金/月(不含水電及管理費月)'} rangeVal={amount} setRangeVal={setAmount} />
+                            <Select register={register} id={'roomStyle'} labelName={'請選擇房型'} options={roomStyle} />
                         </div>
                         <button type='submit' className='btn btn-primary w-100'> 篩選 </button>
                     </form>
-
                 </div>
             </div>
         </>
