@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import Taiwan from '../../assets/taiwan.json';
-import '../Select/select.scss'
+import '../Select/select.scss';
+
+
 export function AddressSelect({ register }) {
     const [city, setCity] = useState('台北市');
     const [area, setArea] = useState('所有區域');
@@ -32,6 +34,24 @@ export function AddressSelect({ register }) {
                 {Taiwan.find((cities) => cities.CityName === city)?.AreaList.map((area, i) => {
                         return (
                             <option key={i} value={area.AreaName}>{area.AreaName}</option>
+                        )
+                    })}
+                </select>
+            </div>
+        </>
+    )
+}
+
+export function Select({labelName,id,options,register}){
+    console.log(options)
+    return(
+        <>
+        <label className='mb-3'> {labelName} </label>
+            <div className="mb-3">
+                <select className="form-select" {...register(id)} value={id}>
+                    {options.map((value, i) => {
+                        return (
+                            <option key={i} value={value}>{value}</option>
                         )
                     })}
                 </select>
