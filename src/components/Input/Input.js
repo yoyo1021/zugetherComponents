@@ -51,7 +51,7 @@ export function Checkbox({ id, labelName, errors, register, rules }) {
                         id={id}
                         {...register(id, rules)}
                     />
-                    <label className="form-check-label" htmlFor={id} style={{lineHeight:'1.5'}}>
+                    <label className="form-check-label" htmlFor={id} style={{ lineHeight: '1.5' }}>
                         {labelName}
                     </label>
                     {errors[id] && (
@@ -63,7 +63,7 @@ export function Checkbox({ id, labelName, errors, register, rules }) {
     )
 }
 
-export function Radio({ id, name, value, labelName, errors, register, rules}) {
+export function Radio({ id, name, value, labelName, errors, register, rules }) {
     return (
         <>
             <div className="mb-3">
@@ -76,7 +76,7 @@ export function Radio({ id, name, value, labelName, errors, register, rules}) {
                         value={value}
                         {...register(name, rules)}
                     />
-                    <label className="form-check-label" htmlFor={id} style={{lineHeight:'1.5'}}>
+                    <label className="form-check-label" htmlFor={id} style={{ lineHeight: '1.5' }}>
                         {labelName}
                     </label>
                     {errors[name] && (
@@ -84,8 +84,17 @@ export function Radio({ id, name, value, labelName, errors, register, rules}) {
                     )}
                 </div>
             </div>
+        </>
+    )
+}
 
-            
+export function HeartToggle({id,onChange}) {
+    return (
+        <>
+            <div className="heart">
+                <input id={id} name="check" type="checkbox" onChange={onChange}/>
+                <label htmlFor={id}></label>
+            </div>
         </>
     )
 }

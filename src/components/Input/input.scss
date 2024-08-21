@@ -5,3 +5,37 @@
 .control.is-invalid:focus{
     box-shadow: none;
 }
+
+
+.heart{
+    position: relative;
+    input[type="checkbox"] {
+        position: absolute;
+        visibility: hidden;
+        z-index: 2;
+      }
+      
+      label {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+      }
+      
+      input[type="checkbox"]:checked + label:after {
+        color: red;
+        font-size: 20px;
+      }
+      
+      label:after {
+        content: "\f004";
+        font-family: FontAwesome;
+        font-size: 20px;   
+        text-align: center;
+        color:gray
+      }
+      
+      label:hover:after {
+        color: red;
+        transform: scale(0.6);
+      }
+}
