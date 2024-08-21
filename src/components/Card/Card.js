@@ -1,4 +1,4 @@
-import './card.scss'
+import './card.scss';
 export function AdvantageCard({ num, icon, title, content }) {
     return (
         <>
