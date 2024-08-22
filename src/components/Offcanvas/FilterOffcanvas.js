@@ -5,6 +5,7 @@ import { Offcanvas } from 'bootstrap';
 import Range from '../Range/Range';
 import { AddressSelect, Select } from '../Select/Select';
 import { useForm } from 'react-hook-form';
+import Loading from '../Loading/Loading';
 
 
 
@@ -12,6 +13,7 @@ export default function FilterOffcanvas() {
     const filterRef = useRef(null);
     const [open, setOpen] = useState(true);
     const [amount, setAmount] = useState(5000);
+    const [isLoading,setIsLoading] = useState(false);
     const navigate = useNavigate();
     const roomStyle = ['所有房型', '兩人一室套房', '兩人一室雅房', '三人一室套房', '三人一室雅房'];
     const {
@@ -42,16 +44,20 @@ export default function FilterOffcanvas() {
         filterRef.current.hide();
         setOpen(true);
     }
+
     const onSubmit = (data) => {
         console.log(data);
         setOpen(true);
         filterRef.current.hide();
+        setIsLoading(true);
         setTimeout(() => {
             navigate('/rooms');
+            setIsLoading(false);
         }, 2000);
     }
     return (
         <>
+            <Loading type={'balls'} color={'gold'} isLoading={isLoading}/>
             <div className="offcanvas offcanvas-start" tabIndex="-1" ref={filterRef} id="filterOffcanvas" aria-labelledby="offcanvasWithBackdropLabel">
                 <button className="btn btn-primary position-absolute filterBtn text-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#filterOffcanvas" aria-controls="offcanvasWithBackdrop" onClick={openFilter}>
                     {/* <i className="bi bi-funnel-fill"></i> */}
@@ -60,7 +66,7 @@ export default function FilterOffcanvas() {
                     ) : (
                         <i className="bi bi-caret-left-fill"></i>
                     )}
-                    篩選條件
+                    搜尋房源
                 </button>
                 <div className="offcanvas-header">
                     <h5 className="offcanvas-title " id="offcanvasWithBackdropLabel">條件篩選</h5>
