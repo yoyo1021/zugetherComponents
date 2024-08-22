@@ -26,9 +26,9 @@ export default function Contact() {
         
     }
     return (
-        <div className="contact container py-5">
+        <section className="contact container py-5 d-lg-flex flex-column align-items-center">
             <Alert alertTxt={'感謝您的留言，已將留言傳送給管理者'} color={'success'} status={isSend}> </Alert>
-            <PageTitle title={'填寫個人資料'} />
+            <PageTitle title={'聯絡我們'} />
             <form onSubmit={handleSubmit(onSubmit)}>
                 <Input
                     type='text'
@@ -102,6 +102,6 @@ export default function Contact() {
                         <button type="submit" className="btn btn-primary w-100 py-3 registerBtn">送出</button>
                     </div>
             </form>
-        </div>
+        </section>
     )
 }

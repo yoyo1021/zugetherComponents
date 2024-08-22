@@ -2,9 +2,9 @@
 import PageTitle from "../../components/PageTitle/PageTitle";
 export default function About() {
     return (
-        <section className='container  d-flex flex-column align-items-center  py-5'>
+        <section className='about container  py-5 d-flex flex-column align-items-center'>
             <PageTitle title={'關於我們'} />
-            <div className="about">
+            <div className="aboutContent">
                 <p className='p-3 fw-bold aboutTxt lh-base'>
                     我們致力於開發一個全新的合租平台，旨在為使用者提供一個方便且可靠的管道來滿足您的租屋需求。無論您是希望找到志同道合的合租夥伴，還是想更深入地了解潛在的室友，我們的平台都能滿足您的需求。
                     <br />
