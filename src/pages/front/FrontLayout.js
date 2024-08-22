@@ -3,6 +3,7 @@ import Footer from "../../components/Footer/Footer";
 import { Outlet } from "react-router-dom";
 import { GoTopButton } from "../../components/Button/Button";
 import { useState } from "react";
+import ScrollTop from "../../funnction/ScrollTop";
 export default function FrontLayout(){
     const[showGoTop,setShowGoTop]=useState(false);
     document.addEventListener('scroll',()=>{
@@ -15,6 +16,7 @@ export default function FrontLayout(){
     
     return(
         <>
+        <ScrollTop />
         <Navbar />
             <div style={{flexGrow:1}}>
                 <Outlet></Outlet>
