@@ -64,8 +64,8 @@ export default function LoginModal({ closeModal,setIsLogin }) {
                                         }
                                     }}
                                 />
-                                <div className="modal-footer flex-column border-top-0">
-                                    <button type="submit" className="btn btn-primary w-100">登入</button>
+                                <div className="flex-column border-top-0">
+                                    <button type="submit" className="btn btn-primary w-100 mb-2">登入</button>
                                     <button type="button" className="btn btn-secondary w-100" onClick={goToRegister}>註冊</button>
                                 </div>
                             </form>
