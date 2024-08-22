@@ -16,7 +16,9 @@ export default function Rooms() {
             rent: 18000,
             size: 10,
             findPerson: 1,
-            address:'台北市信義區市府路45號'
+            address: '台北市信義區市府路45號',
+            date: '2024/01/03',
+            expect: '尋找愛乾淨個性外向的人'
         },
         {
             roomId: '002',
@@ -27,17 +29,22 @@ export default function Rooms() {
             rent: 10000,
             size: 7,
             findPerson: 2,
-            address:'台北市萬華區長順街45號'
+            address: '台北市萬華區長順街45號',
+            date: '2024/05/26',
+            expect: '不排斥貓咪的人'
         },
         {
             roomId: '003',
             roomTitle: '新北板橋三人雅房',
+            roomStyle: '三人雅房',
             floor: '2樓',
             bed: '上下舖',
             rent: 8000,
             size: 20,
             findPerson: 1,
-            address:'新北市板橋區文化路一段26號'
+            address: '新北市板橋區文化路一段26號',
+            date: '2024/08/08',
+            expect: '個性隨和，彼此樂意分享，注重生活品質愛乾淨，洗完澡會撿毛髮、吃完餐盤不過夜、廚餘垃圾收拾妥善、互相尊重深夜放輕腳步，如果你是我們找尋的室友，歡迎一起入住溫馨的家。'
         },
     ]
 
@@ -57,7 +64,7 @@ export default function Rooms() {
             <FilterOffcanvas />
             <Alert alertTxt={'請先登入'} color={'danger'} status={showAlert} />
             <section className="container py-5">
-                <div className="row row-cols-1 row-cols-lg-2">
+                <div className="row row-cols-1">
                     {roomData.map((room, i) => {
                         return (
                             <div className="col roomCard" data-aos='fade-down' key={i}>
@@ -71,54 +78,76 @@ export default function Rooms() {
                                             <div className="col-md-8">
                                                 <div className="card-body">
                                                     <div className="d-flex justify-content-between align-items-center mb-2">
-                                                        <h5 className="card-title">{room.roomTitle}</h5>
+                                                        <h5 className="card-title fw-bold">{room.roomTitle}<br /><span className="fs-6 text-muted">{room.date}</span></h5>
                                                         <div onClick={(e) => e.stopPropagation()}>
                                                             <HeartToggle id={room.roomId} onChange={heartToggle} />
                                                         </div>
-                                                        
                                                     </div>
-                                                    <div className="mb-2 d-flex align-items-center">
+                                                    <div className="row row-cols-1 row-cols-md-2">
+                                                        <div className="col">
+                                                            <div className="mb-2 d-flex align-items-center">
+                                                                <span className="material-symbols-outlined me-2">
+                                                                    floor
+                                                                </span>
+                                                                {room.floor}
+                                                            </div>
+                                                        </div>
+                                                        <div className="col">
+                                                            <div className="mb-2 d-flex align-items-center">
+                                                                <span className="material-symbols-outlined me-2">
+                                                                    night_shelter
+                                                                </span>
+                                                                {room.roomStyle}
+                                                            </div>
+                                                        </div>
+                                                        <div className="col">
+                                                            <div className="mb-2 d-flex align-items-center">
+                                                                <span className="material-symbols-outlined me-2">
+                                                                    bed
+                                                                </span>
+                                                                {room.bed}
+                                                            </div>
+                                                        </div>
+                                                        <div className="col">
+                                                            <div className="mb-2 d-flex align-items-center">
+                                                                <span className="material-symbols-outlined me-2">
+                                                                    paid
+                                                                </span>
+                                                                {room.rent}/月(不含水電及管理費月)
+                                                            </div>
+                                                        </div>
+                                                        <div className="col">
+                                                            <div className="mb-2 d-flex align-items-center">
+                                                                <span className="material-symbols-outlined me-2" style={{ transform: 'rotate(-45deg)' }}>
+                                                                    width
+                                                                </span>
+                                                                {room.size}坪
+                                                            </div>
+                                                        </div>
+                                                        <div className="col">
+                                                            <div className="mb-2 d-flex align-items-center">
+                                                                <span className="material-symbols-outlined me-2">
+                                                                    person
+                                                                </span>
+                                                                尋求{room.findPerson}位
+                                                            </div>
+                                                        </div>
+                                                        <div className="col">
+                                                            <div className="mb-2 d-flex align-items-center">
+                                                                <span className="material-symbols-outlined me-2">
+                                                                    location_on
+                                                                </span>
+                                                                {room.address}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="mb-2 d-flex align-items-start">
                                                         <span className="material-symbols-outlined me-2">
-                                                            floor
+                                                            folded_hands
                                                         </span>
-                                                        {room.floor}
+                                                        {room.expect}
                                                     </div>
-                                                    <div className="mb-2 d-flex align-items-center">
-                                                        <span className="material-symbols-outlined me-2">
-                                                            night_shelter
-                                                        </span>
-                                                        {room.roomStyle}
-                                                    </div>
-                                                    <div className="mb-2 d-flex align-items-center">
-                                                        <span className="material-symbols-outlined me-2">
-                                                            bed
-                                                        </span>
-                                                        {room.bed}
-                                                    </div>
-                                                    <div className="mb-2 d-flex align-items-center">
-                                                        <span className="material-symbols-outlined me-2">
-                                                            paid
-                                                        </span>
-                                                        {room.rent}/月(不含水電及管理費月)
-                                                    </div>
-                                                    <div className="mb-2 d-flex align-items-center">
-                                                        <span className="material-symbols-outlined me-2" style={{ transform: 'rotate(-45deg)' }}>
-                                                            width
-                                                        </span>
-                                                        {room.size}坪
-                                                    </div>
-                                                    <div className="mb-2 d-flex align-items-center">
-                                                        <span className="material-symbols-outlined me-2">
-                                                            person
-                                                        </span>
-                                                        尋求{room.findPerson}位
-                                                    </div>
-                                                    <div className="mb-2 d-flex align-items-center">
-                                                        <span className="material-symbols-outlined me-2">
-                                                            location_on
-                                                        </span>
-                                                        {room.address}
-                                                    </div>
+
                                                 </div>
                                             </div>
                                         </div>
