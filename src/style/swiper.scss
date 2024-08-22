@@ -1,60 +1,66 @@
-
-.mySwiper {
-    width: 100%;
-    height: 100%;
-}
-
-.swiper-slide {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.swiper-slide img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-/* 垂直滑动时的样式 */
-@media (max-width: 767px) {
-    .swiper {
-        height: 75vh; /* 高度设置为全屏高度 */
+.articles {
+    .mySwiper {
+        width: 100%;
+        height: 100%;
     }
 
     .swiper-slide {
-        height: auto; /* 允许内容根据滑动方向自动调整高度 */
-        margin-bottom: 10px; /* 调整滑块之间的间距 */
-    }
-    .swiper-pagination{
-        display: none;
-    }
-}
-
-/* 水平滑动时的样式 */
-@media (min-width: 768px) {
-    .swiper {
-        height: 50vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
-    .swiper-slide {
+    .swiper-slide img {
+        width: 100%;
         height: auto;
+        object-fit: cover;
+        border-radius: 8px;
     }
-}
 
-.swiper-pagination{
-    .swiper-pagination-bullet{
-        width: 8px;
-        height: 8px;
-        background-color: black;
-        opacity:1;
-        border-radius: 0%;
+    /* 垂直滑动时的样式 */
+    @media (max-width: 767px) {
+        .swiper {
+            height: 75vh;
+            /* 高度设置为全屏高度 */
+        }
+
+        .swiper-slide {
+            height: auto;
+            /* 允许内容根据滑动方向自动调整高度 */
+            margin-bottom: 10px;
+            /* 调整滑块之间的间距 */
+        }
+
+        .swiper-pagination {
+            display: none;
+        }
     }
-    .swiper-pagination-bullet-active{
-        width: 16px;
-        height: 8px;
-        background-color: #bc9b44;
-        border-radius: 0%;
+
+    /* 水平滑动时的样式 */
+    @media (min-width: 768px) {
+        .swiper {
+            height: 500px;
+        }
+
+        .swiper-slide {
+            height: auto;
+        }
+    }
+
+    .swiper-pagination {
+        .swiper-pagination-bullet {
+            width: 8px;
+            height: 8px;
+            background-color: black;
+            opacity: 1;
+            border-radius: 0%;
+        }
+
+        .swiper-pagination-bullet-active {
+            width: 16px;
+            height: 8px;
+            background-color: #bc9b44;
+            border-radius: 0%;
+        }
     }
 }
