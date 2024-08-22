@@ -1,0 +1,8 @@
+@import "bootstrap/scss/functions";
+@import '../../style/variables';
+.breadcrumb-item{
+    a{
+        text-decoration: underline;
+        color: $secondary;
+    }
+}
