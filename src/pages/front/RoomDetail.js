@@ -166,52 +166,52 @@ export default function RoomDetail() {
                         <h3>房間設備</h3>
                         <div className="d-flex flex-wrap py-2">
                             <div className="d-flex align-items-center px-2">
-                                <span className={`material-symbols-outlined ${room.equipment.bed ? 'text-success' : 'text-danger text-decoration-line-through'}`}>
+                                <span className={`material-symbols-outlined ${room.equipment.bed ? 'text-success' : 'text-light text-decoration-line-through'}`}>
                                     bed<span>床</span>
                                 </span>
                             </div>
                             <div className="d-flex align-items-center px-2">
-                                <span className={`material-symbols-outlined ${room.equipment.shelf ? 'text-success' : 'text-danger text-decoration-line-through'}`}>
+                                <span className={`material-symbols-outlined ${room.equipment.shelf ? 'text-success' : 'text-light text-decoration-line-through'}`}>
                                     shelves<span>衣櫃</span>
                                 </span>
                             </div>
                             <div className="d-flex align-items-center px-2">
-                                <span className={`material-symbols-outlined ${room.equipment.desk ? 'text-success' : 'text-danger text-decoration-line-through'}`}>
+                                <span className={`material-symbols-outlined ${room.equipment.desk ? 'text-success' : 'text-light text-decoration-line-through'}`}>
                                     table_restaurant<span>桌子</span>
                                 </span>
                             </div>
                             <div className="d-flex align-items-center px-2">
-                                <span className={`material-symbols-outlined ${room.equipment.chair ? 'text-success' : 'text-danger text-decoration-line-through'}`}>
+                                <span className={`material-symbols-outlined ${room.equipment.chair ? 'text-success' : 'text-light text-decoration-line-through'}`}>
                                     chair_alt<span>椅子</span>
                                 </span>
                             </div>
                             <div className="d-flex align-items-center px-2">
-                                <span className={`material-symbols-outlined ${room.equipment.kitchen ? 'text-success' : 'text-danger text-decoration-line-through'}`}>
+                                <span className={`material-symbols-outlined ${room.equipment.kitchen ? 'text-success' : 'text-light text-decoration-line-through'}`}>
                                     kitchen<span>廚房</span>
                                 </span>
                             </div>
                             <div className="d-flex align-items-center px-2">
-                                <span className={`material-symbols-outlined ${room.equipment.laundry ? 'text-success' : 'text-danger text-decoration-line-through'}`}>
+                                <span className={`material-symbols-outlined ${room.equipment.laundry ? 'text-success' : 'text-light text-decoration-line-through'}`}>
                                     local_laundry_service<span>洗衣機</span>
                                 </span>
                             </div>
                             <div className="d-flex align-items-center px-2">
-                                <span className={`material-symbols-outlined ${room.equipment.extinguisher ? 'text-success' : 'text-danger text-decoration-line-through'}`}>
+                                <span className={`material-symbols-outlined ${room.equipment.extinguisher ? 'text-success' : 'text-light text-decoration-line-through'}`}>
                                     fire_extinguisher<span>滅火器</span>
                                 </span>
                             </div>
                             <div className="d-flex align-items-center px-2">
-                                <span className={`material-symbols-outlined ${room.equipment.tv ? 'text-success' : 'text-danger text-decoration-line-through'}`}>
+                                <span className={`material-symbols-outlined ${room.equipment.tv ? 'text-success' : 'text-light text-decoration-line-through'}`}>
                                     tv<span>電視</span>
                                 </span>
                             </div>
                             <div className="d-flex align-items-center px-2">
-                                <span className={`material-symbols-outlined ${room.equipment.wifi ? 'text-success' : 'text-danger text-decoration-line-through'}`}>
+                                <span className={`material-symbols-outlined ${room.equipment.wifi ? 'text-success' : 'text-light text-decoration-line-through'}`}>
                                     wifi<span>網路</span>
                                 </span>
                             </div>
                             <div className="d-flex align-items-center px-2">
-                                <span className={`material-symbols-outlined ${room.equipment.assistant ? 'text-success' : 'text-danger text-decoration-line-through'}`}>
+                                <span className={`material-symbols-outlined ${room.equipment.assistant ? 'text-success' : 'text-light text-decoration-line-through'}`}>
                                     assistant_device<span>監視器</span>
                                 </span>
                             </div>
