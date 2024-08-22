@@ -26,7 +26,7 @@ export default function Register() {
     }
     return (
         <>
-            <div className="container py-3">
+            <section className="register container py-5 d-lg-flex flex-column align-items-center">
                 <Alert alertTxt={'註冊成功'} color={'success'} status={registerStatus}></Alert>
                 <PageTitle title={'註冊會員'}/>
                 <form onSubmit={handleSubmit(onSubmit)}>
@@ -177,7 +177,7 @@ export default function Register() {
                         <button type="submit" className="btn btn-primary px-5 py-3 registerBtn">註冊</button>
                     </div>
                 </form>
-            </div>
+            </section>
 
         </>
     )
