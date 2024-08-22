@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/zugetherComponents/static/css/main.ac6e1f00.css",
-    "main.js": "/zugetherComponents/static/js/main.e09cadda.js",
+    "main.css": "/zugetherComponents/static/css/main.d83b235c.css",
+    "main.js": "/zugetherComponents/static/js/main.2b879d34.js",
     "static/js/453.ed3810f9.chunk.js": "/zugetherComponents/static/js/453.ed3810f9.chunk.js",
     "static/media/banner.jpg": "/zugetherComponents/static/media/banner.f37a5e4fe031d4d1a377.jpg",
     "static/media/aboutBg2.jpg": "/zugetherComponents/static/media/aboutBg2.c981328947a5a66bdbb5.jpg",
@@ -11,12 +11,12 @@
     "static/media/logo.jpg": "/zugetherComponents/static/media/logo.0b66deb7487bd5f0916b.jpg",
     "static/media/logo.png": "/zugetherComponents/static/media/logo.e4271ebe086f72620c77.png",
     "index.html": "/zugetherComponents/index.html",
-    "main.ac6e1f00.css.map": "/zugetherComponents/static/css/main.ac6e1f00.css.map",
-    "main.e09cadda.js.map": "/zugetherComponents/static/js/main.e09cadda.js.map",
+    "main.d83b235c.css.map": "/zugetherComponents/static/css/main.d83b235c.css.map",
+    "main.2b879d34.js.map": "/zugetherComponents/static/js/main.2b879d34.js.map",
     "453.ed3810f9.chunk.js.map": "/zugetherComponents/static/js/453.ed3810f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ac6e1f00.css",
-    "static/js/main.e09cadda.js"
+    "static/css/main.d83b235c.css",
+    "static/js/main.2b879d34.js"
   ]
 }
