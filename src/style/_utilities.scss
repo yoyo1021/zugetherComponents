@@ -29,8 +29,20 @@ body {
     object-fit: cover;
 }
 
+//form
+.contact,.register{
+    form {
+        width: 75%;
+    
+        @media (max-width:'992px') {
+            width: 100%;
+        }
+    }
+}
+
+
 //about page
-.about {
+.aboutContent {
     background-image: url('../assets//images/aboutBg2.jpg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -75,11 +87,45 @@ body {
     }
 }
 
-.roomCard{
-    img{
+.roomCard {
+    img {
         height: 100%;
+
         @media (max-width:500px) {
-            height:auto;
+            height: auto;
         }
-    };
+    }
+
+    ;
 }
+
+//roomDetail
+.roomDetail{
+    font-size: 20px;
+    .material-symbols-outlined{
+        font-size: 20px;
+    }
+    .poster{
+        background-color: rgb(237 233 226);
+            .card{
+                background-color: rgb(237 233 226);
+                font-size: 20px;
+            }
+        
+    }
+    @media (max-width:768px) {
+        font-size: 16px;
+        .material-symbols-outlined{
+            font-size: 16px;
+        }
+        .posterInfo{
+            .card{
+                font-size: 16px;
+            }
+        }
+        
+    }
+    
+}
+
+
