@@ -1,4 +1,5 @@
 import './style/all.scss';
+import './style/pages.scss';
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 import { Routes, Route } from 'react-router-dom';
@@ -10,6 +11,7 @@ import Articles from './pages/front/Articles';
 import ArticleDetail from './pages/front/ArticleDetail';
 import Rooms from './pages/front/Rooms';
 import RoomDetail from './pages/front/RoomDetail';
+import Favorite from './pages/front/Favorite';
 import User from './pages/front/User';
 import NotFound from './pages/NotFound';
 import Contact from './pages/front/Contact';
@@ -29,6 +31,7 @@ function App() {
           <Route path='signup' element={<Register />}></Route>
           <Route path='about' element={<About />}></Route>
           <Route path='contact' element={<Contact />}></Route>
+          <Route path='favorite' element={<Favorite />}></Route>
           <Route path='articles' element={<Articles/>}></Route>
           <Route path='articles/:id' element={<ArticleDetail/>}></Route>
           <Route path='rooms' element={<Rooms/>}></Route>
