@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Banner from '../../components/Banner/Banner';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import PersonImg from '../../assets/images/friends.jpg';
@@ -9,7 +9,7 @@ import { useState } from "react";
 
 export default function RoomDetail() {
     const { id } = useParams();
-    
+
     const [isLogin, setIsLogin] = useState(false);
     const [showAlert, setShowAlert] = useState(false)
 
@@ -78,7 +78,7 @@ export default function RoomDetail() {
             'nickName': '康康',
             'gender': '男',
             'tel': '0923456789',
-            'intro': '大家好，我是吳康人，不是那個吳慷仁，可以叫我康康，但我也不是那個康康，歡迎大家來認識。',
+            'intro': '大家好，我是吳康人，不是那個吳慷仁，可以叫我康康，但我也不是那個康康，歡迎大家來認識。大家好，我是吳康人，不是那個吳慷仁，可以叫我康康，但我也不是那個康康，歡迎大家來認識。大家好，我是吳康人，不是那個吳慷仁，可以叫我康康，但我也不是那個康康，歡迎大家來認識。因為很重要所以講三次。',
         },
         host: {
             'name': '王小美',
@@ -88,154 +88,157 @@ export default function RoomDetail() {
     }
     return (
         <>
-           
             <section className="roomDetail container py-5">
                 <Alert alertTxt={'請登入會員'} color={'danger'} status={showAlert} />
-                <Breadcrumb preLink={'/rooms'} prePage={'room'} id={id}/>
+                <Breadcrumb preLink={'/rooms'} prePage={'rooms'} id={id} />
                 <Banner datas={roomImgs} />
                 <div className="roomContent py-3">
                     <PageTitle title={'房間資訊'} />
-                    <div className="roomInfo">
-                        <div className="row row-cols-1 row-cols-md-2">
-                            <div className="col">
-                                <div className="mb-2 d-flex align-items-center">
-                                    <span className="material-symbols-outlined me-2">
-                                        floor
-                                    </span>
-                                    樓層 : {room.floor}
+                    <div className="roomInfo ">
+                        <div className="card p-3">
+                            <div className="row row-cols-1 row-cols-md-2">
+                                <div className="col">
+                                    <div className="mb-2 d-flex align-items-center">
+                                        <span className="material-symbols-outlined me-2">
+                                            floor
+                                        </span>
+                                        樓層 : {room.floor}
+                                    </div>
+                                </div>
+                                <div className="col">
+                                    <div className="mb-2 d-flex align-items-center">
+                                        <span className="material-symbols-outlined me-2">
+                                            night_shelter
+                                        </span>
+                                        房型 : {room.roomStyle}
+                                    </div>
+                                </div>
+                                <div className="col">
+                                    <div className="mb-2 d-flex align-items-center">
+                                        <span className="material-symbols-outlined me-2">
+                                            bed
+                                        </span>
+                                        床型 : {room.bed}
+                                    </div>
+                                </div>
+                                <div className="col">
+                                    <div className="mb-2 d-flex align-items-center">
+                                        <span className="material-symbols-outlined me-2">
+                                            paid
+                                        </span>
+                                        租金 : {room.rent}/月(不含水電及管理費月)
+                                    </div>
+                                </div>
+                                <div className="col">
+                                    <div className="mb-2 d-flex align-items-center">
+                                        <span className="material-symbols-outlined me-2" style={{ transform: 'rotate(-45deg)' }}>
+                                            width
+                                        </span>
+                                        房間大小 : {room.size}坪
+                                    </div>
+                                </div>
+                                <div className="col">
+                                    <div className="mb-2 d-flex align-items-center">
+                                        <span className="material-symbols-outlined me-2">
+                                            person
+                                        </span>
+                                        徵求人數 : 尋求{room.findPerson}位
+                                    </div>
+                                </div>
+                                <div className="col">
+                                    <div className="mb-2 d-flex align-items-center">
+                                        <span className="material-symbols-outlined me-2">
+                                            location_on
+                                        </span>
+                                        地址 : {room.address}
+                                    </div>
                                 </div>
                             </div>
-                            <div className="col">
-                                <div className="mb-2 d-flex align-items-center">
-                                    <span className="material-symbols-outlined me-2">
-                                        night_shelter
-                                    </span>
-                                    房型 : {room.roomStyle}
-                                </div>
+                            <div className="mb-2 d-flex align-items-start">
+                                <span className="material-symbols-outlined me-2">
+                                    folded_hands
+                                </span>
+                                理想室友 : {room.expect}
                             </div>
-                            <div className="col">
-                                <div className="mb-2 d-flex align-items-center">
-                                    <span className="material-symbols-outlined me-2">
-                                        bed
-                                    </span>
-                                    床型 : {room.bed}
+                            <hr />
+                            <div className="roomEquipment p-3">
+                                <h3>房間設備</h3>
+                                <div className="d-flex flex-wrap py-2">
+                                    <div className="d-flex align-items-center px-2">
+                                        <span className={`material-symbols-outlined ${room.equipment.bed ? 'text-success' : 'text-light text-decoration-line-through'}`}>
+                                            bed<span>床</span>
+                                        </span>
+                                    </div>
+                                    <div className="d-flex align-items-center px-2">
+                                        <span className={`material-symbols-outlined ${room.equipment.shelf ? 'text-success' : 'text-light text-decoration-line-through'}`}>
+                                            shelves<span>衣櫃</span>
+                                        </span>
+                                    </div>
+                                    <div className="d-flex align-items-center px-2">
+                                        <span className={`material-symbols-outlined ${room.equipment.desk ? 'text-success' : 'text-light text-decoration-line-through'}`}>
+                                            table_restaurant<span>桌子</span>
+                                        </span>
+                                    </div>
+                                    <div className="d-flex align-items-center px-2">
+                                        <span className={`material-symbols-outlined ${room.equipment.chair ? 'text-success' : 'text-light text-decoration-line-through'}`}>
+                                            chair_alt<span>椅子</span>
+                                        </span>
+                                    </div>
+                                    <div className="d-flex align-items-center px-2">
+                                        <span className={`material-symbols-outlined ${room.equipment.kitchen ? 'text-success' : 'text-light text-decoration-line-through'}`}>
+                                            kitchen<span>廚房</span>
+                                        </span>
+                                    </div>
+                                    <div className="d-flex align-items-center px-2">
+                                        <span className={`material-symbols-outlined ${room.equipment.laundry ? 'text-success' : 'text-light text-decoration-line-through'}`}>
+                                            local_laundry_service<span>洗衣機</span>
+                                        </span>
+                                    </div>
+                                    <div className="d-flex align-items-center px-2">
+                                        <span className={`material-symbols-outlined ${room.equipment.extinguisher ? 'text-success' : 'text-light text-decoration-line-through'}`}>
+                                            fire_extinguisher<span>滅火器</span>
+                                        </span>
+                                    </div>
+                                    <div className="d-flex align-items-center px-2">
+                                        <span className={`material-symbols-outlined ${room.equipment.tv ? 'text-success' : 'text-light text-decoration-line-through'}`}>
+                                            tv<span>電視</span>
+                                        </span>
+                                    </div>
+                                    <div className="d-flex align-items-center px-2">
+                                        <span className={`material-symbols-outlined ${room.equipment.wifi ? 'text-success' : 'text-light text-decoration-line-through'}`}>
+                                            wifi<span>網路</span>
+                                        </span>
+                                    </div>
+                                    <div className="d-flex align-items-center px-2">
+                                        <span className={`material-symbols-outlined ${room.equipment.assistant ? 'text-success' : 'text-light text-decoration-line-through'}`}>
+                                            assistant_device<span>監視器</span>
+                                        </span>
+                                    </div>
                                 </div>
+
                             </div>
-                            <div className="col">
-                                <div className="mb-2 d-flex align-items-center">
-                                    <span className="material-symbols-outlined me-2">
-                                        paid
-                                    </span>
-                                    租金 : {room.rent}/月(不含水電及管理費月)
-                                </div>
-                            </div>
-                            <div className="col">
-                                <div className="mb-2 d-flex align-items-center">
-                                    <span className="material-symbols-outlined me-2" style={{ transform: 'rotate(-45deg)' }}>
-                                        width
-                                    </span>
-                                    房間大小 : {room.size}坪
-                                </div>
-                            </div>
-                            <div className="col">
-                                <div className="mb-2 d-flex align-items-center">
-                                    <span className="material-symbols-outlined me-2">
-                                        person
-                                    </span>
-                                    徵求人數 : 尋求{room.findPerson}位
-                                </div>
-                            </div>
-                            <div className="col">
-                                <div className="mb-2 d-flex align-items-center">
-                                    <span className="material-symbols-outlined me-2">
-                                        location_on
-                                    </span>
-                                    地址 : {room.address}
-                                </div>
-                            </div>
-                        </div>
-                        <div className="mb-2 d-flex align-items-start">
-                            <span className="material-symbols-outlined me-2">
-                                folded_hands
-                            </span>
-                            理想室友 : {room.expect}
                         </div>
                     </div>
-                    <hr />
-                    <div className="roomEquipment">
-                        <h3>房間設備</h3>
-                        <div className="d-flex flex-wrap py-2">
-                            <div className="d-flex align-items-center px-2">
-                                <span className={`material-symbols-outlined ${room.equipment.bed ? 'text-success' : 'text-light text-decoration-line-through'}`}>
-                                    bed<span>床</span>
-                                </span>
-                            </div>
-                            <div className="d-flex align-items-center px-2">
-                                <span className={`material-symbols-outlined ${room.equipment.shelf ? 'text-success' : 'text-light text-decoration-line-through'}`}>
-                                    shelves<span>衣櫃</span>
-                                </span>
-                            </div>
-                            <div className="d-flex align-items-center px-2">
-                                <span className={`material-symbols-outlined ${room.equipment.desk ? 'text-success' : 'text-light text-decoration-line-through'}`}>
-                                    table_restaurant<span>桌子</span>
-                                </span>
-                            </div>
-                            <div className="d-flex align-items-center px-2">
-                                <span className={`material-symbols-outlined ${room.equipment.chair ? 'text-success' : 'text-light text-decoration-line-through'}`}>
-                                    chair_alt<span>椅子</span>
-                                </span>
-                            </div>
-                            <div className="d-flex align-items-center px-2">
-                                <span className={`material-symbols-outlined ${room.equipment.kitchen ? 'text-success' : 'text-light text-decoration-line-through'}`}>
-                                    kitchen<span>廚房</span>
-                                </span>
-                            </div>
-                            <div className="d-flex align-items-center px-2">
-                                <span className={`material-symbols-outlined ${room.equipment.laundry ? 'text-success' : 'text-light text-decoration-line-through'}`}>
-                                    local_laundry_service<span>洗衣機</span>
-                                </span>
-                            </div>
-                            <div className="d-flex align-items-center px-2">
-                                <span className={`material-symbols-outlined ${room.equipment.extinguisher ? 'text-success' : 'text-light text-decoration-line-through'}`}>
-                                    fire_extinguisher<span>滅火器</span>
-                                </span>
-                            </div>
-                            <div className="d-flex align-items-center px-2">
-                                <span className={`material-symbols-outlined ${room.equipment.tv ? 'text-success' : 'text-light text-decoration-line-through'}`}>
-                                    tv<span>電視</span>
-                                </span>
-                            </div>
-                            <div className="d-flex align-items-center px-2">
-                                <span className={`material-symbols-outlined ${room.equipment.wifi ? 'text-success' : 'text-light text-decoration-line-through'}`}>
-                                    wifi<span>網路</span>
-                                </span>
-                            </div>
-                            <div className="d-flex align-items-center px-2">
-                                <span className={`material-symbols-outlined ${room.equipment.assistant ? 'text-success' : 'text-light text-decoration-line-through'}`}>
-                                    assistant_device<span>監視器</span>
-                                </span>
-                            </div>
-                        </div>
-
-                    </div>
-
                 </div>
                 <div className="poster py-3  fs-4">
                     <PageTitle title={'發布者資訊'} />
                     <div className="posterInfo">
-                        <div className="card border-0 mb-3">
-                            <div className="row g-0">
-                                <div className="col-md-4 d-flex justify-content-center align-items-center">
+                        <div className="card mb-3">
+                            <div className="row g-0 d-md-flex align-items-center">
+                                <div className="col-md-4 col-lg-3 d-flex justify-content-center align-items-center py-4 py-lg-5">
                                     <img src={PersonImg} className="img-fluid rounded-circle object-cover" alt="..." style={{ height: '200px', width: '200px' }} />
                                 </div>
-                                <div className="col-md-8">
-                                    <div className="card-body">
-                                        <h4 className="card-title">{room.poster.name}</h4>
+                                <div className="col-md-8 col-lg-9">
+                                    <div className="card-body p-4">
+                                        <h4 className="card-title fw-bold text-start pb-2">{room.poster.name}</h4>
                                         <p className="card-text">暱稱 : {room.poster.nickName}</p>
                                         <p className="card-text">性別 : {room.poster.gender}</p>
-                                        <p className="card-text">連絡電話 : {room.poster.tel}</p>
+                                        <p className="card-text">
+                                            <span className="material-symbols-outlined me-2">smartphone</span> 
+                                            {room.poster.tel}
+                                        </p>
                                         <div className="card-text ">自我介紹
-                                            <p className="border p-2">{room.poster.intro}</p>
+                                            <p className="text-break">{room.poster.intro}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -246,9 +249,15 @@ export default function RoomDetail() {
                 <div className="host py-3">
                     <PageTitle title={'房東資訊'} />
                     <div className="hostInfo">
-                        <p><strong>姓名</strong> : {room.host.name}</p>
-                        <p><strong>性別</strong> : {room.host.gender}</p>
-                        <strong>連絡電話</strong> : <a href={`tel:+${room.host.tel}`}>{room.host.tel}</a>
+                        <div className="card p-3">
+                            <p>姓名 : {room.host.name}</p>
+                            <p>性別 : {room.host.gender}</p>
+                            <p>
+                                <span className="material-symbols-outlined me-2">smartphone</span> 
+                                <a href={`tel:+${room.host.tel}`}>{room.host.tel}</a>
+                            </p>
+                        </div>
+
                     </div>
                 </div>
                 <div className="d-flex justify-content-center pt-3">
