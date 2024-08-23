@@ -4,25 +4,25 @@ import { Outlet } from "react-router-dom";
 import { GoTopButton } from "../../components/Button/Button";
 import { useState } from "react";
 import ScrollTop from "../../funnction/ScrollTop";
-export default function FrontLayout(){
-    const[showGoTop,setShowGoTop]=useState(false);
-    document.addEventListener('scroll',()=>{
-        if(window.scrollY>200){
+export default function FrontLayout() {
+    const [showGoTop, setShowGoTop] = useState(false);
+    document.addEventListener('scroll', () => {
+        if (window.scrollY > 200) {
             setShowGoTop(true);
-        }else{
+        } else {
             setShowGoTop(false);
         }
     })
-    
-    return(
+
+    return (
         <>
-        <ScrollTop />
-        <Navbar />
-            <div style={{flexGrow:1}}>
+            <ScrollTop />
+            <Navbar />
+            <div style={{ flexGrow: 1 }}>
                 <Outlet></Outlet>
             </div>
-            {showGoTop?(<GoTopButton />) :(<></>)}
-        <Footer />
+            {showGoTop ? (<GoTopButton />) : (<></>)}
+            <Footer />
         </>
     )
 }
