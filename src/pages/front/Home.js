@@ -4,6 +4,7 @@ import Banner from "../../components/Banner/Banner";
 import friends1 from '../../assets/images/friends.jpg';
 import bannerImg1 from '../../assets/images/banner.jpg';
 import { AdvantageCard } from "../../components/Card/Card";
+
 export default function Home() {
     const bannerDatas = [
         {
@@ -21,7 +22,6 @@ export default function Home() {
     ]
     return (
         <>
-            {/* <AddressSelect /> */}
             <FilterOffcanvas />
             <Banner datas={bannerDatas} />
             <section className="py-5">
