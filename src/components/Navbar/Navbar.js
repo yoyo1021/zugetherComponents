@@ -17,6 +17,7 @@ export default function Navbar() {
     useEffect(() => {
         const menu = menuRef.current;
         const burger = burgerRef.current;
+        
         if (menu && burger) {
             function addActive() {
                 burger.classList.toggle('active');
@@ -51,7 +52,7 @@ export default function Navbar() {
         loginModal.current.hide();
     }
 
-    function closeNavbar(){
+    function closeNavbar() {
         burgerRef.current.classList.remove('active');
         menuRef.current.classList.remove('active');
     }
@@ -66,13 +67,21 @@ export default function Navbar() {
     return (<>
         <nav className="navbar bg-primary">
             <NavLink to='/' className="logo" >Logo</NavLink>
-            <ul className="menu bg-primary" ref={menuRef}>
-                <li className="nav-item"><NavLink to='/articles' className="navLink w-100 p-3 text-secondary">文章區</NavLink></li>
+            <ul className="menu bg-primary " ref={menuRef}>
+                <li className="nav-item">
+                    <NavLink to='/articles' className="navLink w-100 p-3 text-secondary">
+                        文章區
+                    </NavLink>
+                </li>
                 {isLogin ? (
                     <>
-                        <li className="nav-item"><button type="button" className="navLink btn w-100 p-2 text-secondary">我的收藏</button></li>
                         <li className="nav-item">
-                            <button type="button" className="navLink btn w-100 p-2 text-secondary">
+                            <NavLink to='/favorite' className="navLink w-100 p-2 text-secondary">
+                                <i className="bi bi-heart-fill me-2"></i>我的收藏
+                            </NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <button type="button" className="navLink btn w-100 p-2 text-secondary position-relative">
                                 <i className="bi bi-chat-fill me-2"></i>聊天室
                             </button>
                         </li>
@@ -89,7 +98,6 @@ export default function Navbar() {
                         <li className="nav-item"><button type="button" className="navLink btn w-100 p-2 text-secondary" onClick={openLoginModal}>登入 / 註冊</button></li>
                     </>
                 )}
-
             </ul>
             <div className="burger" ref={burgerRef}>
                 <div className="bar"></div>
