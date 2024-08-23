@@ -1,10 +1,29 @@
-footer{
+@import "bootstrap/scss/functions";
+@import '../../style/variables';
+
+footer {
     a{
-        color:white;
-        transition:  .3s ease-in;
-        &:hover{
-            color:#bc9b44;
-            box-shadow:  0 0 50px #bc9b44,
+        color: white;
+    }
+    .pages {
+        li {
+            transition: 0.5s ease-in;
+
+            &:hover {
+                border-radius: 50px;
+                background: $secondary;
+            }
+        }
+
+    }
+
+    .contact {
+        a {
+            &:hover {
+                text-decoration: underline;
+                color:$secondary;
+            }
         }
     }
+
 }
