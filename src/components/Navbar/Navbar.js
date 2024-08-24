@@ -2,7 +2,8 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import LoginModal from "../Modal/LoginModal";
 import { Modal } from 'bootstrap';
-import logo from '../../assets/logo.png'
+import ChatOffcanvas from "../Offcanvas/ChatOffcanvas";
+import ChatList from "../ChatList/ChatList";
 import './navbar.scss';
 
 export default function Navbar() {
@@ -12,7 +13,7 @@ export default function Navbar() {
     const navigate = useNavigate();
     const [isLogin, setIsLogin] = useState(false);
     const [userName, setUserName] = useState('user');
-
+    const [openChatList, setOpenChatList] = useState(null);
 
     useEffect(() => {
         const menu = menuRef.current;
@@ -81,8 +82,8 @@ export default function Navbar() {
                             </NavLink>
                         </li>
                         <li className="nav-item">
-                            <button type="button" className="navLink btn w-100 p-2 text-secondary position-relative">
-                                <i className="bi bi-chat-fill me-2"></i>聊天室
+                            <button type="button" className="navLink btn w-100 p-2 text-secondary position-relative" onClick={openChatList}>
+                                <i className="bi bi-chat-fill me-2" ></i>聊天室
                             </button>
                         </li>
                         <li className="nav-item">
@@ -105,6 +106,7 @@ export default function Navbar() {
                 <div className="bar"></div>
             </div>
         </nav>
+        <ChatOffcanvas onOpenChatList={setOpenChatList} children={<ChatList/>}/>
         <LoginModal closeModal={closeLoginModal} setIsLogin={setIsLogin}></LoginModal>
     </>)
 }   
