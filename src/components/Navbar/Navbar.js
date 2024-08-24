@@ -61,6 +61,7 @@ export default function Navbar() {
     function logout() {
         setIsLogin(false);
         closeNavbar();
+        navigate('/')
     }
 
 
