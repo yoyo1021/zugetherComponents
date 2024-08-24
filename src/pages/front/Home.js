@@ -1,4 +1,3 @@
-import { AddressSelect } from "../../components/Select/Select";
 import FilterOffcanvas from "../../components/Offcanvas/FilterOffcanvas";
 import Banner from "../../components/Banner/Banner";
 import friends1 from '../../assets/images/friends.jpg';
@@ -44,7 +43,7 @@ export default function Home() {
             <section className="py-5 bg-primary">
                 <div className="container">
                     <h1 className="text-center text-white mb-5">合租好處</h1>
-                    <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 gy-5">
+                    <div className="row row-cols-1 row-cols-md-2 gx-5 gy-5">
                         <div data-aos="fade-down"
                             className="col">
                             <AdvantageCard
@@ -59,7 +58,7 @@ export default function Home() {
                                 num={'02'}
                                 icon={'bi bi-arrows-angle-expand'}
                                 title={'更大更舒適的空間'}
-                                content={'以較低的成本享有更大、更舒適的生活空間，也能享受更多的個人和公共空間。'} />
+                                content={'以相對合理的費用享受更寬敞、舒適的居住環境，也能享受更多的個人和公共空間。'} />
                         </div>
                         <div data-aos="fade-down" className="col">
                             <AdvantageCard
@@ -67,6 +66,13 @@ export default function Home() {
                                 icon={'bi bi-person-plus'}
                                 title={'豐富您的生活'}
                                 content={'與室友一同生活，相互幫忙，分享彼此生活經歷，您的生活將會更加豐富。'} />
+                        </div>
+                        <div data-aos="fade-down" className="col">
+                            <AdvantageCard
+                                num={'04'}
+                                icon={'bi bi-book'}
+                                title={'學習新技能'}
+                                content={'與來自不同背景的室友同住，可以學習到新的文化或技能，增長見識。'} />
                         </div>
                     </div>
                 </div>
