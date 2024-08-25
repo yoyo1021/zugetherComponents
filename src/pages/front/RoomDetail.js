@@ -13,7 +13,7 @@ export default function RoomDetail() {
     const [isLogin, setIsLogin] = useState(false);
     const [showAlert, setShowAlert] = useState(false)
 
-    function addFavorite() {
+    function checkLogin() {
         if (!isLogin) {
             setShowAlert(true)
             setTimeout(() => {
@@ -22,15 +22,18 @@ export default function RoomDetail() {
             return
         }
     }
+
+    function addFavorite() {
+        checkLogin();
+    };
+
     function zugether() {
-        if (!isLogin) {
-            setShowAlert(true);
-            setTimeout(() => {
-                setShowAlert(false)
-            }, 2000)
-            return
-        }
-    }
+        checkLogin();
+    };
+
+    function sendMessage() {
+        checkLogin();
+    };
 
     const roomImgs = [
         {
@@ -90,11 +93,11 @@ export default function RoomDetail() {
         <>
             <section className="roomDetail container py-5">
                 <Alert alertTxt={'請登入會員'} color={'danger'} status={showAlert} />
-                <Breadcrumb preLink={'/rooms'} prePage={'rooms'} id={id} />
+                <Breadcrumb preLink={'/rooms'} prePage={'rooms'} id={room.roomTitle} />
                 <Banner datas={roomImgs} />
                 <div className="roomContent py-3">
                     <PageTitle title={'房間資訊'} />
-                    <div className="roomInfo ">
+                    <div className="roomInfo " >
                         <div className="card p-3">
                             <div className="row row-cols-1 row-cols-md-2">
                                 <div className="col">
@@ -222,7 +225,7 @@ export default function RoomDetail() {
                 </div>
                 <div className="poster py-3  fs-4">
                     <PageTitle title={'發布者資訊'} />
-                    <div className="posterInfo">
+                    <div className="posterInfo" data-aos="fade-down">
                         <div className="card mb-3">
                             <div className="row g-0 d-md-flex align-items-center">
                                 <div className="col-md-4 col-lg-3 d-flex justify-content-center align-items-center py-4 py-lg-5">
@@ -230,15 +233,20 @@ export default function RoomDetail() {
                                 </div>
                                 <div className="col-md-8 col-lg-9">
                                     <div className="card-body p-4">
-                                        <h4 className="card-title fw-bold text-start pb-2">{room.poster.name}</h4>
-                                        <p className="card-text">暱稱 : {room.poster.nickName}</p>
-                                        <p className="card-text">性別 : {room.poster.gender}</p>
-                                        <p className="card-text">
-                                            <span className="material-symbols-outlined me-2">smartphone</span> 
-                                            {room.poster.tel}
-                                        </p>
-                                        <div className="card-text ">自我介紹
-                                            <p className="text-break">{room.poster.intro}</p>
+                                        <div className="d-flex justify-content-between align-items-center border-bottom border-light pb-2">
+                                            <h4 className="card-title fw-bold text-start mb-0">{room.poster.name}</h4>
+                                            <button type="button" className="btn btn-primary" onClick={sendMessage}><i className="bi bi-chat-fill me-2"></i>傳送訊息</button>
+                                        </div>
+                                        <div className="p-3 pb-0">
+                                            <p className="card-text">暱稱 : {room.poster.nickName}</p>
+                                            <p className="card-text">性別 : {room.poster.gender}</p>
+                                            <p className="card-text">
+                                                <span className="material-symbols-outlined me-2">smartphone</span>
+                                                {room.poster.tel}
+                                            </p>
+                                            <div className="card-text ">自我介紹
+                                                <p className="text-break">{room.poster.intro}</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -248,12 +256,12 @@ export default function RoomDetail() {
                 </div>
                 <div className="host py-3">
                     <PageTitle title={'房東資訊'} />
-                    <div className="hostInfo">
+                    <div className="hostInfo" data-aos="fade-down">
                         <div className="card p-3">
                             <p>姓名 : {room.host.name}</p>
                             <p>性別 : {room.host.gender}</p>
                             <p>
-                                <span className="material-symbols-outlined me-2">smartphone</span> 
+                                <span className="material-symbols-outlined me-2">smartphone</span>
                                 <a href={`tel:+${room.host.tel}`}>{room.host.tel}</a>
                             </p>
                         </div>
