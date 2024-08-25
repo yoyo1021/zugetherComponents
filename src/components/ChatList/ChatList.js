@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './chatlist.scss';
 
 export default function ChatList() {
-    const [showMsg, setShowMsg] = useState(true);
+    const [showMsg, setShowMsg] = useState(false);
     const [chatRoomOpen, setChatRoomOpen] = useState(false);
 
     function show(e) {
