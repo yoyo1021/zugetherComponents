@@ -6,9 +6,8 @@ footer {
         color: white;
     }
     .pages {
-        li {
+        a{
             transition: 0.5s ease-in;
-
             &:hover {
                 border-radius: 50px;
                 background: $secondary;
