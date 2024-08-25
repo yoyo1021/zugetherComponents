@@ -98,7 +98,7 @@ export default function ChatList() {
                 <ul className='chatList h-50 '>
                     {chatListData.map((chatList, i) => {
                         return (
-                            <li className='chatItem p-2' key={chatList.listId} onClick={() => showChatRoom(chatList.chatListId)}>
+                            <li className='chatItem p-2' key={chatList.listId} onClick={() => showChatRoom(chatList.listId)}>
                                 <button type='button' className='w-100  btn'>
                                     <div className="row d-flex align-items-center">
                                         <div className="col-4">
