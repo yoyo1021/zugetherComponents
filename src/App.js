@@ -12,7 +12,8 @@ import ArticleDetail from './pages/front/ArticleDetail';
 import Rooms from './pages/front/Rooms';
 import RoomDetail from './pages/front/RoomDetail';
 import Favorite from './pages/front/Favorite';
-import User from './pages/front/User';
+import MemberLaout from './pages/front/MemberLayout';
+import { EditPassword,EditInfo,AddRoom } from './pages/front/EditMember';
 import NotFound from './pages/NotFound';
 import Contact from './pages/front/Contact';
 import AOS from 'aos';
@@ -39,7 +40,11 @@ function App() {
           <Route path='articles/:id' element={<ArticleDetail/>}></Route>
           <Route path='rooms' element={<Rooms/>}></Route>
           <Route path='rooms/:id' element={<RoomDetail/>}></Route>
-          <Route path='user' element={<User />}></Route>
+          <Route path='member' element={<MemberLaout/>}>
+            <Route path='editPassword' element={<EditPassword/>} />
+            <Route path='editInfo' element={<EditInfo/>} />
+            <Route path='addRoom' element={<AddRoom/>} />
+          </Route>
         </Route>
 
         {/* 後台 */}
