@@ -18,7 +18,7 @@ export default function Navbar() {
     useEffect(() => {
         const menu = menuRef.current;
         const burger = burgerRef.current;
-        
+
         if (menu && burger) {
             function addActive() {
                 burger.classList.toggle('active');
@@ -83,12 +83,12 @@ export default function Navbar() {
                             </NavLink>
                         </li>
                         <li className="nav-item">
-                            <button type="button" className="navLink btn w-100 p-3 text-secondary position-relative" onClick={()=>{openChatList();closeNavbar()}}>
+                            <button type="button" className="navLink btn w-100 p-3 text-secondary position-relative" onClick={() => { openChatList(); closeNavbar() }}>
                                 <i className="bi bi-chat-fill me-2" ></i>聊天室
                             </button>
                         </li>
                         <li className="nav-item">
-                            <button type="button" className="navLink btn w-100 p-3 text-secondary" onClick={() => {navigate('/user');closeNavbar();}}>
+                            <button type="button" className="navLink btn w-100 p-3 text-secondary" onClick={() => { navigate('/member'); closeNavbar(); }}>
                                 <i className="bi bi-person-fill me-2"></i>{userName}
                             </button>
                         </li>
@@ -107,7 +107,7 @@ export default function Navbar() {
                 <div className="bar"></div>
             </div>
         </nav>
-        <ChatOffcanvas onOpenChatList={setOpenChatList} children={<ChatList/>}/>
+        <ChatOffcanvas onOpenChatList={setOpenChatList} children={<ChatList />} />
         <LoginModal closeModal={closeLoginModal} setIsLogin={setIsLogin}></LoginModal>
     </>)
 }   
