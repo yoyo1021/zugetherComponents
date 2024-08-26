@@ -57,7 +57,7 @@ export default function FilterOffcanvas() {
     }
     return (
         <>
-            <Loading type={'balls'} color={'gold'} isLoading={isLoading}/>
+            <Loading isLoading={isLoading}/>
             <div className="offcanvas offcanvas-start" tabIndex="-1" ref={filterRef} id="filterOffcanvas" aria-labelledby="offcanvasWithBackdropLabel">
                 <button className="btn btn-primary position-absolute filterBtn text-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#filterOffcanvas" aria-controls="offcanvasWithBackdrop" onClick={openFilter}>
                     {/* <i className="bi bi-funnel-fill"></i> */}
