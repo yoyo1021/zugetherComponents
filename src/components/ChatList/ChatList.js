@@ -91,6 +91,8 @@ export default function ChatList() {
         },
     ]
 
+    const lastMessage = messageData[messageData.length - 1];
+
     return (
         <>
             <input type="checkbox" name="show" id="show" onChange={show} />
@@ -107,7 +109,9 @@ export default function ChatList() {
                                         <div className="col-8 text-start">
                                             <h5 className='fw-bold'>{chatList.userName}</h5>
                                             <p className='text-truncate'>
-                                                {chatList.message}
+                                                {
+                                                    lastMessage.message
+                                                }
                                             </p>
                                         </div>
                                     </div>
