@@ -16,7 +16,7 @@ export default function Register() {
     const navigate = useNavigate();
     const [registerStatus, setRegisterStatus] = useState(false)
     const onSubmit = (data) => {
-        const { email, password, name, gender, phone, introdution } = data;
+        const { email, password, name, gender, phone, introdution,birth } = data;
         console.log(data);
         setRegisterStatus(true);
         setTimeout(() => {
@@ -83,6 +83,25 @@ export default function Register() {
                         register={register}
                         rules={{
                             required: '請輸入您的姓名'
+                        }}
+                    ></Input>
+                    <Input
+                        type='text'
+                        id='nickName'
+                        lableName={'暱稱'}
+                        placeholder='請輸入您的小名或英文名字'
+                        errors={errors}
+                        register={register}
+                    ></Input>
+                    <Input
+                        type='date'
+                        id='birth'
+                        lableName={<>出生日期(必填)<span className="text-danger ms-2">*</span></>}
+                        
+                        errors={errors}
+                        register={register}
+                        rules={{
+                            required: '請選擇你的出生日期'
                         }}
                     ></Input>
                     <div className="genderWrapper">
