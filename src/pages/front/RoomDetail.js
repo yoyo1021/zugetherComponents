@@ -77,9 +77,10 @@ export default function RoomDetail() {
         },
         poster: {
             'name': '吳康人',
-            'photo': '',
+            'photo': 'https://images.unsplash.com/photo-1508341591423-4347099e1f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hbnxlbnwwfHwwfHx8MA%3D%3D',
             'nickName': '康康',
             'gender': '男',
+            'birth': '2020/01/01',
             'tel': '0923456789',
             'intro': '大家好，我是吳康人，不是那個吳慷仁，可以叫我康康，但我也不是那個康康，歡迎大家來認識。大家好，我是吳康人，不是那個吳慷仁，可以叫我康康，但我也不是那個康康，歡迎大家來認識。大家好，我是吳康人，不是那個吳慷仁，可以叫我康康，但我也不是那個康康，歡迎大家來認識。因為很重要所以講三次。',
         },
@@ -229,7 +230,7 @@ export default function RoomDetail() {
                         <div className="card mb-3">
                             <div className="row g-0 d-md-flex align-items-center">
                                 <div className="col-md-4 col-lg-3 d-flex justify-content-center align-items-center py-4 py-lg-5">
-                                    <img src={PersonImg} className="img-fluid rounded-circle object-cover" alt="..." style={{ height: '200px', width: '200px' }} />
+                                    <img src={room.poster.photo} className="img-fluid rounded-circle object-cover" alt="..." style={{ height: '200px', width: '200px' }} />
                                 </div>
                                 <div className="col-md-8 col-lg-9">
                                     <div className="card-body p-4">
@@ -238,12 +239,32 @@ export default function RoomDetail() {
                                             <button type="button" className="btn btn-primary" onClick={sendMessage}><i className="bi bi-chat-fill me-2"></i>傳送訊息</button>
                                         </div>
                                         <div className="p-3 pb-0">
-                                            <p className="card-text">暱稱 : {room.poster.nickName}</p>
+                                            <table>
+                                                <tbody>
+                                                    <tr className="">
+                                                        <td className="pe-3">暱稱</td>
+                                                        <td className="px-3">{room.poster.nickName}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td className="pe-3">性別</td>
+                                                        <td className="px-3">{room.poster.gender}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td className="pe-3">出生日期</td>
+                                                        <td className="px-3">{room.poster.birth}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td className="pe-3">連絡電話</td>
+                                                        <td className="px-3">{room.poster.tel}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            {/* <p className="card-text">暱稱 : {room.poster.nickName}</p>
                                             <p className="card-text">性別 : {room.poster.gender}</p>
-                                            <p className="card-text">
+                                            <p className="card-text">連絡電話 : {room.poster.tel}
                                                 <span className="material-symbols-outlined me-2">smartphone</span>
-                                                {room.poster.tel}
-                                            </p>
+                                                 
+                                            </p> */}
                                             <div className="card-text ">自我介紹
                                                 <p className="text-break">{room.poster.intro}</p>
                                             </div>
