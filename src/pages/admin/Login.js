@@ -26,7 +26,7 @@ export default function Login(){
             <Alert alertTxt={'登入成功'} status={loginState} color={'success'}/>
             <div className="row justify-content-center">
                 <div className="col-md-6">
-                    <h2 className="mb-5">Zugether 後檯登入</h2>
+                    <h2 className="mb-5">Zugether 後台登入</h2>
                     <div className="mb-2">
                         <label htmlFor="email" className="form-label w-100">
                             Email
