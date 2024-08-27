@@ -21,6 +21,9 @@ import 'aos/dist/aos.css';
 import { useEffect } from 'react';
 import Login from './pages/admin/Login';
 import Dashboard from './pages/admin/Dashboard';
+import AdminArticle from './pages/admin/AdminArticle';
+import AdminMemeber from './pages/admin/AdminMember';
+import AdminRoom from './pages/admin/AdminRoom';
 
 function App() {
   useEffect(()=>{
@@ -50,7 +53,9 @@ function App() {
         {/* 後台 */}
         <Route path='/login' element={< Login/>}></Route>
         <Route path='/admin' element={<Dashboard/>}>
-          
+          <Route path='articles' element={<AdminArticle/>} />
+          <Route path='members' element={<AdminMemeber/>} />
+          <Route path='rooms' element={<AdminRoom/>} />
         </Route>
 
       

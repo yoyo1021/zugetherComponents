@@ -45,14 +45,14 @@ export default function Dashboard() {
                         </Link>
                         <Link
                             className='list-group-item list-group-item-action py-3'
-                            to='/admin/articles'
+                            to='/admin/members'
                         >
                             <i className='bi bi-people-fill me-2' />
                             會員列表
                         </Link>
                         <Link
                             className='list-group-item list-group-item-action py-3'
-                            to='/admin/articles'
+                            to='/admin/rooms'
                         >
                             <i className='bi bi-house-add me-2' />
                             刊登合租列表
