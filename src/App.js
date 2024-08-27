@@ -13,7 +13,7 @@ import Rooms from './pages/front/Rooms';
 import RoomDetail from './pages/front/RoomDetail';
 import Favorite from './pages/front/Favorite';
 import MemberLaout from './pages/front/MemberLayout';
-import { EditPassword,EditInfo,AddRoom } from './pages/front/EditMember';
+import { EditPassword, EditInfo, AddRoom } from './pages/front/EditMember';
 import NotFound from './pages/NotFound';
 import Contact from './pages/front/Contact';
 import AOS from 'aos';
@@ -24,7 +24,7 @@ import Dashboard from './pages/admin/Dashboard';
 import AdminArticle from './pages/admin/AdminArticle';
 import AdminMemeber from './pages/admin/AdminMember';
 import AdminRoom from './pages/admin/AdminRoom';
-import { LoginProvider } from './store/dataStore';
+
 
 function App() {
   useEffect(() => {
@@ -32,9 +32,8 @@ function App() {
   }, [])
   return (
     <>
-
-      <Routes>
-        <LoginProvider>
+      
+        <Routes>
           {/* 前台 */}
           <Route path='/' element={<FrontLayout />}>
             <Route path='' element={<Home />}></Route>
@@ -52,22 +51,20 @@ function App() {
               <Route path='addRoom' element={<AddRoom />} />
             </Route>
           </Route>
-        </LoginProvider>
-
-        {/* 後台 */}
-        <Route path='/login' element={< Login />}></Route>
-        <Route path='/admin' element={<Dashboard />}>
-          <Route path='articles' element={<AdminArticle />} />
-          <Route path='members' element={<AdminMemeber />} />
-          <Route path='rooms' element={<AdminRoom />} />
-        </Route>
 
 
-        <Route path='*' element={<NotFound />}></Route>
-      </Routes>
+          {/* 後台 */}
+          <Route path='/login' element={< Login />}></Route>
+          <Route path='/admin' element={<Dashboard />}>
+            <Route path='articles' element={<AdminArticle />} />
+            <Route path='members' element={<AdminMemeber />} />
+            <Route path='rooms' element={<AdminRoom />} />
+          </Route>
 
-
-
+          {/* 404 */}
+          <Route path='*' element={<NotFound />}></Route>
+        </Routes>
+  
     </>
   );
 }
