@@ -13,7 +13,7 @@ import Rooms from './pages/front/Rooms';
 import RoomDetail from './pages/front/RoomDetail';
 import Favorite from './pages/front/Favorite';
 import MemberLaout from './pages/front/MemberLayout';
-import { EditPassword,EditInfo,AddRoom } from './pages/front/EditMember';
+import { EditPassword, EditInfo, AddRoom } from './pages/front/EditMember';
 import NotFound from './pages/NotFound';
 import Contact from './pages/front/Contact';
 import AOS from 'aos';
@@ -24,43 +24,50 @@ import Dashboard from './pages/admin/Dashboard';
 import AdminArticle from './pages/admin/AdminArticle';
 import AdminMemeber from './pages/admin/AdminMember';
 import AdminRoom from './pages/admin/AdminRoom';
+import { LoginProvider } from './store/dataStore';
 
 function App() {
-  useEffect(()=>{
+  useEffect(() => {
     AOS.init();
-  },[])
+  }, [])
   return (
     <>
+
       <Routes>
-        {/* 前台 */}
-        <Route path='/' element={<FrontLayout />}>
-          <Route path='' element={<Home />}></Route>
-          <Route path='signup' element={<Register />}></Route>
-          <Route path='about' element={<About />}></Route>
-          <Route path='contact' element={<Contact />}></Route>
-          <Route path='favorite' element={<Favorite />}></Route>
-          <Route path='articles' element={<Articles/>}></Route>
-          <Route path='articles/:id' element={<ArticleDetail/>}></Route>
-          <Route path='rooms' element={<Rooms/>}></Route>
-          <Route path='rooms/:id' element={<RoomDetail/>}></Route>
-          <Route path='member' element={<MemberLaout/>}>
-            <Route path='editPassword' element={<EditPassword/>} />
-            <Route path='editInfo' element={<EditInfo/>} />
-            <Route path='addRoom' element={<AddRoom/>} />
+        <LoginProvider>
+          {/* 前台 */}
+          <Route path='/' element={<FrontLayout />}>
+            <Route path='' element={<Home />}></Route>
+            <Route path='signup' element={<Register />}></Route>
+            <Route path='about' element={<About />}></Route>
+            <Route path='contact' element={<Contact />}></Route>
+            <Route path='favorite' element={<Favorite />}></Route>
+            <Route path='articles' element={<Articles />}></Route>
+            <Route path='articles/:id' element={<ArticleDetail />}></Route>
+            <Route path='rooms' element={<Rooms />}></Route>
+            <Route path='rooms/:id' element={<RoomDetail />}></Route>
+            <Route path='member' element={<MemberLaout />}>
+              <Route path='editPassword' element={<EditPassword />} />
+              <Route path='editInfo' element={<EditInfo />} />
+              <Route path='addRoom' element={<AddRoom />} />
+            </Route>
           </Route>
-        </Route>
+        </LoginProvider>
 
         {/* 後台 */}
-        <Route path='/login' element={< Login/>}></Route>
-        <Route path='/admin' element={<Dashboard/>}>
-          <Route path='articles' element={<AdminArticle/>} />
-          <Route path='members' element={<AdminMemeber/>} />
-          <Route path='rooms' element={<AdminRoom/>} />
+        <Route path='/login' element={< Login />}></Route>
+        <Route path='/admin' element={<Dashboard />}>
+          <Route path='articles' element={<AdminArticle />} />
+          <Route path='members' element={<AdminMemeber />} />
+          <Route path='rooms' element={<AdminRoom />} />
         </Route>
 
-      
+
         <Route path='*' element={<NotFound />}></Route>
       </Routes>
+
+
+
     </>
   );
 }
