@@ -5,13 +5,15 @@ import { Modal } from 'bootstrap';
 import ChatOffcanvas from "../Offcanvas/ChatOffcanvas";
 import ChatList from "../ChatList/ChatList";
 import './navbar.scss';
+import { useLogin } from "../../store/dataStore";
 
 export default function Navbar() {
     const menuRef = useRef(null);
     const burgerRef = useRef(null);
     const loginModal = useRef(null);
     const navigate = useNavigate();
-    const [isLogin, setIsLogin] = useState(false);
+    //const [isLogin, setIsLogin] = useState(false);
+    const {isLogin,setIsLogin} = useLogin();
     const [userName, setUserName] = useState('user');
     const [openChatList, setOpenChatList] = useState(null);
 
@@ -108,6 +110,9 @@ export default function Navbar() {
             </div>
         </nav>
         <ChatOffcanvas onOpenChatList={setOpenChatList} children={<ChatList />} />
-        <LoginModal closeModal={closeLoginModal} setIsLogin={setIsLogin}></LoginModal>
+        <LoginModal closeModal={closeLoginModal} 
+            //setIsLogin={setIsLogin}
+        >
+        </LoginModal>
     </>)
 }   

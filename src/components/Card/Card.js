@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { HeartToggle } from '../Input/Input';
 import Alert from '../Alert/Alert';
+import { useLogin } from '../../store/dataStore';
+
 export function AdvantageCard({ num, icon, title, content }) {
     return (
         <>
@@ -19,10 +21,10 @@ export function AdvantageCard({ num, icon, title, content }) {
 }
 
 export function RoomCard({ data }) {
-    const [isLogin, setIsLogin] = useState(false);
+    //const [isLogin, setIsLogin] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
+    const {isLogin} = useLogin();
     function heartToggle(e) {
-        e.preventDefault();
         if (!isLogin) {
             setShowAlert(true);
             e.target.checked = false;

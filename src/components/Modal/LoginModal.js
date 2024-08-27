@@ -1,7 +1,9 @@
 import { Input } from "../Input/Input";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-export default function LoginModal({ closeModal,setIsLogin }) {
+import { useLogin } from "../../store/dataStore";
+export default function LoginModal({ closeModal }) {
+    const {setIsLogin}= useLogin();
     const navigate = useNavigate();
     function goToRegister() {
         navigate('/signup');
@@ -11,7 +13,6 @@ export default function LoginModal({ closeModal,setIsLogin }) {
     const {
         register,
         handleSubmit,
-        getValues,
         formState: { errors }
     } = useForm({
         mode: 'onTouched'
@@ -71,7 +72,6 @@ export default function LoginModal({ closeModal,setIsLogin }) {
                             </form>
 
                         </div>
-
                     </div>
                 </div>
             </div>

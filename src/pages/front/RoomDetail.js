@@ -5,12 +5,14 @@ import PersonImg from '../../assets/images/friends.jpg';
 import Alert from "../../components/Alert/Alert";
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 import { useState } from "react";
+import { useLogin } from "../../store/dataStore";
 
 
 export default function RoomDetail() {
     const { id } = useParams();
 
-    const [isLogin, setIsLogin] = useState(false);
+    //const [isLogin, setIsLogin] = useState(false);
+    const {isLogin} = useLogin();
     const [showAlert, setShowAlert] = useState(false)
 
     function checkLogin() {
