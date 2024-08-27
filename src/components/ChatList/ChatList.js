@@ -128,7 +128,7 @@ export default function ChatList() {
                         <div className="chatMessages overflow-auto p-3" style={{ height: '340px', backgroundColor: '#f8f9fa' }}>
                             {messageData.map((msg, i) => {
                                 return (
-                                    <div key={msg.id}>
+                                    <div key={msg.msgId}>
                                         <div className={`messageItem mb-3 d-flex ${msg.isUser ? 'justify-content-end' : 'justify-content-start'}`}>
                                             <img src="https://images.unsplash.com/photo-1508341591423-4347099e1f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hbnxlbnwwfHwwfHx8MA%3D%3D" alt="" className={`object-cover rounded-circle me-2 ${msg.isUser ? 'd-none':''}`} style={{ width: '40px', height: '40px' }} />
                                             <div className={`messageBubble p-2 rounded ${msg.isUser ? 'bg-primary text-white' : 'bg-light text-dark'}`} style={{ maxWidth: '75%' }}>
