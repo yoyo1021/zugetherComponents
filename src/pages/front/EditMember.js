@@ -53,7 +53,7 @@ export function EditPassword() {
 
         setTimeout(() => {
             setShowAlert(false);
-        }, 4000);
+        }, 4000); 
     }
 
     return (
