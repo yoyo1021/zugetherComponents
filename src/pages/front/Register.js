@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import Alert from "../../components/Alert/Alert";
 import { useState } from "react";
 import PageTitle from "../../components/PageTitle/PageTitle";
+import Loading from "../../components/Loading/Loading";
+
 export default function Register() {
     const {
         register,
@@ -14,20 +16,27 @@ export default function Register() {
         mode: 'onTouched'
     });
     const navigate = useNavigate();
-    const [registerStatus, setRegisterStatus] = useState(false)
+    const [registerStatus, setRegisterStatus] = useState(false);
+    const [isLoading,setIsLoading] = useState(false);
     const onSubmit = (data) => {
         const { email, password, name, gender, phone, introdution,birth } = data;
         console.log(data);
-        setRegisterStatus(true);
+        setIsLoading(true)
+        setTimeout(()=>{
+            setIsLoading(false);
+            setRegisterStatus(true);
+        },2000);
+        
         setTimeout(() => {
             setRegisterStatus(false);
             navigate('/');
-        }, 2000);
+        }, 4000);
     }
     return (
         <>
             <section className="register container py-5 d-lg-flex flex-column align-items-center">
                 <Alert alertTxt={'註冊成功'} color={'success'} status={registerStatus}></Alert>
+                <Loading isLoading={isLoading}/>
                 <PageTitle title={'註冊會員'}/>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <Input
