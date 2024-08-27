@@ -13,7 +13,6 @@ export default function ChatList() {
         }
     }
     function showChatRoom(id) {
-        console.log(id)
         setChatRoomOpen(true)
     }
     const chatListData = [
