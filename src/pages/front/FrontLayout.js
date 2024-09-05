@@ -18,7 +18,7 @@ export default function FrontLayout() {
     return (
         <>
         <LoginProvider>
-        <ScrollTop />
+            <ScrollTop />
             <Navbar />
             <div style={{ flexGrow: 1 }}>
                 <Outlet></Outlet>

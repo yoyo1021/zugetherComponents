@@ -61,7 +61,7 @@ export default function RoomDetail() {
         bed: '上下舖',
         rent: 8000,
         size: 20,
-        findPerson: 1,
+        people: 1,
         address: '新北市板橋區文化路一段26號',
         date: '2024/08/08',
         expect: '個性隨和，彼此樂意分享，注重生活品質愛乾淨，洗完澡會撿毛髮、吃完餐盤不過夜、廚餘垃圾收拾妥善、互相尊重深夜放輕腳步，如果你是我們找尋的室友，歡迎一起入住溫馨的家。',
@@ -148,7 +148,7 @@ export default function RoomDetail() {
                                         <span className="material-symbols-outlined me-2">
                                             person
                                         </span>
-                                        徵求人數 : 尋求{room.findPerson}位
+                                        徵求人數 : 尋求{room.people}位
                                     </div>
                                 </div>
                                 <div className="col">

@@ -94,6 +94,45 @@
         }
     }
 
+    .avatar {
+        .avatar-figure {
+            position: relative;
+            width: 200px;
+            height: 200px;
+
+            @media (max-width:'576px') {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+        .avatar-figcaption {
+            position: absolute;
+            width: inherit;
+            height: inherit;
+            top: 0;
+            border-radius: 100%;
+            opacity: 0;
+
+            &:hover {
+                opacity: 1;
+                background-color: rgba(0, 0, 0, .5);
+            }
+        }
+    }
+    .roomPhotos{
+        .btn-delete{
+            position:absolute;
+            top: 0;
+            right: 0;
+            transform: translate(50%,-50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 30px;
+            height: 30px;
+        }
+    }
 }
 
 
