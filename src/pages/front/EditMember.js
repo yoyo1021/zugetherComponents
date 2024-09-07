@@ -319,38 +319,38 @@ export function AddRoom() {
     const {
         register,
         handleSubmit,
-        formState: { errors }
-
+        formState: { errors },
+        watch,
     } = useForm({
         mode: 'onTouched'
     });
     const roomStyle = ['兩人一室套房', '兩人一室雅房', '三人一室套房', '三人一室雅房'];
     const bedStyle = ['單人床', '雙人床', '上下舖', '地舖'];
-    const [photos,setPhotos] = useState([]);
+    const [photos, setPhotos] = useState([]);
+    const [hasManage] = watch(['hasManage']);
 
     const onSubmit = (data) => {
         console.log(data);
     }
 
-    const addPhoto = (e)=>{
+    const addPhoto = (e) => {
         const file = e.target.files[0];
         const reader = new FileReader();
-        reader.addEventListener("load",()=>{
-            setPhotos((prev)=>[...prev,{
-                id:file.lastModified,
-                img:reader.result
+        reader.addEventListener("load", () => {
+            setPhotos((prev) => [...prev, {
+                id: file.lastModified,
+                img: reader.result
             }]);
-        },false);
-        if(file){
+        }, false);
+        if (file) {
             reader.readAsDataURL(file);
         }
     }
 
-    const deleteRoomImg = (id)=>{
-        
-        setPhotos((prev)=> prev.filter((i)=>i.id !==id))
+    const deleteRoomImg = (id) => {
+
+        setPhotos((prev) => prev.filter((i) => i.id !== id))
     }
-    console.log(photos)
     return (
         <>
             <PageTitle title={'刊登房間'} />
@@ -435,12 +435,29 @@ export function AddRoom() {
                     </div>
                 </div>
 
+
                 <Checkbox
-                    id={'managePaid'}
+                    id={'hasManage'}
                     labelName={"管理費"}
                     errors={errors}
                     register={register}
                 ></Checkbox>
+                {hasManage && (
+                    <>
+                        <div className="" style={{ marginTop: "-32px" }}>
+                            <Input
+                                type='number'
+                                id='managePaid'
+                                //lableName={'管理費/月'}
+                                errors={errors}
+                                register={register}
+                                rules={{
+                                    required: '管理費為必填',
+                                }}
+                            ></Input>
+                        </div>
+                    </>
+                )}
                 <Input
                     type='text'
                     id='address'
@@ -625,26 +642,26 @@ export function AddRoom() {
                 <hr />
                 <h3 className="text-center mb-3">上傳房間圖片</h3>
                 <div className="roomPhotos d-flex flex-wrap mb-3">
-                {photos.map((roomPhoto,i)=>{
-                        return(
-                                <div className="position-relative mb-3 me-5" key={roomPhoto.id}>
-                                    <img src={roomPhoto.img} alt=""  className="object-cover  " style={{width:"190px",height:"190px"}}/>
-                                    <button type="button" className="btn btn-danger rounded-circle btn-delete"
-                                        onClick={(e)=>deleteRoomImg(roomPhoto.id)}
-                                    ><i className="bi bi-x" style={{fontSize:"16px"}}></i></button>
-                                </div>
+                    {photos.map((roomPhoto, i) => {
+                        return (
+                            <div className="position-relative mb-3 me-5" key={roomPhoto.id}>
+                                <img src={roomPhoto.img} alt="" className="object-cover  " style={{ width: "190px", height: "190px" }} />
+                                <button type="button" className="btn btn-danger rounded-circle btn-delete"
+                                    onClick={(e) => deleteRoomImg(roomPhoto.id)}
+                                ><i className="bi bi-x" style={{ fontSize: "16px" }}></i></button>
+                            </div>
                         )
                     })}
-                    <input type="file" accept="image/*" id="roomPhotos" name="roomPhotos"  multiple className="d-none"
+                    <input type="file" accept="image/*" id="roomPhotos" name="roomPhotos" multiple className="d-none"
                         onChange={(e) => {
                             addPhoto(e);
                         }} />
-                    <label type="button" htmlFor="roomPhotos" className="text-center py-5 mb-3" style={{border:"1px dashed gray",width:"200px",height:"200px"}}>
-                        <i className="fa fa-plus text-light" aria-hidden="true" style={{ fontSize: '50px'}}></i>
+                    <label type="button" htmlFor="roomPhotos" className="text-center py-5 mb-3" style={{ border: "1px dashed gray", width: "200px", height: "200px" }}>
+                        <i className="fa fa-plus text-light" aria-hidden="true" style={{ fontSize: '50px' }}></i>
                         <p className="text-light">新增房間圖片</p>
                     </label>
-                    
-                   
+
+
                 </div>
                 <div className="d-flex justify-content-center">
                     <button type='submit' className="btn btn-primary px-5 py-3">刊登</button>
