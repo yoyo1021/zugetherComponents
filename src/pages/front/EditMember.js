@@ -327,7 +327,10 @@ export function AddRoom() {
     const roomStyle = ['兩人一室套房', '兩人一室雅房', '三人一室套房', '三人一室雅房'];
     const bedStyle = ['單人床', '雙人床', '上下舖', '地舖'];
     const [photos, setPhotos] = useState([]);
+<<<<<<< HEAD
     const [hasManage] = watch(['hasManage']);
+=======
+>>>>>>> refs/remotes/origin/main
 
     const onSubmit = (data) => {
         console.log(data);
@@ -335,10 +338,16 @@ export function AddRoom() {
 
     const addPhoto = (e) => {
         const file = e.target.files[0];
+        console.log(file)
         const reader = new FileReader();
         reader.addEventListener("load", () => {
             setPhotos((prev) => [...prev, {
+<<<<<<< HEAD
                 id: file.lastModified,
+=======
+                //id:file.lastModified,
+                id: new Date(),
+>>>>>>> refs/remotes/origin/main
                 img: reader.result
             }]);
         }, false);
@@ -641,6 +650,7 @@ export function AddRoom() {
                 </div>
                 <hr />
                 <h3 className="text-center mb-3">上傳房間圖片</h3>
+<<<<<<< HEAD
                 <div className="roomPhotos d-flex flex-wrap mb-3">
                     {photos.map((roomPhoto, i) => {
                         return (
@@ -650,13 +660,31 @@ export function AddRoom() {
                                     onClick={(e) => deleteRoomImg(roomPhoto.id)}
                                 ><i className="bi bi-x" style={{ fontSize: "16px" }}></i></button>
                             </div>
+=======
+                <div className="roomPhotos row row-cols-1 row-cols-md-2 row-cols-lg-3 mb-3">
+                    {photos.map((roomPhoto, i) => {
+                        return (
+                            <div className="col mb-4" key={roomPhoto.id}>
+                                <div className="position-relative" >
+                                    <img src={roomPhoto.img} alt="" className="object-cover roomPhoto w-100"/>
+                                    <button type="button" className="btn btn-danger rounded-circle btn-delete"
+                                        onClick={(e) => deleteRoomImg(roomPhoto.id)}
+                                    ><i className="bi bi-x" style={{ fontSize: "16px" }}></i></button>
+                                </div>
+                            </div>
+
+>>>>>>> refs/remotes/origin/main
                         )
                     })}
                     <input type="file" accept="image/*" id="roomPhotos" name="roomPhotos" multiple className="d-none"
                         onChange={(e) => {
                             addPhoto(e);
                         }} />
+<<<<<<< HEAD
                     <label type="button" htmlFor="roomPhotos" className="text-center py-5 mb-3" style={{ border: "1px dashed gray", width: "200px", height: "200px" }}>
+=======
+                    <label type="button" htmlFor="roomPhotos" className="text-center py-5 w-100 mb-3" style={{ border: "1px dashed gray" }}>
+>>>>>>> refs/remotes/origin/main
                         <i className="fa fa-plus text-light" aria-hidden="true" style={{ fontSize: '50px' }}></i>
                         <p className="text-light">新增房間圖片</p>
                     </label>
