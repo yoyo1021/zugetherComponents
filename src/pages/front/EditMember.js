@@ -171,7 +171,7 @@ export function EditInfo() {
 
     const onSubmit = (data) => {
         console.log(data);
-        console.log(photo == data.avatar);
+        //console.log(photo == data.avatar);
         setIsLoading(true);
         setTimeout(() => {
             setIsLoading(false);
@@ -330,17 +330,25 @@ export function AddRoom() {
     const [hasManage] = watch(['hasManage']);
 
     const onSubmit = (data) => {
+        data.roomPhotos = photos;
         console.log(data);
+        setIsLoading(true);
+        setTimeout(() => {
+            setIsLoading(false);
+            setShowAlert(true);
+            setTimeout(() => {
+                setShowAlert(false);
+            }, 2000);
+        }, 2000);
     }
 
     const addPhoto = (e) => {
         const file = e.target.files[0];
-        console.log(file)
         const reader = new FileReader();
         reader.addEventListener("load", () => {
             setPhotos((prev) => [...prev, {
                 //id:file.lastModified,
-                id: new Date(),
+                id: Date.now(),
                 img: reader.result
             }]);
         }, false);
@@ -350,9 +358,9 @@ export function AddRoom() {
     }
 
     const deleteRoomImg = (id) => {
-
         setPhotos((prev) => prev.filter((i) => i.id !== id))
     }
+
     return (
         <>
             <PageTitle title={'刊登房間'} />
@@ -673,7 +681,7 @@ export function AddRoom() {
 
                         )
                     })}
-                    <input type="file" accept="image/*" id="roomPhotos" name="roomPhotos" multiple className="d-none"
+                    <input type="file" accept="image/*" id="roomPhotos" name="roomPhotos" multiple className="d-none" {...register("roomPhotos")}
                         onChange={(e) => {
                             addPhoto(e);
                         }} />
