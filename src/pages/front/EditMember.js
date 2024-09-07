@@ -385,8 +385,11 @@ export function AddRoom() {
                             register={register}
                             rules={{
                                 required: '樓層為必填',
+                                min:{
+                                    value:0,
+                                    message:'樓層不得小於 0'
+                                }
                             }}
-                        //onChange={handleEdit}
                         ></Input>
                     </div>
                     <div className="col">
@@ -404,8 +407,11 @@ export function AddRoom() {
                             register={register}
                             rules={{
                                 required: '租金為必填',
+                                min:{
+                                    value:0,
+                                    message:'租金不得小於 0'
+                                }
                             }}
-                        //onChange={handleEdit}
                         ></Input>
                     </div>
 
@@ -418,8 +424,11 @@ export function AddRoom() {
                             register={register}
                             rules={{
                                 required: '房間大小為必填',
+                                min:{
+                                    value:0,
+                                    message:'房間大小不得小於 0'
+                                }
                             }}
-                        //onChange={handleEdit}
                         ></Input>
                     </div>
                     <div className="col">
@@ -431,8 +440,11 @@ export function AddRoom() {
                             register={register}
                             rules={{
                                 required: '徵求人數為必填',
+                                min:{
+                                    value:0,
+                                    message:'徵求人數不得小於 0'
+                                }
                             }}
-                        //onChange={handleEdit}
                         ></Input>
                     </div>
                 </div>
@@ -455,6 +467,10 @@ export function AddRoom() {
                                 register={register}
                                 rules={{
                                     required: '管理費為必填',
+                                    min:{
+                                        value:0,
+                                        message: '管理費不得小於 0'
+                                    }
                                 }}
                             ></Input>
                         </div>
