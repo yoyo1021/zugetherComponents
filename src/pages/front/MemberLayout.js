@@ -22,7 +22,7 @@ export default function MemberLayout() {
 
     return (
         <section className="memberLayout container py-5">
-            <div className='d-flex flex-column flex-md-row' style={{ minHeight: 'calc(100vh - 56px)' }}>
+            <div className='d-flex flex-column flex-md-row'>
                 <div className='border memberWrapper'>
                     <ul className='list-group list-group-flush memberList'>
                         <Link
