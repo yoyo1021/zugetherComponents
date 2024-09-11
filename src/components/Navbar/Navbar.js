@@ -63,7 +63,8 @@ export default function Navbar() {
     function logout() {
         setIsLogin(false);
         closeNavbar();
-        navigate('/')
+        window.location.reload();
+        navigate('/');
     }
 
 
@@ -110,7 +111,7 @@ export default function Navbar() {
             </div>
         </nav>
         <ChatOffcanvas onOpenChatList={setOpenChatList} children={<ChatList />} />
-        <LoginModal closeModal={closeLoginModal} 
+        <LoginModal closeModal={closeLoginModal}
             //setIsLogin={setIsLogin}
         >
         </LoginModal>
