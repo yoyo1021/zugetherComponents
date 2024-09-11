@@ -393,9 +393,9 @@ export function AddRoom() {
                             register={register}
                             rules={{
                                 required: '樓層為必填',
-                                min:{
-                                    value:0,
-                                    message:'樓層不得小於 0'
+                                min: {
+                                    value: 0,
+                                    message: '樓層不得小於 0'
                                 }
                             }}
                         ></Input>
@@ -415,9 +415,9 @@ export function AddRoom() {
                             register={register}
                             rules={{
                                 required: '租金為必填',
-                                min:{
-                                    value:0,
-                                    message:'租金不得小於 0'
+                                min: {
+                                    value: 0,
+                                    message: '租金不得小於 0'
                                 }
                             }}
                         ></Input>
@@ -432,9 +432,9 @@ export function AddRoom() {
                             register={register}
                             rules={{
                                 required: '房間大小為必填',
-                                min:{
-                                    value:0,
-                                    message:'房間大小不得小於 0'
+                                min: {
+                                    value: 0,
+                                    message: '房間大小不得小於 0'
                                 }
                             }}
                         ></Input>
@@ -448,9 +448,9 @@ export function AddRoom() {
                             register={register}
                             rules={{
                                 required: '徵求人數為必填',
-                                min:{
-                                    value:0,
-                                    message:'徵求人數不得小於 0'
+                                min: {
+                                    value: 0,
+                                    message: '徵求人數不得小於 0'
                                 }
                             }}
                         ></Input>
@@ -475,8 +475,8 @@ export function AddRoom() {
                                 register={register}
                                 rules={{
                                     required: '管理費為必填',
-                                    min:{
-                                        value:0,
+                                    min: {
+                                        value: 0,
                                         message: '管理費不得小於 0'
                                     }
                                 }}
@@ -596,7 +596,7 @@ export function AddRoom() {
                     </div>
                 </div>
                 <hr />
-                <h3>房東資訊</h3>
+                <h3 className="text-center mb-3">房東資訊</h3>
                 <div className="row row-cols-1 row-cols-md-2">
                     <div className="col">
                         <Input
@@ -666,32 +666,35 @@ export function AddRoom() {
                     </div>
                 </div>
                 <hr />
-                <h3 className="text-center mb-3">上傳房間圖片</h3>
-                <div className="roomPhotos row row-cols-1 row-cols-md-2 row-cols-lg-3 mb-3">
-                    {photos.map((roomPhoto, i) => {
-                        return (
-                            <div className="col mb-4" key={roomPhoto.id}>
-                                <div className="position-relative" >
-                                    <img src={roomPhoto.img} alt="" className="object-cover roomPhoto w-100"/>
-                                    <button type="button" className="btn btn-danger rounded-circle btn-delete"
-                                        onClick={(e) => deleteRoomImg(roomPhoto.id)}
-                                    ><i className="bi bi-x" style={{ fontSize: "16px" }}></i></button>
+                <div className="container">
+                    <h3 className="text-center mb-3">上傳房間圖片</h3>
+                    <div className="roomPhotos row row-cols-1 row-cols-md-2 row-cols-lg-3 mb-3">
+                        {photos.map((roomPhoto, i) => {
+                            return (
+                                <div className="col mb-4" key={roomPhoto.id}>
+                                    <div className="position-relative" >
+                                        <img src={roomPhoto.img} alt="" className="object-cover roomPhoto w-100" />
+                                        <button type="button" className="btn btn-danger rounded-circle btn-delete"
+                                            onClick={(e) => deleteRoomImg(roomPhoto.id)}
+                                        ><i className="bi bi-x" style={{ fontSize: "16px" }}></i></button>
+                                    </div>
                                 </div>
-                            </div>
 
-                        )
-                    })}
-                    <input type="file" accept="image/*" id="roomPhotos" name="roomPhotos" multiple className="d-none" {...register("roomPhotos")}
-                        onChange={(e) => {
-                            addPhoto(e);
-                        }} />
-                    <label type="button" htmlFor="roomPhotos" className="text-center py-5 w-100 mb-3" style={{ border: "1px dashed gray" }}>
-                        <i className="fa fa-plus text-light" aria-hidden="true" style={{ fontSize: '50px' }}></i>
-                        <p className="text-light">新增房間圖片</p>
-                    </label>
+                            )
+                        })}
+                        <input type="file" accept="image/*" id="roomPhotos" name="roomPhotos" multiple className="d-none" {...register("roomPhotos")}
+                            onChange={(e) => {
+                                addPhoto(e);
+                            }} />
+                        <label type="button" htmlFor="roomPhotos" className="text-center py-5 w-100 mb-3 rounded" style={{ border: "1px dashed gray" }}>
+                            <i className="fa fa-plus text-light" aria-hidden="true" style={{ fontSize: '50px' }}></i>
+                            <p className="text-light">新增房間圖片</p>
+                        </label>
 
 
+                    </div>
                 </div>
+
                 <div className="d-flex justify-content-center">
                     <button type='submit' className="btn btn-primary px-5 py-3">刊登</button>
                 </div>
