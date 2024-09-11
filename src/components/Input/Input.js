@@ -1,5 +1,5 @@
 import './input.scss'
-export function Input({ type, id, lableName, errors, placeholder, register, rules, value, onChange }) {
+export function Input({ type, id, lableName, errors, placeholder,value, register, rules, onChange }) {
     return (<>
         <div className="mb-3">
             <label htmlFor={id} className="form-label">{lableName}</label>
@@ -10,7 +10,8 @@ export function Input({ type, id, lableName, errors, placeholder, register, rule
                 placeholder={placeholder}
                 value={value}
                 {...register(id, rules)}
-                onChange={onChange} />
+                onChange={onChange} 
+            />
             {errors[id] && (
                 <div className="invalid-feedback">{errors[id]?.message}</div>
             )}
