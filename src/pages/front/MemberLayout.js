@@ -3,17 +3,6 @@ import '../../style/pages.scss'
 import { useState } from "react";
 
 export default function MemberLayout() {
-    const userData = {
-        userId: '652612',
-        email: 'text@gmail.com',
-        password: '123456',
-        name: 'Ken',
-        gender: '男',
-        tel: '0914785236',
-        intro: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi laboriosam illum deleniti consectetur hic enim esse placeat eum quibusdam blanditiis, accusantium a dolorem inventore tempore nobis ipsum, rem nulla nesciunt.'
-    }
-    const { email, password, name, gender, tel, intro } = userData;
-
     const [activeIndex,setActiveIndex] = useState(null);
     const handleActive =(index)=>{
         setActiveIndex(index)
@@ -48,6 +37,14 @@ export default function MemberLayout() {
                         >
                             <i className='bi bi-house-add me-2' />
                             刊登房間
+                        </Link>
+                        <Link
+                            className={`list-group-item list-group-item-action border-0 text-center py-3 ${activeIndex === 3 ? 'active' : ''}`}
+                            to='editRoom'
+                            onClick={()=>handleActive(3)}
+                        >
+                            <i className='bi bi-house-gear me-2' />
+                            修改已刊登房間
                         </Link>
                     </ul>
                 </div>
