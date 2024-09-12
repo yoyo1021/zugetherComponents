@@ -1,6 +1,7 @@
 import './style/all.scss';
 import './style/pages.scss';
 import "bootstrap-icons/font/bootstrap-icons.css";
+import 'animate.css';
 
 import { Routes, Route } from 'react-router-dom';
 import FrontLayout from './pages/front/FrontLayout';
@@ -13,7 +14,7 @@ import Rooms from './pages/front/Rooms';
 import RoomDetail from './pages/front/RoomDetail';
 import Favorite from './pages/front/Favorite';
 import MemberLaout from './pages/front/MemberLayout';
-import { EditPassword, EditInfo, AddRoom } from './pages/front/EditMember';
+import { EditPassword, EditInfo, AddRoom, EditRoom } from './pages/front/EditMember';
 import NotFound from './pages/NotFound';
 import Contact from './pages/front/Contact';
 import AOS from 'aos';
@@ -49,6 +50,7 @@ function App() {
               <Route path='editPassword' element={<EditPassword />} />
               <Route path='editInfo' element={<EditInfo />} />
               <Route path='addRoom' element={<AddRoom />} />
+              <Route path='eDITRoom' element={<EditRoom />} />
             </Route>
           </Route>
 
