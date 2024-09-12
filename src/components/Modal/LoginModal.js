@@ -113,6 +113,7 @@ export default function LoginModal({ closeModal }) {
                                             id="remember"
                                             onChange={(e)=>remember(e)}
                                             ref={memberRef}
+                                            disabled ={!email}
                                         />
                                         <label className="form-check-label" htmlFor="remember" style={{ lineHeight: '1.5' }}>
                                             記住 Email
