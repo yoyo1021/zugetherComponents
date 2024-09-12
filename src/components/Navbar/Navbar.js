@@ -14,7 +14,7 @@ export default function Navbar() {
     const navigate = useNavigate();
     //const [isLogin, setIsLogin] = useState(false);
     const {isLogin,setIsLogin} = useLogin();
-    const [userName, setUserName] = useState('user');
+    const [userName] = useState('user');
     const [openChatList, setOpenChatList] = useState(null);
 
     useEffect(() => {
