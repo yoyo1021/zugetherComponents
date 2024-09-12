@@ -804,10 +804,7 @@ export function EditRoom() {
     return (
         <>
             <PageTitle title={'修改房間'} />
-            <Alert alertTxt={'修改成功'} color={'success'} 
-                status={true}
-                //status={showAlert} 
-            />
+            <Alert alertTxt={'修改成功'} color={'success'} status={showAlert} />
             <Loading isLoading={isLoading} />
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="row row-cols-1 row-cols-md-2">
