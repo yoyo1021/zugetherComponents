@@ -12,8 +12,14 @@
     
     .alert{
         width: 50%;
+        font-size: 28px;
         @media (max-width:'768px') {
             width: 75%;
+            font-size: 24px;
+        }
+        .alert-icon{
+            font-size: 50px;
+            margin-bottom: 16px;
         }
     }
     
