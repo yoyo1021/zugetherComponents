@@ -51,7 +51,7 @@ export function RoomCard({ data }) {
                                             <div className="d-flex justify-content-between align-items-center mb-2">
                                                 <h5 className="card-title fw-bold">{room.roomTitle}<br /><span className="fs-6 text-muted">{room.date}</span></h5>
                                                 <div onClick={(e) => e.stopPropagation()}>
-                                                    <HeartToggle id={room.roomId} onChange={heartToggle} />
+                                                    <HeartToggle id={room.roomId} onChange={heartToggle} isfavorite={room.isfavorite} />
                                                 </div>
                                             </div>
                                             <div className="row row-cols-1 row-cols-md-2">
