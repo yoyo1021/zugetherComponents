@@ -90,11 +90,11 @@ export function Radio({ id, name, value, labelName, errors, register, rules }) {
     )
 }
 
-export function HeartToggle({id,onChange}) {
+export function HeartToggle({id,onChange,isfavorite}) {
     return (
         <>
             <div className="heart">
-                <input id={id} name="check" type="checkbox" onChange={onChange}/>
+                <input id={id} name="check" type="checkbox" onChange={onChange} checked={isfavorite}/>
                 <label htmlFor={id}></label>
             </div>
         </>
