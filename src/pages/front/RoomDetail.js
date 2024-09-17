@@ -1,19 +1,14 @@
-import { useParams } from "react-router-dom";
 import Banner from '../../components/Banner/Banner';
 import PageTitle from '../../components/PageTitle/PageTitle';
-import PersonImg from '../../assets/images/friends.jpg';
 import Alert from "../../components/Alert/Alert";
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
-import { useState } from "react";
+import {  useState } from "react";
 import { useLogin } from "../../store/dataStore";
 
 
 export default function RoomDetail() {
-    const { id } = useParams();
-
-    //const [isLogin, setIsLogin] = useState(false);
-    const {isLogin} = useLogin();
-    const [showAlert, setShowAlert] = useState(false)
+    const { isLogin } = useLogin();
+    const [ showAlert, setShowAlert ] = useState(false);
 
     function checkLogin() {
         if (!isLogin) {
@@ -96,12 +91,12 @@ export default function RoomDetail() {
         <>
             <section className="roomDetail container py-5">
                 <Alert alertTxt={'請登入會員'} color={'danger'} status={showAlert} />
-                <Breadcrumb preLink={'/rooms'} prePage={'rooms'} id={room.roomTitle} />
+                <Breadcrumb />
                 <Banner datas={roomImgs} />
                 <div className="roomContent py-3">
                     <PageTitle title={'房間資訊'} />
                     <div className="roomInfo " >
-                        <div className="card p-3">
+                        <div className="card p-3 shadow-sm">
                             <div className="row row-cols-1 row-cols-md-2">
                                 <div className="col">
                                     <div className="mb-2 d-flex align-items-center">
@@ -229,7 +224,7 @@ export default function RoomDetail() {
                 <div className="poster py-3  fs-4">
                     <PageTitle title={'發布者資訊'} />
                     <div className="posterInfo" data-aos="fade-down">
-                        <div className="card mb-3">
+                        <div className="card mb-3 shadow-sm">
                             <div className="row g-0 d-md-flex align-items-center">
                                 <div className="col-md-4 col-lg-3 d-flex justify-content-center align-items-center py-4 py-lg-5">
                                     <img src={room.poster.photo} className="img-fluid rounded-circle object-cover" alt="..." style={{ height: '200px', width: '200px' }} />
@@ -243,7 +238,7 @@ export default function RoomDetail() {
                                         <div className="p-3 pb-0">
                                             <table>
                                                 <tbody>
-                                                    <tr className="">
+                                                    <tr>
                                                         <td className="pe-3">暱稱</td>
                                                         <td className="px-3">{room.poster.nickName}</td>
                                                     </tr>
@@ -277,20 +272,44 @@ export default function RoomDetail() {
                         </div>
                     </div>
                 </div>
-                <div className="host py-3">
+                <div className="host py-3 ">
                     <PageTitle title={'房東資訊'} />
                     <div className="hostInfo" data-aos="fade-down">
-                        <div className="card p-3">
-                            <p>姓名 : {room.host.name}</p>
-                            <p>性別 : {room.host.gender}</p>
-                            <p>
-                                <span className="material-symbols-outlined me-2">smartphone</span>
-                                <a href={`tel:+${room.host.tel}`}>{room.host.tel}</a>
-                            </p>
+                        <div className="card p-3 shadow-sm">
+                            <table style={{maxWidth:"300px"}}>
+                                <tbody>
+                                    <tr className="">
+                                        <td >姓名</td>
+                                        <td>{room.host.name}</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="pe-1">性別</td>
+                                        <td className="px-1">{room.host.gender}</td>
+                                    </tr>
+                                    <tr>
+                                        <td className="pe-1">連絡電話</td>
+                                        <td className="px-1"><a href={`tel:+${room.host.tel}`}>{room.host.tel}</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
-
                     </div>
                 </div>
+                <div className="host py-3">
+                    <PageTitle title={'地圖資訊'} />
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1807.8395178531132!2d121.458692!3d25.01102!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a81d1e80379b%3A0x6e5b320368af0131!2zMjIw5Y-w54Gj5paw5YyX5biC5p2_5qmL5Y2A5paH5YyW6Lev5LiA5q61MjbomZ8!5e0!3m2!1szh-TW!2sus!4v1726540570804!5m2!1szh-TW!2sus"
+                        data-aos="fade-down"
+                        className="w-100"
+                        height="450"
+                        allowFullScreen=""
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        title="Google Map showing a location in Taiwan"
+                    >
+                    </iframe>
+                </div>
+
+
                 <div className="d-flex justify-content-center pt-3">
                     <button type='button' className="btn btn-danger me-3 px-5 py-3" onClick={addFavorite}> 加入收藏</button>
                     <button type='button' className="btn btn-primary px-5 py-3" onClick={zugether}> 合租邀約</button>
