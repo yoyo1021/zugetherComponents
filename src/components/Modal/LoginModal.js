@@ -124,8 +124,7 @@ export default function LoginModal({ closeModal }) {
                                     <button type="submit" className="btn btn-primary w-100 mb-2">登入</button>
                                     <button type="button" className="btn btn-secondary w-100" onClick={goToRegister}>註冊</button>
                                 </div>
-                            </form>
-
+                            </form>             
                         </div>
                     </div>
                 </div>
