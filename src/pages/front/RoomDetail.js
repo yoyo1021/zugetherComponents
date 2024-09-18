@@ -56,6 +56,8 @@ export default function RoomDetail() {
         bed: '上下舖',
         rent: 8000,
         size: 20,
+        manage:true,
+        managePaid:2000,
         people: 1,
         address: '新北市板橋區文化路一段26號',
         date: '2024/08/08',
@@ -128,6 +130,14 @@ export default function RoomDetail() {
                                             paid
                                         </span>
                                         租金 : {room.rent}/月(不含水電及管理費月)
+                                    </div>
+                                </div>
+                                <div className="col">
+                                    <div className="mb-2 d-flex align-items-center">
+                                        <span className="material-symbols-outlined me-2">
+                                            paid
+                                        </span>
+                                        管理費 : {room.managePaid}/月
                                     </div>
                                 </div>
                                 <div className="col">

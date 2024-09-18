@@ -89,6 +89,19 @@ export function RoomCard({ data }) {
                                                 </div>
                                                 <div className="col">
                                                     <div className="mb-2 d-flex align-items-center">
+                                                        <span className="material-symbols-outlined me-2">
+                                                            paid
+                                                        </span>
+                                                        {room.manage?(
+                                                            room.managePaid +' / 月(管理費)'
+                                                        ):(
+                                                            "無管理費"
+                                                        )}
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div className="col">
+                                                    <div className="mb-2 d-flex align-items-center">
                                                         <span className="material-symbols-outlined me-2" style={{ transform: 'rotate(-45deg)' }}>
                                                             width
                                                         </span>
