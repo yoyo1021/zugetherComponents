@@ -14,12 +14,12 @@ import Rooms from './pages/front/Rooms';
 import RoomDetail from './pages/front/RoomDetail';
 import Favorite from './pages/front/Favorite';
 import MemberLaout from './pages/front/MemberLayout';
-import { EditPassword, EditInfo, AddRoom, EditRoom } from './pages/front/EditMember';
+import { EditPassword, EditInfo, AddRoom, EditRoom } from './pages/front/MemberPages';
 import NotFound from './pages/NotFound';
 import Contact from './pages/front/Contact';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { useEffect } from 'react';
+import { useEffect } from 'react';``
 import Login from './pages/admin/Login';
 import Dashboard from './pages/admin/Dashboard';
 import AdminArticle from './pages/admin/AdminArticle';
