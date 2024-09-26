@@ -36,7 +36,7 @@ export default function MemberLayout() {
                             onClick={()=>handleActive(2)}
                         >
                             <i className='bi bi-house-add me-2' />
-                            刊登房間
+                            刊登/刪除房間
                         </Link>
                         <Link
                             className={`list-group-item list-group-item-action border-0 text-center py-3 ${activeIndex === 3 ? 'active' : ''}`}

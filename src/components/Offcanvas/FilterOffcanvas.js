@@ -9,11 +9,12 @@ import Loading from '../Loading/Loading';
 
 
 
+
 export default function FilterOffcanvas() {
     const filterRef = useRef(null);
     const [open, setOpen] = useState(true);
-    const [amount, setAmount] = useState(5000);
-    const [isLoading,setIsLoading] = useState(false);
+    const [amount, setAmount] = useState(10000);
+    const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
     const roomStyle = ['所有房型', '兩人一室套房', '兩人一室雅房', '三人一室套房', '三人一室雅房'];
     const {
@@ -57,7 +58,7 @@ export default function FilterOffcanvas() {
     }
     return (
         <>
-            <Loading isLoading={isLoading}/>
+            <Loading isLoading={isLoading} />
             <div className="offcanvas offcanvas-start" tabIndex="-1" ref={filterRef} id="filterOffcanvas" aria-labelledby="offcanvasWithBackdropLabel">
                 <button className="btn btn-primary position-absolute filterBtn text-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#filterOffcanvas" aria-controls="offcanvasWithBackdrop" onClick={openFilter}>
                     {/* <i className="bi bi-funnel-fill"></i> */}
@@ -76,10 +77,10 @@ export default function FilterOffcanvas() {
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="pb-3">
                             <AddressSelect register={register} />
-                            <Range register={register} id={'amount'} min={5000} max={50000} step={1000} lableTxt={'租金/月(不含水電及管理費)'} rangeVal={amount} setRangeVal={setAmount} />
+                            <Range register={register} id={'amount'} min={5000} max={50000} step={1000} lableTxt={`NT$ ${amount} 以內/月(未含水電及管理費)`} rangeVal={amount} setRangeVal={setAmount} />
                             <Select register={register} id={'roomStyle'} labelName={'請選擇房型'} options={roomStyle} />
                         </div>
-                        <button type='submit' className='btn btn-primary w-100'> 篩選 </button>
+                        <button type='submit' className='btn btn-primary w-100'> 搜尋 </button>
                     </form>
                 </div>
             </div>

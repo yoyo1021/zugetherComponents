@@ -320,9 +320,9 @@ export default function RoomDetail() {
                 </div>
 
 
-                <div className="d-flex justify-content-center pt-3">
-                    <button type='button' className="btn btn-danger me-3 px-5 py-3" onClick={addFavorite}> 加入收藏</button>
-                    <button type='button' className="btn btn-primary px-5 py-3" onClick={zugether}> 合租邀約</button>
+                <div className="d-flex justify-content-center pt-3 ">
+                    <button type='button' className="btn btn-danger roomDetail-btn  me-3  py-3" onClick={addFavorite}> 加入收藏</button>
+                    <button type='button' className="btn btn-primary roomDetail-btn  py-3" onClick={zugether}> 合租邀約</button>
                 </div>
             </section>
         </>

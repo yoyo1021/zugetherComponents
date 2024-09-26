@@ -3,12 +3,18 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useLogin } from "../../store/dataStore";
 import { useEffect, useRef, useState } from "react";
+import Loading from '../Loading/Loading';
+
 export default function LoginModal({ closeModal }) {
     const { setIsLogin } = useLogin();
     const [email,setEmail] = useState('');
+    const [isLoading,setIsLoading] = useState(false);
     const memberRef = useRef(null);
     const navigate = useNavigate();
     let isRemember = localStorage.getItem("remember");
+
+
+
     function goToRegister() {
         navigate('/signup');
         closeModal();
@@ -39,6 +45,7 @@ export default function LoginModal({ closeModal }) {
         }
     },[setValue])
 
+    // 登入按鈕
     const onSubmit = (data) => {
         console.log(data);
         if(isRemember){
@@ -48,6 +55,10 @@ export default function LoginModal({ closeModal }) {
         }
         setIsLogin(true);
         closeModal();
+        setIsLoading(true);
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 2000);
     }
 
     const remember=(e)=>{
@@ -65,6 +76,7 @@ export default function LoginModal({ closeModal }) {
     
     return (
         <>
+            <Loading isLoading={isLoading}/>
             <div className="modal fade" id='loginModal' data-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered">
                     <div className="modal-content">
