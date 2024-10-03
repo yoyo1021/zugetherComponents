@@ -8,12 +8,14 @@ export default function Contact() {
         register,
         handleSubmit,
         reset,
+        watch,
         formState: { errors }
     } = useForm({
         mode: 'onTouched'
     });
 
-    const [ isSend,setIsSend ] = useState(false)
+    const [ isSend,setIsSend ] = useState(false);
+    const message = watch("message");
 
     const onSubmit = (data) => {
         const { name , title, email, phone, message}= data;
@@ -87,6 +89,8 @@ export default function Contact() {
                         lableName={<>想說的話(必填)<span className="text-danger ms-2">*</span></>}
                         row='4'
                         cols='50'
+                        length={<>{message? message.length:0}</>}
+                        maxLen="200"
                         errors={errors}
                         register={register}
                         rules={{

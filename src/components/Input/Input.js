@@ -1,5 +1,5 @@
 import './input.scss'
-export function Input({ type, id, lableName, errors, placeholder,value, register, rules, onChange }) {
+export function Input({ type, id, lableName, errors, placeholder, value, register, rules, onChange }) {
     return (<>
         <div className="mb-3">
             <label htmlFor={id} className="form-label">{lableName}</label>
@@ -10,7 +10,7 @@ export function Input({ type, id, lableName, errors, placeholder,value, register
                 placeholder={placeholder}
                 value={value}
                 {...register(id, rules)}
-                onChange={onChange} 
+                onChange={onChange}
             />
             {errors[id] && (
                 <div className="invalid-feedback">{errors[id]?.message}</div>
@@ -20,22 +20,25 @@ export function Input({ type, id, lableName, errors, placeholder,value, register
     )
 }
 
-export function Textarea({ id, lableName, errors, row, cols, register, placeholder, rules }) {
+export function Textarea({ id, lableName, errors, row, cols, length, maxLen, register, placeholder, rules }) {
     return (
         <>
-            <div className="mb-3">
+            <div className="mb-3 ">
                 <label htmlFor={id} className="form-label">{lableName}</label>
-                <textarea
-                    className={`form-control ${errors[id] && 'is-invalid'}`}
-                    id={id}
-                    rows={row}
-                    cols={cols}
-                    placeholder={placeholder}
-                    {...register(id, rules)}
-                />
-                {errors[id] && (
-                    <div className="invalid-feedback">{errors[id]?.message}</div>
-                )}
+                <div className="position-relative">
+                    <textarea
+                        className={`form-control ${errors[id] && 'is-invalid'} `}
+                        id={id}
+                        rows={row}
+                        cols={cols}
+                        placeholder={placeholder}
+                        {...register(id, rules)}
+                    />
+                    <p className='position-absolute text-muted' style={{bottom: errors[id] ? "31px" : "5px", right: "20px" }}>{length}/{maxLen}</p>
+                    {errors[id] && (
+                        <div className="invalid-feedback">{errors[id]?.message}</div>
+                    )}
+                </div>
             </div>
         </>
     )
@@ -90,11 +93,11 @@ export function Radio({ id, name, value, labelName, errors, register, rules }) {
     )
 }
 
-export function HeartToggle({id,onChange,isfavorite}) {
+export function HeartToggle({ id, onChange, isfavorite }) {
     return (
         <>
             <div className="heart">
-                <input id={id} name="check" type="checkbox" onChange={onChange} checked={isfavorite}/>
+                <input id={id} name="check" type="checkbox" onChange={onChange} checked={isfavorite} />
                 <label htmlFor={id}></label>
             </div>
         </>

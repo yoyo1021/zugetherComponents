@@ -77,7 +77,7 @@ export default function FilterOffcanvas() {
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="pb-3">
                             <AddressSelect register={register} />
-                            <Range register={register} id={'amount'} min={5000} max={50000} step={1000} lableTxt={`NT$ ${amount} 以內/月(未含水電及管理費)`} rangeVal={amount} setRangeVal={setAmount} />
+                            <Range register={register} id={'amount'} min={5000} max={50000} step={1000} lableTxt={<>NT$ <span className='fw-bold text-danger' >{amount}</span> 以內/月(未含水電及管理費)</>} rangeVal={amount} setRangeVal={setAmount} />
                             <Select register={register} id={'roomStyle'} labelName={'請選擇房型'} options={roomStyle} />
                         </div>
                         <button type='submit' className='btn btn-primary w-100'> 搜尋 </button>

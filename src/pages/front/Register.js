@@ -11,6 +11,7 @@ export default function Register() {
         register,
         handleSubmit,
         getValues,
+        watch,
         formState: { errors }
     } = useForm({
         mode: 'onTouched'
@@ -18,6 +19,7 @@ export default function Register() {
     const navigate = useNavigate();
     const [registerStatus, setRegisterStatus] = useState(false);
     const [isLoading,setIsLoading] = useState(false);
+    const intro = watch("introduction");
     const onSubmit = (data) => {
         const { email, password, name, gender, phone, introdution,birth } = data;
         console.log(data);
@@ -168,6 +170,8 @@ export default function Register() {
                         lableName={<>自我介紹(必填)<span className="text-danger ms-2">*</span></>}
                         row='4'
                         cols='50'
+                        length={<>{intro ? intro.length:0}</>}
+                        maxLen="200"
                         errors={errors}
                         register={register}
                         rules={{
