@@ -3,6 +3,8 @@ import Banner from "../../components/Banner/Banner";
 import friends1 from '../../assets/images/friends.jpg';
 import bannerImg1 from '../../assets/images/banner.jpg';
 import { AdvantageCard } from "../../components/Card/Card";
+import axios from "axios";
+import { useEffect } from "react";
 
 export default function Home() {
     const bannerDatas = [
@@ -19,8 +21,14 @@ export default function Home() {
             text: ''
         },
     ]
+
+    const getData = async()=>{
+        const res =  await axios.get("https://localhost:7095/API/login");
+        console.log(res)
+    }
     return (
         <>
+            <button type="button" onClick={getData}>test</button>
             <FilterOffcanvas />
             <Banner datas={bannerDatas} />
             <section className="py-5">
