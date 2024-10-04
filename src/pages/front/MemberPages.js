@@ -380,18 +380,20 @@ export function AddRoom() {
     }
 
     const addPhoto = (e) => {
-        const file = e.target.files[0];
-        const reader = new FileReader();
-        reader.addEventListener("load", () => {
-            setPhotos((prev) => [...prev, {
-                //id:file.lastModified,
-                id: Date.now(),
-                img: reader.result
-            }]);
-        }, false);
-        if (file) {
-            reader.readAsDataURL(file);
-        }
+        const files = e.target.files;
+        Array.from(files).forEach((file) => {
+            const reader = new FileReader();
+            reader.addEventListener("load", () => {
+                setPhotos((prev) => [...prev, {
+                    //id:file.lastModified,
+                    id: Date.now(),
+                    img: reader.result
+                }]);
+            }, false);
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        })
     }
 
     const deleteRoomImg = (id) => {
@@ -889,7 +891,7 @@ export function AddRoom() {
                             <div className="roomPhotos row row-cols-1 row-cols-md-2 row-cols-lg-3 mb-3">
                                 {photos.map((roomPhoto, i) => {
                                     return (
-                                        <div className="col mb-4" key={roomPhoto.id}>
+                                        <div className="col mb-4" key={i}>
                                             <div className="position-relative" >
                                                 <img src={roomPhoto.img} alt="" className="object-cover roomPhoto w-100" />
                                                 <button type="button" className="btn btn-danger rounded-circle btn-delete"
@@ -900,7 +902,7 @@ export function AddRoom() {
 
                                     )
                                 })}
-                                <input type="file" accept="image/*" id="roomPhotos" name="roomPhotos" multiple className="d-none" {...register("roomPhotos")}
+                                <input type="file" accept="image/*" id="roomPhotos" name="roomPhotos" multiple="multiple" className="d-none" {...register("roomPhotos")}
                                     onChange={(e) => {
                                         addPhoto(e);
                                     }} />
@@ -1003,18 +1005,20 @@ export function EditRoom() {
     }
 
     const addPhoto = (e) => {
-        const file = e.target.files[0];
-        const reader = new FileReader();
-        reader.addEventListener("load", () => {
-            setPhotos((prev) => [...prev, {
-                //id:file.lastModified,
-                id: Date.now(),
-                img: reader.result
-            }]);
-        }, false);
-        if (file) {
-            reader.readAsDataURL(file);
-        }
+        const files = e.target.files;
+        Array.from(files).forEach((file) => {
+            const reader = new FileReader();
+            reader.addEventListener("load", () => {
+                setPhotos((prev) => [...prev, {
+                    //id:file.lastModified,
+                    id: Date.now(),
+                    img: reader.result
+                }]);
+            }, false);
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        })
     }
 
     const handleDelete = () => {
@@ -1345,7 +1349,7 @@ export function EditRoom() {
                     <div className="roomPhotos row row-cols-1 row-cols-md-2 row-cols-lg-3 mb-3">
                         {photos.map((roomPhoto, i) => {
                             return (
-                                <div className="col mb-4" key={roomPhoto.id}>
+                                <div className="col mb-4" key={i}>
                                     <div className="position-relative" >
                                         <img src={roomPhoto.img} alt="" className="object-cover roomPhoto w-100" />
                                         <button type="button" className="btn btn-danger rounded-circle btn-delete"
