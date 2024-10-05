@@ -5,6 +5,7 @@ import Alert from "../../components/Alert/Alert";
 import { useState } from "react";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import Loading from "../../components/Loading/Loading";
+import axios from "axios";
 
 export default function Register() {
     const {
@@ -17,33 +18,65 @@ export default function Register() {
         mode: 'onTouched'
     });
     const navigate = useNavigate();
-    const [registerStatus, setRegisterStatus] = useState(false);
-    const [isLoading,setIsLoading] = useState(false);
-    const intro = watch("introduction");
-    const onSubmit = (data) => {
-        const { email, password, name, gender, phone, introdution,birth } = data;
-        console.log(data);
-        setIsLoading(true)
-        setTimeout(()=>{
+    const [showAlert, setShowAlert] = useState({
+        alertTxt: "",
+        color: "",
+        status: false
+    })
+    const [isLoading, setIsLoading] = useState(false);
+    const intro = watch("intro");
+    const onSubmit = async (data) => {
+        const { Email, password, name, nickName, gender, phone, intro, birth } = data;
+        try {
+            setIsLoading(true);
+            const res = await axios.post("https://localhost:7171/api/member", {
+                Email, password, name, nickName, gender, phone, intro, birth
+            });
+            console.log(res);
+            const msg = res.data.message;
+            setShowAlert({
+                alertTxt: msg,
+                color: "success",
+                status: true
+            })
             setIsLoading(false);
-            setRegisterStatus(true);
-        },2000);
-        
-        setTimeout(() => {
-            setRegisterStatus(false);
-            navigate('/');
-        }, 4000);
+            setTimeout(() => {
+                setShowAlert({
+                    alertTxt: "",
+                    color: "",
+                    status: false
+                })
+                //navigate('/');
+            }, 2000);
+
+        } catch (error) {
+            const errMsg = error.response.data.message;
+            setShowAlert({
+                alertTxt: errMsg,
+                color: "danger",
+                status: true
+            })
+            setIsLoading(false);
+            setTimeout(() => {
+                setShowAlert({
+                    alertTxt: "",
+                    color: "",
+                    status: false
+                })
+            }, 2000);
+        }
+
     }
     return (
         <>
             <section className="register container py-5 d-lg-flex flex-column align-items-center">
-                <Alert alertTxt={'註冊成功'} color={'success'} status={registerStatus}></Alert>
-                <Loading isLoading={isLoading}/>
-                <PageTitle title={'註冊會員'}/>
+                <Alert alertTxt={showAlert.alertTxt} color={showAlert.color} status={showAlert.status}></Alert>
+                <Loading isLoading={isLoading} />
+                <PageTitle title={'註冊會員'} />
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <Input
                         type='email'
-                        id='email'
+                        id='Email'
                         lableName={<>Email(必填)<span className="text-danger ms-2">*</span></>}
                         placeholder='example@mail.com'
                         errors={errors}
@@ -108,7 +141,7 @@ export default function Register() {
                         type='date'
                         id='birth'
                         lableName={<>出生日期(必填)<span className="text-danger ms-2">*</span></>}
-                        
+
                         errors={errors}
                         register={register}
                         rules={{
@@ -166,11 +199,11 @@ export default function Register() {
                         }}
                     ></Input>
                     <Textarea
-                        id='introduction'
+                        id='intro'
                         lableName={<>自我介紹(必填)<span className="text-danger ms-2">*</span></>}
                         row='4'
                         cols='50'
-                        length={<>{intro ? intro.length:0}</>}
+                        length={<>{intro ? intro.length : 0}</>}
                         maxLen="200"
                         errors={errors}
                         register={register}
@@ -186,12 +219,12 @@ export default function Register() {
                     <Checkbox
                         id='agree'
                         labelName={
-                            <> 
+                            <>
                                 我已仔細閱讀並明瞭「<button type="button" className="btn p-0 text-danger" style={{ textDecoration: 'underLine' }}>服務條款</button>」、
                                 「<button type="button" className="btn p-0 text-danger" style={{ textDecoration: 'underLine' }}>免責聲明</button>」、
                                 「<button type="button" className="btn p-0 text-danger" style={{ textDecoration: 'underLine' }}>隱私權聲明</button>」
                                 等所載內容及其意義，茲同意該等條款規定，並願遵守網站現今、嗣後規範的各種規則。
-                            </> 
+                            </>
                             // <>
                             //     我已仔細閱讀並明瞭「<a className=" text-primary" style={{ textDecoration: 'underLine', cursor:"pointer" }}>服務條款</a>」、
                             //     「<a className=" text-primary" style={{ textDecoration: 'underLine' , cursor:"pointer" }}>免責聲明</a>」、
