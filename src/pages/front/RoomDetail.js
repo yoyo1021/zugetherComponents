@@ -2,13 +2,13 @@ import Banner from '../../components/Banner/Banner';
 import PageTitle from '../../components/PageTitle/PageTitle';
 import Alert from "../../components/Alert/Alert";
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
-import {  useState } from "react";
+import { useState } from "react";
 import { useLogin } from "../../store/dataStore";
 
 
 export default function RoomDetail() {
     const { isLogin } = useLogin();
-    const [ showAlert, setShowAlert ] = useState(false);
+    const [showAlert, setShowAlert] = useState(false);
 
     function checkLogin() {
         if (!isLogin) {
@@ -56,8 +56,8 @@ export default function RoomDetail() {
         bed: '上下舖',
         rent: 8000,
         size: 20,
-        manage:true,
-        managePaid:2000,
+        manage: true,
+        managePaid: 2000,
         people: 1,
         address: '新北市板橋區文化路一段26號',
         date: '2024/08/08',
@@ -286,7 +286,7 @@ export default function RoomDetail() {
                     <PageTitle title={'房東資訊'} />
                     <div className="hostInfo" data-aos="fade-down">
                         <div className="card p-3 shadow-sm">
-                            <table style={{maxWidth:"300px"}}>
+                            <table style={{ maxWidth: "300px" }}>
                                 <tbody>
                                     <tr className="">
                                         <td >姓名</td>
@@ -317,6 +317,59 @@ export default function RoomDetail() {
                         title="Google Map showing a location in Taiwan"
                     >
                     </iframe>
+                </div>
+
+                <div className="discussion border d-flex flex-column justify-content-between p-3" style={{ height: "600px", backgroundColor: '#f8f9fa' }}>
+                    <div className="discussionArea overflow-auto" style={{ maxHeight: "510px"}}>
+                        <div className="messageItem mb-3 d-flex ">
+                            <img src="https://images.unsplash.com/photo-1508341591423-4347099e1f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hbnxlbnwwfHwwfHx8MA%3D%3D" alt="" className={`object-cover rounded-circle me-2 `} style={{ minWidth: '40px', height: '40px' }} />
+                            <div className={`messageBubble p-2 rounded bg-light text-dark`}>
+                                <strong>name</strong>
+                                <p className="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam culpa repudiandae labore ea, inventore consequatur dolorem. Odit optio porro iusto vel molestias non, illo officia corporis cumque ducimus aperiam cum?</p>
+                            </div>
+                        </div>
+                        <div className="messageItem mb-3 d-flex ">
+                            <img src="https://images.unsplash.com/photo-1508341591423-4347099e1f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hbnxlbnwwfHwwfHx8MA%3D%3D" alt="" className={`object-cover rounded-circle me-2 `} style={{ minWidth: '40px', height: '40px' }} />
+                            <div className={`messageBubble p-2 rounded bg-light text-dark`}>
+                                <strong>name</strong>
+                                <p className="mb-0">Lorae labore ea, inventore consequatur dolorem. Odit optio porro iusto vel molestias non, illo officia corporis cumque ducimus aperiam cum?</p>
+                            </div>
+                        </div>
+                        <div className="messageItem mb-3 d-flex ">
+                            <img src="https://images.unsplash.com/photo-1508341591423-4347099e1f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hbnxlbnwwfHwwfHx8MA%3D%3D" alt="" className={`object-cover rounded-circle me-2 `} style={{ minWidth: '40px', height: '40px' }} />
+                            <div className={`messageBubble p-2 rounded bg-light text-dark`}>
+                                <strong>name</strong>
+                                <p className="mb-0">Lorae labore ea, inventore consequatur dolorem. Odit optio porro iusto vel molestias non, illo officia corporis cumque ducimus aperiam cum?</p>
+                            </div>
+                        </div>
+                        <div className="messageItem mb-3 d-flex ">
+                            <img src="https://images.unsplash.com/photo-1508341591423-4347099e1f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hbnxlbnwwfHwwfHx8MA%3D%3D" alt="" className={`object-cover rounded-circle me-2 `} style={{ minWidth: '40px', height: '40px' }} />
+                            <div className={`messageBubble p-2 rounded bg-light text-dark`}>
+                                <strong>name</strong>
+                                <p className="mb-0">Lorae labore ea, inventore consequatur dolorem. Odit optio porro iusto vel molestias non, illo officia corporis cumque ducimus aperiam cum?</p>
+                            </div>
+                        </div>
+                        <div className="messageItem mb-3 d-flex ">
+                            <img src="https://images.unsplash.com/photo-1508341591423-4347099e1f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hbnxlbnwwfHwwfHx8MA%3D%3D" alt="" className={`object-cover rounded-circle me-2 `} style={{ minWidth: '40px', height: '40px' }} />
+                            <div className={`messageBubble p-2 rounded bg-light text-dark`}>
+                                <strong>name</strong>
+                                <p className="mb-0">Lorae labore ea, inventore consequatur dolorem. Odit optio porro iusto vel molestias non, illo officia corporis cumque ducimus aperiam cum?</p>
+                            </div>
+                        </div>
+                        <div className="messageItem mb-3 d-flex ">
+                            <img src="https://images.unsplash.com/photo-1508341591423-4347099e1f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hbnxlbnwwfHwwfHx8MA%3D%3D" alt="" className={`object-cover rounded-circle me-2 `} style={{ minWidth: '40px', height: '40px' }} />
+                            <div className={`messageBubble p-2 rounded bg-light text-dark`}>
+                                <strong>name</strong>
+                                <p className="mb-0">Lorae labore ea, inventore consequatur dolorem. Odit optio porro iusto vel molestias non, illo officia corporis cumque ducimus aperiam cum?</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="inputGroup justify-content-end">
+                        <div className="input-group ps-2">
+                            <input type="text" className="form-control" placeholder="請輸入訊息...." />
+                            <button className="btn btn-primary" type="button">Send</button>
+                        </div>
+                    </div>
                 </div>
 
 
