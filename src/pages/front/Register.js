@@ -29,13 +29,14 @@ export default function Register() {
         const { Email, password, name, nickName, gender, phone, intro, birth } = data;
         try {
             setIsLoading(true);
-            const res = await axios.post("https://localhost:7171/api/member", {
-                Email, password, name, nickName, gender, phone, intro, birth
-            });
-            console.log(res);
-            const msg = res.data.message;
+            // const res = await axios.post("https://localhost:7095/api/member", {
+            //     Email, password, name, nickName, gender, phone, intro, birth
+            // });
+            // console.log(res);
+            // const msg = res.data.message;
             setShowAlert({
-                alertTxt: msg,
+                //alertTxt: msg,
+                alertTxt:'註冊成功',
                 color: "success",
                 status: true
             })
@@ -50,9 +51,10 @@ export default function Register() {
             }, 2000);
 
         } catch (error) {
-            const errMsg = error.response.data.message;
+            //const errMsg = error.response.data.message;
             setShowAlert({
-                alertTxt: errMsg,
+                //alertTxt: errMsg,
+                alertTxt: "註冊失敗",
                 color: "danger",
                 status: true
             })
@@ -65,7 +67,6 @@ export default function Register() {
                 })
             }, 2000);
         }
-
     }
     return (
         <>
@@ -82,9 +83,10 @@ export default function Register() {
                         errors={errors}
                         register={register}
                         rules={{
-                            required: 'Email 為必填',
+                            //required: 'Email 為必填',
                             pattern: {
-                                value: /^\S+@\S+$/i,
+                                //value: /^\S+@\S+$/i,
+                                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i, 
                                 message: 'Email 格式不正確',
                             }
                         }}
@@ -97,10 +99,10 @@ export default function Register() {
                         errors={errors}
                         register={register}
                         rules={{
-                            required: '密碼為必填',
+                            //required: '密碼為必填',
                             minLength: {
                                 value: 6,
-                                message: '密碼不少於 6 碼'
+                                message: '密碼最少 6 碼'
                             },
                         }}
                     ></Input>
@@ -126,7 +128,7 @@ export default function Register() {
                         errors={errors}
                         register={register}
                         rules={{
-                            required: '請輸入您的姓名'
+                            //required: '請輸入您的姓名'
                         }}
                     ></Input>
                     <Input
@@ -145,7 +147,7 @@ export default function Register() {
                         errors={errors}
                         register={register}
                         rules={{
-                            required: '請選擇你的出生日期'
+                            //required: '請選擇你的出生日期'
                         }}
                     ></Input>
                     <div className="genderWrapper">
@@ -159,7 +161,7 @@ export default function Register() {
                                 errors={errors}
                                 register={register}
                                 rules={{
-                                    required: '請選擇性別'
+                                    //required: '請選擇性別'
                                 }}
                             />
                             <Radio
@@ -170,7 +172,7 @@ export default function Register() {
                                 errors={errors}
                                 register={register}
                                 rules={{
-                                    required: '請選擇性別'
+                                    //required: '請選擇性別'
                                 }}
                             />
                         </div>
@@ -183,7 +185,7 @@ export default function Register() {
                         errors={errors}
                         register={register}
                         rules={{
-                            required: '請輸入您的手機號碼',
+                            //required: '請輸入您的手機號碼',
                             pattern: {
                                 value: /^09[0-9]{8}$/,
                                 message: '手機格式錯誤'
@@ -208,7 +210,7 @@ export default function Register() {
                         errors={errors}
                         register={register}
                         rules={{
-                            required: '請輸入自我介紹',
+                            //required: '請輸入自我介紹',
                             maxLength: {
                                 value: 200,
                                 message: '自我介紹不多於 200 字'
@@ -235,7 +237,7 @@ export default function Register() {
                         errors={errors}
                         register={register}
                         rules={{
-                            required: '請勾選同意聲明'
+                            //required: '請勾選同意聲明'
                         }}
                     />
                     <div className="d-flex justify-content-center">

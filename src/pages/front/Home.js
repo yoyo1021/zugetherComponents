@@ -22,13 +22,8 @@ export default function Home() {
         },
     ]
 
-    const getData = async()=>{
-        const res =  await axios.get("https://localhost:7095/API/login");
-        console.log(res)
-    }
     return (
         <>
-            <button type="button" onClick={getData}>test</button>
             <FilterOffcanvas />
             <Banner datas={bannerDatas} />
             <section className="py-5">

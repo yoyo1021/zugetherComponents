@@ -1,33 +1,18 @@
 import { Modal } from "bootstrap"
 import { ArticleModal } from "../../components/Modal/AdminModal"
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
+import axios from "axios"
 export default function AdminArticle() {
-    const articles = [
-        {
-            id: '001',
-            title: 'title1',
-            create_at: '2024/08/25',
-            author: 'manager',
-            isPublic: true
-        },
-        {
-            id: '002',
-            title: 'title2',
-            create_at: '2024/08/26',
-            author: 'manager',
-            isPublic: false
-        },
-        {
-            id: '003',
-            title: 'title3',
-            create_at: '2024/08/27',
-            author: 'manager',
-            isPublic: true
-        },
-    ]
+    const [articles,setArticles] = useState([])
+
+    const getData = async()=>{
+        const res = await axios.get("https://localhost:7095/api/articles");
+        setArticles(res.data)
+    }
 
     const articleRef = useRef(null);
     useEffect(() => {
+        getData();
         articleRef.current = new Modal("#articleModal", {
             backdrop: 'static'
         });
@@ -65,19 +50,17 @@ export default function AdminArticle() {
                                 <tr>
                                     <th scope='col'>標題</th>
                                     <th scope='col'>日期</th>
-                                    <th scope='col'>作者</th>
                                     <th scope='col'>狀態</th>
                                     <th scope='col'>編輯</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {articles.map((article) => {
+                                {articles.map((article,i) => {
                                     return (
-                                        <tr key={article.id}>
+                                        <tr key={i}>
                                             <td>{article.title}</td>
-                                            <td>{new Date(article.create_at).toLocaleDateString()}</td>
-                                            <td>{article.author}</td>
-                                            <td>{article.isPublic ? '公開' : '未公開'}</td>
+                                            <td>{new Date(article.date).toLocaleDateString()}</td>
+                                            <td>{article.enabled? '公開' : '未公開'}</td>
                                             <td>
                                                 <button type='button' className='btn btn-success btn-sm'
                                                 //onClick={() => openArticleModal('edit', article)}
