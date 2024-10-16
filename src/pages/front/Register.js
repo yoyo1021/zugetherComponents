@@ -47,7 +47,7 @@ export default function Register() {
                     color: "",
                     status: false
                 })
-                //navigate('/');
+                navigate('/');
             }, 2000);
 
         } catch (error) {
