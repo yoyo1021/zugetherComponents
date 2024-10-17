@@ -44,7 +44,7 @@ export function RoomCard({ data }) {
                                 <div className="row g-0">
                                     <div className="col-md-4">
                                         <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                            className="img-fluid rounded-start object-cover" alt="..." />
+                                            className="img-fluid rounded-md-start object-cover" alt="..." />
                                     </div>
                                     <div className="col-md-8">
                                         <div className="card-body">
@@ -131,7 +131,6 @@ export function RoomCard({ data }) {
                                                 </span>
                                                 {room.expect}
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>
