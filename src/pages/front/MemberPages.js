@@ -60,7 +60,7 @@ export function EditPassword() {
 
     return (
         <>
-            <PageTitle title={'變更密碼'} />
+            <PageTitle title={'修改密碼'} />
             <Alert alertTxt={'修改成功'} color={'success'} status={showAlert} />
             <Loading isLoading={isLoading} />
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -109,7 +109,7 @@ export function EditPassword() {
                     }}
                 ></Input>
                 <div className="d-flex justify-content-center">
-                    <button type='submit' className="btn btn-primary px-5 py-3">變更</button>
+                    <button type='submit' className="btn btn-primary px-5 py-3">修改</button>
                 </div>
             </form>
         </>
@@ -201,7 +201,7 @@ export function EditInfo() {
 
     return (
         <>
-            <PageTitle title={'變更會員資料'} />
+            <PageTitle title={'修改會員資料'} />
             <Alert alertTxt={'修改成功'} color={'success'} status={showAlert} />
             <Loading isLoading={isLoading} />
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -241,7 +241,7 @@ export function EditInfo() {
                     register={register}
                     onChange={handleEdit}
                 ></Input>
-                <Input
+                {/* <Input
                     type='date'
                     id='birth'
                     lableName={'出生日期'}
@@ -251,7 +251,17 @@ export function EditInfo() {
                         required: '請選擇你的出生日期'
                     }}
                     onChange={handleEdit}
-                ></Input>
+                ></Input> */}
+                <div className="mb-3">
+                    <label htmlFor='birth' className="form-label">出生日期</label>
+                    <input
+                        type='text'
+                        className={`form-control`}
+                        id='birth'
+                        value={tempData.birth}
+                        readOnly
+                    ></input>
+                </div>
                 <div className="mb-3">
                     <label htmlFor='gender' className="form-label">性別</label>
                     <input

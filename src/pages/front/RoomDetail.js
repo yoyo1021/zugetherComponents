@@ -242,16 +242,11 @@ export default function RoomDetail() {
                                 <div className="col-md-8 col-lg-9">
                                     <div className="card-body p-4">
                                         <div className="d-flex justify-content-between align-items-center border-bottom border-light pb-2">
-                                            <h4 className="card-title fw-bold text-start mb-0">{room.poster.name}</h4>
-                                            <button type="button" className="btn btn-primary" onClick={sendMessage}><i className="bi bi-chat-fill me-2"></i>傳送訊息</button>
+                                            <h4 className="card-title fw-bold text-start mb-0">{room.poster.nickName}</h4>
                                         </div>
                                         <div className="p-3 pb-0">
                                             <table>
                                                 <tbody>
-                                                    <tr>
-                                                        <td className="pe-3">暱稱</td>
-                                                        <td className="px-3">{room.poster.nickName}</td>
-                                                    </tr>
                                                     <tr>
                                                         <td className="pe-3">性別</td>
                                                         <td className="px-3">{room.poster.gender}</td>
@@ -352,7 +347,7 @@ export default function RoomDetail() {
                         <div className="messageItem mb-3 d-flex ">
                             <img src="https://images.unsplash.com/photo-1508341591423-4347099e1f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hbnxlbnwwfHwwfHx8MA%3D%3D" alt="" className={`object-cover rounded-circle me-2 `} style={{ minWidth: '40px', height: '40px' }} />
                             <div className={`messageBubble p-2 rounded bg-light text-dark`}>
-                                <strong>name</strong>
+                                <strong>name</strong><button className='btn text-success'>回復</button>
                                 <p className="mb-0">Lorae labore ea, inventore consequatur dolorem. Odit optio porro iusto vel molestias non, illo officia corporis cumque ducimus aperiam cum?</p>
                             </div>
                         </div>

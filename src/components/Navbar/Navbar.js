@@ -86,17 +86,11 @@ export default function Navbar() {
                             </NavLink>
                         </li>
                         <li className="nav-item">
-                            <button type="button" className="navLink btn w-100 p-3 text-secondary position-relative" onClick={() => { openChatList(); closeNavbar() }}>
-                                <i className="bi bi-chat-fill me-2" ></i>聊天室
-                            </button>
-                        </li>
-                        <li className="nav-item">
                             <button type="button" className="navLink btn w-100 p-3 text-secondary" onClick={() => { navigate('/member'); closeNavbar(); }}>
                                 <i className="bi bi-person-fill me-2"></i>{userName}
                             </button>
                         </li>
                         <li className="nav-item"><button type="button" className="navLink btn w-100 p-3 text-secondary" onClick={logout}>登出</button></li>
-
                     </>
                 ) : (
                     <>
