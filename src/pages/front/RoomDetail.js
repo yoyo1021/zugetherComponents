@@ -42,6 +42,7 @@ export default function RoomDetail() {
 
       function sendMessage() {
         checkLogin();
+        setMsg("");
     };
 
     const roomImgs = [
@@ -366,7 +367,7 @@ export default function RoomDetail() {
                             <img src="https://images.unsplash.com/photo-1508341591423-4347099e1f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hbnxlbnwwfHwwfHx8MA%3D%3D" alt="" className={`object-cover rounded-circle me-2 `} style={{ minWidth: '40px', height: '40px' }} />
                             <div className={`messageBubble p-2 rounded bg-light text-dark`}>
                                 <strong>name</strong><button className='btn text-success' onClick={reply}>回復</button>
-                                <p className="mb-0">Lorae labore ea, inventore consequatur dolorem. Odit optio porro iusto vel molestias non, illo officia corporis cumque ducimus aperiam cum?</p>
+                                <p className="mb-0">L</p>
                             </div>
                         </div>
                     </div>

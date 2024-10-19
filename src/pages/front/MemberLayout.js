@@ -1,13 +1,33 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet,useLocation } from "react-router-dom";
 import '../../style/pages.scss'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function MemberLayout() {
-    const [activeIndex, setActiveIndex] = useState(null);
+    const [activeIndex, setActiveIndex] = useState(0);
     const handleActive = (index) => {
-        setActiveIndex(index)
+        setActiveIndex(index);
     }
+    const location = useLocation();
 
+    useEffect(()=>{
+        switch (location.pathname) {
+            case '/member/editPassword':
+                setActiveIndex(1);
+                break;
+            case '/member/editInfo':
+                setActiveIndex(2);
+                break;
+            case '/member/addRoom':
+                setActiveIndex(3);
+                break;
+            case '/member/editRoom':
+                setActiveIndex(4);
+                break;
+            default:
+                setActiveIndex(0);
+                break;
+        }
+    },[location.pathname])
 
     return (
         <section className="memberLayout container py-5">
@@ -15,7 +35,7 @@ export default function MemberLayout() {
                 <div className='border memberWrapper mb-3'>
                     <ul className='list-group list-group-flush memberList'>
                         <Link
-                            className={`list-group-item list-group-item-action border-0 text-center py-3 ${activeIndex === 0 ? 'active' : ''}`}
+                            className={`list-group-item list-group-item-action border-0 text-center  py-3 ${activeIndex === 0 ? 'active' : ''}`}
                             to=''
                             onClick={() => handleActive(0)}
                         >
