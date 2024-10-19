@@ -9,6 +9,7 @@ import { useLogin } from "../../store/dataStore";
 export default function RoomDetail() {
     const { isLogin } = useLogin();
     const [showAlert, setShowAlert] = useState(false);
+    const [msg, setMsg] = useState("");
 
     function checkLogin() {
         if (!isLogin) {
@@ -28,7 +29,18 @@ export default function RoomDetail() {
         checkLogin();
     };
 
-    function sendMessage() {
+    
+
+    function reply(tag){
+        checkLogin();
+        setMsg(`${tag} :`)
+    }
+
+    function handleInputChange(e) {
+        setMsg(e.target.value);
+      }
+
+      function sendMessage() {
         checkLogin();
     };
 
@@ -265,7 +277,6 @@ export default function RoomDetail() {
                                             <p className="card-text">性別 : {room.poster.gender}</p>
                                             <p className="card-text">連絡電話 : {room.poster.tel}
                                                 <span className="material-symbols-outlined me-2">smartphone</span>
-                                                 
                                             </p> */}
                                             <div className="card-text ">自我介紹
                                                 <p className="text-break">{room.poster.intro}</p>
@@ -319,50 +330,52 @@ export default function RoomDetail() {
                         <div className="messageItem mb-3 d-flex ">
                             <img src="https://images.unsplash.com/photo-1508341591423-4347099e1f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hbnxlbnwwfHwwfHx8MA%3D%3D" alt="" className={`object-cover rounded-circle me-2 `} style={{ minWidth: '40px', height: '40px' }} />
                             <div className={`messageBubble p-2 rounded bg-light text-dark`}>
-                                <strong>name</strong>
+                                <strong>name</strong><button className='btn text-success'  onClick={()=>reply("b1")}>回復</button>
                                 <p className="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam culpa repudiandae labore ea, inventore consequatur dolorem. Odit optio porro iusto vel molestias non, illo officia corporis cumque ducimus aperiam cum?</p>
                             </div>
                         </div>
                         <div className="messageItem mb-3 d-flex ">
                             <img src="https://images.unsplash.com/photo-1508341591423-4347099e1f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hbnxlbnwwfHwwfHx8MA%3D%3D" alt="" className={`object-cover rounded-circle me-2 `} style={{ minWidth: '40px', height: '40px' }} />
                             <div className={`messageBubble p-2 rounded bg-light text-dark`}>
-                                <strong>name</strong>
+                                <strong>name</strong><button className='btn text-success'  onClick={()=>reply("b2")}>回復</button>
                                 <p className="mb-0">Lorae labore ea, inventore consequatur dolorem. Odit optio porro iusto vel molestias non, illo officia corporis cumque ducimus aperiam cum?</p>
                             </div>
                         </div>
                         <div className="messageItem mb-3 d-flex ">
                             <img src="https://images.unsplash.com/photo-1508341591423-4347099e1f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hbnxlbnwwfHwwfHx8MA%3D%3D" alt="" className={`object-cover rounded-circle me-2 `} style={{ minWidth: '40px', height: '40px' }} />
                             <div className={`messageBubble p-2 rounded bg-light text-dark`}>
-                                <strong>name</strong>
+                                <strong>name</strong><button className='btn text-success'  onClick={reply}>回復</button>
                                 <p className="mb-0">Lorae labore ea, inventore consequatur dolorem. Odit optio porro iusto vel molestias non, illo officia corporis cumque ducimus aperiam cum?</p>
                             </div>
                         </div>
                         <div className="messageItem mb-3 d-flex ">
                             <img src="https://images.unsplash.com/photo-1508341591423-4347099e1f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hbnxlbnwwfHwwfHx8MA%3D%3D" alt="" className={`object-cover rounded-circle me-2 `} style={{ minWidth: '40px', height: '40px' }} />
                             <div className={`messageBubble p-2 rounded bg-light text-dark`}>
-                                <strong>name</strong>
+                                <strong>name</strong><button className='btn text-success'  onClick={reply}>回復</button>
                                 <p className="mb-0">Lorae labore ea, inventore consequatur dolorem. Odit optio porro iusto vel molestias non, illo officia corporis cumque ducimus aperiam cum?</p>
                             </div>
                         </div>
                         <div className="messageItem mb-3 d-flex ">
                             <img src="https://images.unsplash.com/photo-1508341591423-4347099e1f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hbnxlbnwwfHwwfHx8MA%3D%3D" alt="" className={`object-cover rounded-circle me-2 `} style={{ minWidth: '40px', height: '40px' }} />
                             <div className={`messageBubble p-2 rounded bg-light text-dark`}>
-                                <strong>name</strong><button className='btn text-success'>回復</button>
+                                <strong>name</strong><button className='btn text-success'  onClick={reply}>回復</button>
                                 <p className="mb-0">Lorae labore ea, inventore consequatur dolorem. Odit optio porro iusto vel molestias non, illo officia corporis cumque ducimus aperiam cum?</p>
                             </div>
                         </div>
                         <div className="messageItem mb-3 d-flex ">
                             <img src="https://images.unsplash.com/photo-1508341591423-4347099e1f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hbnxlbnwwfHwwfHx8MA%3D%3D" alt="" className={`object-cover rounded-circle me-2 `} style={{ minWidth: '40px', height: '40px' }} />
                             <div className={`messageBubble p-2 rounded bg-light text-dark`}>
-                                <strong>name</strong>
+                                <strong>name</strong><button className='btn text-success' onClick={reply}>回復</button>
                                 <p className="mb-0">Lorae labore ea, inventore consequatur dolorem. Odit optio porro iusto vel molestias non, illo officia corporis cumque ducimus aperiam cum?</p>
                             </div>
                         </div>
                     </div>
                     <div className="inputGroup justify-content-end">
                         <div className="input-group ps-2">
-                            <input type="text" className="form-control" placeholder="請輸入訊息...." />
-                            <button className="btn btn-primary" type="button">Send</button>
+                            <input type="text" className="form-control" placeholder="請輸入訊息...." onChange={handleInputChange} value={msg}/>
+                            <button className="btn btn-primary" type="button" onClick={sendMessage}>
+                                <i className="bi bi-send"></i>
+                            </button>
                         </div>
                     </div>
                 </div>

@@ -14,7 +14,8 @@ import Rooms from './pages/front/Rooms';
 import RoomDetail from './pages/front/RoomDetail';
 import Favorite from './pages/front/Favorite';
 import MemberLaout from './pages/front/MemberLayout';
-import { EditPassword, EditInfo, AddRoom, EditRoom } from './pages/front/MemberPages';
+import { MemberInfo,EditPassword, EditInfo, AddRoom, EditRoom } from './pages/front/MemberPages';
+import PersonalInfo  from './pages/front/PersonalInfo';
 import NotFound from './pages/NotFound';
 import Contact from './pages/front/Contact';
 import AOS from 'aos';
@@ -46,7 +47,9 @@ function App() {
             <Route path='articles/:id' element={<ArticleDetail />}></Route>
             <Route path='rooms' element={<Rooms />}></Route>
             <Route path='rooms/:id' element={<RoomDetail />}></Route>
+            <Route path='/:id' element={<PersonalInfo />}></Route>
             <Route path='member' element={<MemberLaout />}>
+              <Route path='' element={<MemberInfo />} />
               <Route path='editPassword' element={<EditPassword />} />
               <Route path='editInfo' element={<EditInfo />} />
               <Route path='addRoom' element={<AddRoom />} />
