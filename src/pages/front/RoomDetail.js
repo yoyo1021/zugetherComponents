@@ -29,18 +29,18 @@ export default function RoomDetail() {
         checkLogin();
     };
 
-    
 
-    function reply(tag){
+
+    function reply(tag) {
         checkLogin();
         setMsg(`${tag} :`)
     }
 
     function handleInputChange(e) {
         setMsg(e.target.value);
-      }
+    }
 
-      function sendMessage() {
+    function sendMessage() {
         checkLogin();
         setMsg("");
     };
@@ -112,7 +112,7 @@ export default function RoomDetail() {
                     <PageTitle title={'房間資訊'} />
                     <div className="roomInfo " >
                         <div className="card p-3 shadow-sm">
-                            <div className="row row-cols-1 row-cols-md-2">
+                            <div className="row row-cols-1 row-cols-lg-2">
                                 <div className="col">
                                     <div className="mb-2 d-flex align-items-center">
                                         <span className="material-symbols-outlined me-2">
@@ -120,70 +120,68 @@ export default function RoomDetail() {
                                         </span>
                                         樓層 : {room.floor}
                                     </div>
-                                </div>
-                                <div className="col">
                                     <div className="mb-2 d-flex align-items-center">
                                         <span className="material-symbols-outlined me-2">
                                             night_shelter
                                         </span>
                                         房型 : {room.roomStyle}
                                     </div>
-                                </div>
-                                <div className="col">
                                     <div className="mb-2 d-flex align-items-center">
                                         <span className="material-symbols-outlined me-2">
                                             bed
                                         </span>
                                         床型 : {room.bed}
-                                    </div>
-                                </div>
-                                <div className="col">
-                                    <div className="mb-2 d-flex align-items-center">
+                                    </div><div className="mb-2 d-flex align-items-center">
                                         <span className="material-symbols-outlined me-2">
                                             paid
                                         </span>
                                         租金 : {room.rent}/月(不含水電及管理費月)
                                     </div>
-                                </div>
-                                <div className="col">
                                     <div className="mb-2 d-flex align-items-center">
                                         <span className="material-symbols-outlined me-2">
                                             paid
                                         </span>
                                         管理費 : {room.managePaid}/月
                                     </div>
-                                </div>
-                                <div className="col">
                                     <div className="mb-2 d-flex align-items-center">
                                         <span className="material-symbols-outlined me-2" style={{ transform: 'rotate(-45deg)' }}>
                                             width
                                         </span>
                                         房間大小 : {room.size}坪
                                     </div>
-                                </div>
-                                <div className="col">
                                     <div className="mb-2 d-flex align-items-center">
                                         <span className="material-symbols-outlined me-2">
                                             person
                                         </span>
                                         徵求人數 : 尋求{room.people}位
                                     </div>
-                                </div>
-                                <div className="col">
                                     <div className="mb-2 d-flex align-items-center">
                                         <span className="material-symbols-outlined me-2">
                                             location_on
                                         </span>
                                         地址 : {room.address}
                                     </div>
+                                    <div className="mb-2 d-flex align-items-start">
+                                        <span className="material-symbols-outlined me-2">
+                                            folded_hands
+                                        </span>
+                                        理想室友 : {room.expect}
+                                    </div>
+                                </div>
+                                <div className="col">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1807.8395178531132!2d121.458692!3d25.01102!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a81d1e80379b%3A0x6e5b320368af0131!2zMjIw5Y-w54Gj5paw5YyX5biC5p2_5qmL5Y2A5paH5YyW6Lev5LiA5q61MjbomZ8!5e0!3m2!1szh-TW!2sus!4v1726540570804!5m2!1szh-TW!2sus"
+                                        data-aos="fade-down"
+                                        className="w-100"
+                                        height="450"
+                                        allowFullScreen=""
+                                        loading="lazy"
+                                        referrerPolicy="no-referrer-when-downgrade"
+                                        title="Google Map showing a location in Taiwan"
+                                    >
+                                    </iframe>
                                 </div>
                             </div>
-                            <div className="mb-2 d-flex align-items-start">
-                                <span className="material-symbols-outlined me-2">
-                                    folded_hands
-                                </span>
-                                理想室友 : {room.expect}
-                            </div>
+
                             <hr />
                             <div className="roomEquipment p-3">
                                 <h3>房間設備</h3>
@@ -312,54 +310,40 @@ export default function RoomDetail() {
                         </div>
                     </div>
                 </div>
-                <div className="host py-3">
-                    <PageTitle title={'地圖資訊'} />
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1807.8395178531132!2d121.458692!3d25.01102!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a81d1e80379b%3A0x6e5b320368af0131!2zMjIw5Y-w54Gj5paw5YyX5biC5p2_5qmL5Y2A5paH5YyW6Lev5LiA5q61MjbomZ8!5e0!3m2!1szh-TW!2sus!4v1726540570804!5m2!1szh-TW!2sus"
-                        data-aos="fade-down"
-                        className="w-100"
-                        height="450"
-                        allowFullScreen=""
-                        loading="lazy"
-                        referrerPolicy="no-referrer-when-downgrade"
-                        title="Google Map showing a location in Taiwan"
-                    >
-                    </iframe>
-                </div>
-
                 <div className="discussion border d-flex flex-column justify-content-between p-3" style={{ height: "600px", backgroundColor: '#f8f9fa' }}>
-                    <div className="discussionArea overflow-auto" style={{ maxHeight: "510px"}}>
+                    <div className="discussionArea overflow-auto" style={{ maxHeight: "510px" }}>
                         <div className="messageItem mb-3 d-flex ">
                             <img src="https://images.unsplash.com/photo-1508341591423-4347099e1f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hbnxlbnwwfHwwfHx8MA%3D%3D" alt="" className={`object-cover rounded-circle me-2 `} style={{ minWidth: '40px', height: '40px' }} />
                             <div className={`messageBubble p-2 rounded bg-light text-dark`}>
-                                <strong>name</strong><button className='btn text-success'  onClick={()=>reply("b1")}>回復</button>
+                                <strong>name</strong><button className='btn text-success' onClick={() => reply("b1")}>回復</button>
                                 <p className="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam culpa repudiandae labore ea, inventore consequatur dolorem. Odit optio porro iusto vel molestias non, illo officia corporis cumque ducimus aperiam cum?</p>
                             </div>
                         </div>
                         <div className="messageItem mb-3 d-flex ">
                             <img src="https://images.unsplash.com/photo-1508341591423-4347099e1f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hbnxlbnwwfHwwfHx8MA%3D%3D" alt="" className={`object-cover rounded-circle me-2 `} style={{ minWidth: '40px', height: '40px' }} />
                             <div className={`messageBubble p-2 rounded bg-light text-dark`}>
-                                <strong>name</strong><button className='btn text-success'  onClick={()=>reply("b2")}>回復</button>
+                                <strong>name</strong><button className='btn text-success' onClick={() => reply("b2")}>回復</button>
                                 <p className="mb-0">Lorae labore ea, inventore consequatur dolorem. Odit optio porro iusto vel molestias non, illo officia corporis cumque ducimus aperiam cum?</p>
                             </div>
                         </div>
                         <div className="messageItem mb-3 d-flex ">
                             <img src="https://images.unsplash.com/photo-1508341591423-4347099e1f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hbnxlbnwwfHwwfHx8MA%3D%3D" alt="" className={`object-cover rounded-circle me-2 `} style={{ minWidth: '40px', height: '40px' }} />
                             <div className={`messageBubble p-2 rounded bg-light text-dark`}>
-                                <strong>name</strong><button className='btn text-success'  onClick={reply}>回復</button>
+                                <strong>name</strong><button className='btn text-success' onClick={reply}>回復</button>
                                 <p className="mb-0">Lorae labore ea, inventore consequatur dolorem. Odit optio porro iusto vel molestias non, illo officia corporis cumque ducimus aperiam cum?</p>
                             </div>
                         </div>
                         <div className="messageItem mb-3 d-flex ">
                             <img src="https://images.unsplash.com/photo-1508341591423-4347099e1f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hbnxlbnwwfHwwfHx8MA%3D%3D" alt="" className={`object-cover rounded-circle me-2 `} style={{ minWidth: '40px', height: '40px' }} />
                             <div className={`messageBubble p-2 rounded bg-light text-dark`}>
-                                <strong>name</strong><button className='btn text-success'  onClick={reply}>回復</button>
+                                <strong>name</strong><button className='btn text-success' onClick={reply}>回復</button>
                                 <p className="mb-0">Lorae labore ea, inventore consequatur dolorem. Odit optio porro iusto vel molestias non, illo officia corporis cumque ducimus aperiam cum?</p>
                             </div>
                         </div>
                         <div className="messageItem mb-3 d-flex ">
                             <img src="https://images.unsplash.com/photo-1508341591423-4347099e1f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hbnxlbnwwfHwwfHx8MA%3D%3D" alt="" className={`object-cover rounded-circle me-2 `} style={{ minWidth: '40px', height: '40px' }} />
                             <div className={`messageBubble p-2 rounded bg-light text-dark`}>
-                                <strong>name</strong><button className='btn text-success'  onClick={reply}>回復</button>
+                                <strong>name</strong><button className='btn text-success' onClick={reply}>回復</button>
                                 <p className="mb-0">Lorae labore ea, inventore consequatur dolorem. Odit optio porro iusto vel molestias non, illo officia corporis cumque ducimus aperiam cum?</p>
                             </div>
                         </div>
@@ -373,7 +357,7 @@ export default function RoomDetail() {
                     </div>
                     <div className="inputGroup justify-content-end">
                         <div className="input-group ps-2">
-                            <input type="text" className="form-control" placeholder="請輸入訊息...." onChange={handleInputChange} value={msg}/>
+                            <input type="text" className="form-control" placeholder="請輸入訊息...." onChange={handleInputChange} value={msg} />
                             <button className="btn btn-primary" type="button" onClick={sendMessage}>
                                 <i className="bi bi-send"></i>
                             </button>
