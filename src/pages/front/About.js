@@ -5,7 +5,7 @@ export default function About() {
         <section className='about container  py-5 d-flex flex-column align-items-center'>
             <PageTitle title={'關於我們'} />
             <div className="aboutContent">
-                <p className='p-3 fw-bold aboutTxt lh-base'>
+                <p className='p-3 fw-bold aboutTxt CustomizedScroll lh-base'>
                     我們致力於開發一個全新的合租平台，旨在為使用者提供一個方便且可靠的管道來滿足您的租屋需求。無論您是希望找到志同道合的合租夥伴，還是想更深入地了解潛在的室友，我們的平台都能滿足您的需求。
                     <br />
                     我們提供了多樣化的篩選器，讓您可以輕鬆地找到符合自己偏好的合租夥伴。使用者可以利用我們的聊天系統，與潛在室友進一步溝通，了解彼此的興趣、生活習慣與個性。此外，您可以透過完整的自我介紹，展示您的個性與興趣，讓對方更了解您。

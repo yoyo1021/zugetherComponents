@@ -223,6 +223,20 @@
 .aboutTxt {
     font-size: 24px;
     background-color: #ecdf121f;
+    @media (max-width:768px) {
+        font-size: 20px;
+    }
+
+    @media(max-width: 500px) {
+        max-height: 356px;
+        overflow-y: scroll;
+        font-size: 18px;
+    }
+
+}
+
+//CustomizedScroll
+.CustomizedScroll {
 
     //捲軸底色
     &::-webkit-scrollbar-track {
@@ -242,13 +256,5 @@
         border-radius: 4px;
     }
 
-    @media (max-width:768px) {
-        font-size: 20px;
-    }
-
-    @media(max-width: 500px) {
-        max-height: 356px;
-        overflow-y: scroll;
-        font-size: 18px;
-    }
+    
 }

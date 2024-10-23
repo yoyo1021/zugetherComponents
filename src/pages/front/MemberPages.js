@@ -14,78 +14,115 @@ export function MemberInfo() {
             id: 1,
             Mid: 1,
             nickName: "吳康人",
-            avatar:"https://images.unsplash.com/photo-1508341591423-4347099e1f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hbnxlbnwwfHwwfHx8MA%3D%3D"
+            avatar: "https://images.unsplash.com/photo-1508341591423-4347099e1f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hbnxlbnwwfHwwfHx8MA%3D%3D"
         },
         {
             id: 2,
             Mid: 10,
             nickName: "吳康人2",
-            avatar:"https://images.unsplash.com/photo-1508341591423-4347099e1f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hbnxlbnwwfHwwfHx8MA%3D%3D"
+            avatar: "https://images.unsplash.com/photo-1508341591423-4347099e1f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hbnxlbnwwfHwwfHx8MA%3D%3D"
         },
         {
             id: 3,
             Mid: 120,
             nickName: "吳康人3",
-            avatar:"https://images.unsplash.com/photo-1508341591423-4347099e1f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hbnxlbnwwfHwwfHx8MA%3D%3D"
+            avatar: "https://images.unsplash.com/photo-1508341591423-4347099e1f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hbnxlbnwwfHwwfHx8MA%3D%3D"
         },
         {
             id: 4,
             Mid: 90,
             nickName: "吳康人4",
-            avatar:"https://images.unsplash.com/photo-1508341591423-4347099e1f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hbnxlbnwwfHwwfHx8MA%3D%3D"
+            avatar: "https://images.unsplash.com/photo-1508341591423-4347099e1f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hbnxlbnwwfHwwfHx8MA%3D%3D"
         },
         {
             id: 5,
             Mid: 62,
             nickName: "吳康人5",
-            avatar:"https://images.unsplash.com/photo-1508341591423-4347099e1f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hbnxlbnwwfHwwfHx8MA%3D%3D"
+            avatar: "https://images.unsplash.com/photo-1508341591423-4347099e1f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hbnxlbnwwfHwwfHx8MA%3D%3D"
         },
         {
             id: 6,
             Mid: 87,
             nickName: "吳康人6",
-            avatar:"https://images.unsplash.com/photo-1508341591423-4347099e1f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hbnxlbnwwfHwwfHx8MA%3D%3D"
+            avatar: "https://images.unsplash.com/photo-1508341591423-4347099e1f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hbnxlbnwwfHwwfHx8MA%3D%3D"
         },
     ]
 
+    const handleOpenModal = (Mid) => {
+        console.log(Mid)
+    }
+
     return (
-        <div className="p-3" style={{height:"550px",overflowY:"scroll"}}>
+        <>
             {invitionData ? (<>
-                {invitionData.map((invition,i ) => {
-                    return (
-                        <div className="card mb-3" key={invition.id}>
-                            <div className="row align-items-center">
-                                <div className="col-3 col-md-2 ">
-                                    <div className="card-body">
-                                        <img src={invition.avatar} alt="" className="object-cover rounded-circle me-2 " style={{ width: "70px", height: "70px" }} />
-                                    </div>
-                                </div>
-                                <div className="col-9 col-md-10 ">
-                                    <div className="card-body">
-                                        <div className="d-md-flex flex-column flex-lg-row justify-content-between align-items-center">
-                                            <div className="mb-3 mb-lg-0">
-                                                <h4><Link to={`/${invition.Mid}`} className="text-secondary">{invition.nickName}</Link>向您發出合租邀約</h4>
+                <div className="px-3 CustomizedScroll" style={{ height: "550px", overflowY: "scroll" }}>
+                    {invitionData.map((invition, i) => {
+                        return (
+                            <div key={invition.id}>
+                                <div className="card mb-3" >
+                                    <div className="row align-items-center">
+                                        <div className="col-3 col-md-2 ">
+                                            <div className="card-body">
+                                                <img src={invition.avatar} alt="" className="object-cover rounded-circle me-2 " style={{ width: "70px", height: "70px" }} />
                                             </div>
-                                            <div className="d-flex ">
-                                                <button type="button" className="btn btn-primary w-50 me-2">同意</button>
-                                                <button type="button" className="btn btn-danger w-50">取消</button>
+                                        </div>
+                                        <div className="col-9 col-md-10 ">
+                                            <div className="card-body">
+                                                <div className="d-md-flex flex-column flex-lg-row justify-content-between align-items-center">
+                                                    <div className="mb-3 mb-lg-0">
+                                                        <p className="d-flex align-items-center justify-content-center">
+                                                            <button type="button" className="btn text-secondary" data-bs-toggle="modal" data-bs-target="#MemberModal"
+                                                                style={{marginRight:"-12px"}}
+                                                                onClick={() => handleOpenModal(invition.Mid)}>
+                                                                {invition.nickName}
+                                                            </button>向您發出合租邀約
+                                                        </p>
+                                                    </div>
+                                                    <div className="d-flex ">
+                                                        <button type="button" className="btn btn-primary w-50 me-2">同意</button>
+                                                        <button type="button" className="btn btn-danger w-50">取消</button>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+
+                            </div>
+                        )
+                    })}
+                </div>
+                {/* Modal */}
+                <div className="modal fade" id="MemberModal" data-bs-backdrop="static" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div className="modal-dialog modal-dialog-centered">
+                        <div className="modal-content">
+                            <div className="modal-header border-bottom-0">
+                                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div className="modal-body ">
+                                <div className="d-flex flex-column align-items-center p-3">
+                                    <div className="avatar" style={{ width: "200px", height: "200px" }}>
+                                        <img src="https://images.unsplash.com/photo-1508341591423-4347099e1f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hbnxlbnwwfHwwfHx8MA%3D%3D" alt="" className="rounded-circle object-cover w-100 h-100" />
+                                    </div>
+                                    <h1>吳康人</h1>
+                                    <div className="d-flex flex-column align-items-start">
+                                        <p>暱稱 : 康康</p>
+                                        <p>出生日期 : 1999-01-01</p>
+                                        <p>性別 : 男</p>
+                                        <p>電話 : 0912345678</p>
+                                        <p className="text-break">自我介紹 :大家好，我是吳康人，不是那個吳慷仁，可以叫我康康，但我也不是那個康康，歡迎大家來認識。大家好，我是吳康人，不是那個吳慷仁，可以叫我康康，但我也不是那個康康，歡迎大家來認識。大家好，我是吳康人，不是那個吳慷仁，可以叫我康康，但我也不是那個康康，歡迎大家來認識。因為很重要所以講三次。 </p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    )
-                })}
-
+                    </div>
+                </div>
             </>) : (<>
                 <div className="text-center">
                     <h1>目前尚無通知</h1>
                 </div>
             </>)}
-        </div>
-
-
+        </>
     )
 }
 
