@@ -224,15 +224,15 @@
     font-size: 24px;
     background-color: #ecdf121f;
     @media (max-width:768px) {
+        max-height: 356px;
+        overflow-y: scroll;
         font-size: 20px;
     }
 
     @media(max-width: 500px) {
-        max-height: 356px;
-        overflow-y: scroll;
+        
         font-size: 18px;
     }
-
 }
 
 //CustomizedScroll
@@ -255,6 +255,4 @@
         background-color: $primary;
         border-radius: 4px;
     }
-
-    
 }
