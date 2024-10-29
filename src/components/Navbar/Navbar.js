@@ -63,8 +63,9 @@ export default function Navbar() {
     function logout() {
         setIsLogin(false);
         closeNavbar();
-        window.location.reload();
+        
         navigate('/');
+        window.location.reload();
     }
 
 
