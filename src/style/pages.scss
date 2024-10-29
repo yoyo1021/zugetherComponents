@@ -149,7 +149,7 @@
         font-size: 20px;
     }
     .card {
-        background-color: rgb(237 233 226);
+        background-color: #fff3ee;
         font-size: 20px;
         border: none;
     }
@@ -208,7 +208,7 @@
 
 //about page
 .aboutContent {
-    background-image: url('../assets//images/aboutBg2.jpg');
+    background-image: url('../assets//images/aboutBg.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -255,4 +255,8 @@
         background-color: $primary;
         border-radius: 4px;
     }
+}
+
+.messageBubble{
+    background-color: #fff3ee;
 }

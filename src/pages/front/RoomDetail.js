@@ -310,46 +310,48 @@ export default function RoomDetail() {
                         </div>
                     </div>
                 </div>
-                <div className="discussion border d-flex flex-column justify-content-between p-3" style={{ height: "600px", backgroundColor: '#f8f9fa' }}>
-                    <div className="discussionArea overflow-auto" style={{ maxHeight: "510px" }}>
+                <div className="discussion py-3">
+                <PageTitle title={'留言板'} />
+                <div className=" border d-flex flex-column justify-content-between p-3 rounded" style={{ height: "600px" }}>
+                    <div className="discussionArea overflow-auto CustomizedScroll pe-2" style={{ maxHeight: "510px" }}>
                         <div className="messageItem mb-3 d-flex ">
                             <img src="https://images.unsplash.com/photo-1508341591423-4347099e1f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hbnxlbnwwfHwwfHx8MA%3D%3D" alt="" className={`object-cover rounded-circle me-2 `} style={{ minWidth: '40px', height: '40px' }} />
-                            <div className={`messageBubble p-2 rounded bg-light text-dark`}>
+                            <div className={`messageBubble p-2 rounded  text-dark`}>
                                 <strong>name</strong><button className='btn text-success' onClick={() => reply("b1")}>回復</button>
                                 <p className="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam culpa repudiandae labore ea, inventore consequatur dolorem. Odit optio porro iusto vel molestias non, illo officia corporis cumque ducimus aperiam cum?</p>
                             </div>
                         </div>
                         <div className="messageItem mb-3 d-flex ">
                             <img src="https://images.unsplash.com/photo-1508341591423-4347099e1f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hbnxlbnwwfHwwfHx8MA%3D%3D" alt="" className={`object-cover rounded-circle me-2 `} style={{ minWidth: '40px', height: '40px' }} />
-                            <div className={`messageBubble p-2 rounded bg-light text-dark`}>
+                            <div className={`messageBubble p-2 rounded  text-dark`}>
                                 <strong>name</strong><button className='btn text-success' onClick={() => reply("b2")}>回復</button>
                                 <p className="mb-0">Lorae labore ea, inventore consequatur dolorem. Odit optio porro iusto vel molestias non, illo officia corporis cumque ducimus aperiam cum?</p>
                             </div>
                         </div>
                         <div className="messageItem mb-3 d-flex ">
                             <img src="https://images.unsplash.com/photo-1508341591423-4347099e1f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hbnxlbnwwfHwwfHx8MA%3D%3D" alt="" className={`object-cover rounded-circle me-2 `} style={{ minWidth: '40px', height: '40px' }} />
-                            <div className={`messageBubble p-2 rounded bg-light text-dark`}>
+                            <div className={`messageBubble p-2 rounded  text-dark`}>
                                 <strong>name</strong><button className='btn text-success' onClick={reply}>回復</button>
                                 <p className="mb-0">Lorae labore ea, inventore consequatur dolorem. Odit optio porro iusto vel molestias non, illo officia corporis cumque ducimus aperiam cum?</p>
                             </div>
                         </div>
                         <div className="messageItem mb-3 d-flex ">
                             <img src="https://images.unsplash.com/photo-1508341591423-4347099e1f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hbnxlbnwwfHwwfHx8MA%3D%3D" alt="" className={`object-cover rounded-circle me-2 `} style={{ minWidth: '40px', height: '40px' }} />
-                            <div className={`messageBubble p-2 rounded bg-light text-dark`}>
+                            <div className={`messageBubble p-2 rounded  text-dark`}>
                                 <strong>name</strong><button className='btn text-success' onClick={reply}>回復</button>
                                 <p className="mb-0">Lorae labore ea, inventore consequatur dolorem. Odit optio porro iusto vel molestias non, illo officia corporis cumque ducimus aperiam cum?</p>
                             </div>
                         </div>
                         <div className="messageItem mb-3 d-flex ">
                             <img src="https://images.unsplash.com/photo-1508341591423-4347099e1f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hbnxlbnwwfHwwfHx8MA%3D%3D" alt="" className={`object-cover rounded-circle me-2 `} style={{ minWidth: '40px', height: '40px' }} />
-                            <div className={`messageBubble p-2 rounded bg-light text-dark`}>
+                            <div className={`messageBubble p-2 rounded  text-dark`}>
                                 <strong>name</strong><button className='btn text-success' onClick={reply}>回復</button>
                                 <p className="mb-0">Lorae labore ea, inventore consequatur dolorem. Odit optio porro iusto vel molestias non, illo officia corporis cumque ducimus aperiam cum?</p>
                             </div>
                         </div>
                         <div className="messageItem mb-3 d-flex ">
                             <img src="https://images.unsplash.com/photo-1508341591423-4347099e1f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG1hbnxlbnwwfHwwfHx8MA%3D%3D" alt="" className={`object-cover rounded-circle me-2 `} style={{ minWidth: '40px', height: '40px' }} />
-                            <div className={`messageBubble p-2 rounded bg-light text-dark`}>
+                            <div className={`messageBubble p-2 rounded  text-dark`}>
                                 <strong>name</strong><button className='btn text-success' onClick={reply}>回復</button>
                                 <p className="mb-0">L</p>
                             </div>
@@ -364,6 +366,8 @@ export default function RoomDetail() {
                         </div>
                     </div>
                 </div>
+                </div>
+                
 
 
                 <div className="d-flex justify-content-center pt-3 ">
