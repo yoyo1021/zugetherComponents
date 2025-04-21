@@ -234,6 +234,14 @@
     }
 }
 
+// articleDetail page
+.articlePhoto{
+    height: 400px;
+    @media (max-width:567px) {
+        height: 300px;
+    }
+}
+
 //CustomizedScroll
 .CustomizedScroll {
 

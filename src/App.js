@@ -1,6 +1,7 @@
 import './style/all.scss';
 import './style/pages.scss';
 import "bootstrap-icons/font/bootstrap-icons.css";
+import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'animate.css';
 
 import { Routes, Route } from 'react-router-dom';
@@ -25,6 +26,7 @@ import Dashboard from './pages/admin/Dashboard';
 import AdminArticle from './pages/admin/AdminArticle';
 import AdminMemeber from './pages/admin/AdminMember';
 import AdminRoom from './pages/admin/AdminRoom';
+import Test from './pages/admin/Test';
 
 
 function App() {
@@ -62,6 +64,7 @@ function App() {
             <Route path='articles' element={<AdminArticle />} />
             <Route path='members' element={<AdminMemeber />} />
             <Route path='rooms' element={<AdminRoom />} />
+            <Route path='test' element={<Test />} />
           </Route>
 
           {/* 404 */}

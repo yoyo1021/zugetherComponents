@@ -57,6 +57,12 @@ export default function Dashboard() {
                             <i className='bi bi-house-add me-2' />
                             刊登合租列表
                         </Link>
+                        <Link
+                            className='list-group-item list-group-item-action py-3'
+                            to='/admin/test'
+                        >
+                            測試
+                        </Link>
                     </ul>
                 </div>
                 <div className='w-100'>  

@@ -4,7 +4,7 @@ import friends1 from '../../assets/images/friends.jpg';
 import bannerImg1 from '../../assets/images/banner.jpg';
 import { AdvantageCard } from "../../components/Card/Card";
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
     const bannerDatas = [
@@ -21,7 +21,7 @@ export default function Home() {
             text: ''
         },
     ]
-
+    
     return (
         <>
             <FilterOffcanvas />
