@@ -68,7 +68,7 @@ export function Checkbox({ id, labelName, errors, register, rules }) {
     )
 }
 
-export function Radio({ id, name, value, labelName, errors, register, rules }) {
+export function Radio({ id, name, value, labelName, errors, register, rules}) {
     return (
         <>
             <div className="mb-3">

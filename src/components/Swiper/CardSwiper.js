@@ -14,13 +14,19 @@ import 'swiper/css/pagination';
 
 
 export function CardSwiper({ AticleDatas }) {
+    let enabled = 0;
+    AticleDatas.forEach(a => {
+        if(a.enabled){
+            enabled++
+        }
+    });
     return (
         <Swiper
             effect={'coverflow'}
             grabCursor={true}
             centeredSlides={true}
             slidesPerView={1.5}
-            loop={true}
+            loop={enabled>3?true:false}
             direction={'vertical'}
 
             coverflowEffect={{
@@ -33,12 +39,12 @@ export function CardSwiper({ AticleDatas }) {
             pagination={true}
             breakpoints={{
                 768: {
-                    slidesPerView: 2,
+                    slidesPerView:2,
                     direction: 'horizontal', // 平板及以上水平滑动
                     mousewheel: true
                 },
                 1200: {
-                    slidesPerView: 3,
+                    slidesPerView: 2,
                     direction: 'horizontal', // 平板及以上水平滑动
                 }
             }}
@@ -61,69 +67,19 @@ export function CardSwiper({ AticleDatas }) {
         >
             {AticleDatas.map((article, i) => {
                 return (
-                    <SwiperSlide key={article.id}>
-                        <Link to={`/articles/${article.id}`}>
-                            <div className="card"  style={{ width:'99%' }}>
-                                <img src="https://images.unsplash.com/photo-1634954156587-45fcb6564120?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" className="card-img-top object-cover" alt="..." />
+                    article.enabled &&
+                    <SwiperSlide key={i}>
+                        <Link to={`/articles/${article.articleId}`}>
+                            <div className="card"  style={{ width:'400px' }}>
+                                <img src={`data:image/jpeg;base64,${article.photo}`} className="card-img-top object-cover" alt={article.title} style={{height:"300px"}}/>
                                 <div className="card-body">
                                     <h5 className="card-title">{article.title}</h5>
-                                    {/* <p className="card-text d-block text-truncate">{article.content}</p> */}
                                 </div>
                             </div>
                         </Link>
-
                     </SwiperSlide>
                 )
             })}
-
-            {/* <SwiperSlide>
-                    
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className="card" style={{width:'99%'}} >
-                        <img src="https://images.unsplash.com/photo-1634954156587-45fcb6564120?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" className="card-img-top object-cover" alt="..." />
-                        <div className="card-body">
-                            <h5 className="card-title">Card title</h5>
-                            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className="card" style={{width:'99%'}} >
-                        <img src="https://images.unsplash.com/photo-1634954156587-45fcb6564120?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" className="card-img-top object-cover" alt="..." />
-                        <div className="card-body">
-                            <h5 className="card-title">Card title</h5>
-                            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className="card" style={{width:'99%'}} >
-                        <img src="https://images.unsplash.com/photo-1634954156587-45fcb6564120?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" className="card-img-top object-cover" alt="..." />
-                        <div className="card-body">
-                            <h5 className="card-title">Card title</h5>
-                            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className="card" style={{width:'99%'}} >
-                        <img src="https://images.unsplash.com/photo-1634954156587-45fcb6564120?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" className="card-img-top object-cover" alt="..." />
-                        <div className="card-body">
-                            <h5 className="card-title">Card title</h5>
-                            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className="card" style={{width:'99%'}} >
-                        <img src="https://images.unsplash.com/photo-1634954156587-45fcb6564120?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" className="card-img-top object-cover" alt="..." />
-                        <div className="card-body">
-                            <h5 className="card-title">Card title</h5>
-                            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </SwiperSlide> */}
         </Swiper>
     )
 }

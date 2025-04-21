@@ -13,8 +13,7 @@ export default function Navbar() {
     const loginModal = useRef(null);
     const navigate = useNavigate();
     //const [isLogin, setIsLogin] = useState(false);
-    const {isLogin,setIsLogin} = useLogin();
-    const [userName] = useState('user');
+    const {isLogin,setIsLogin,member,setMember} = useLogin();
     const [openChatList, setOpenChatList] = useState(null);
 
     useEffect(() => {
@@ -63,7 +62,8 @@ export default function Navbar() {
     function logout() {
         setIsLogin(false);
         closeNavbar();
-        window.location.reload();
+        //window.location.reload();
+        setMember({});
         navigate('/');
     }
 
@@ -87,7 +87,7 @@ export default function Navbar() {
                         </li>
                         <li className="nav-item">
                             <button type="button" className="navLink btn w-100 p-3 lightSecondary" onClick={() => { navigate('/member'); closeNavbar(); }}>
-                                <i className="bi bi-person-fill me-2"></i>{userName}
+                                <i className="bi bi-person-fill me-2"></i>{member.name}
                             </button>
                         </li>
                         <li className="nav-item"><button type="button" className="navLink btn w-100 p-3 lightSecondary" onClick={logout}>登出</button></li>

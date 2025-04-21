@@ -4,14 +4,22 @@ import { useForm } from "react-hook-form";
 import { useLogin } from "../../store/dataStore";
 import { useEffect, useRef, useState } from "react";
 import Loading from '../Loading/Loading';
+import axios from "axios";
+import Alert from "../Alert/Alert";
 
 export default function LoginModal({ closeModal }) {
-    const { setIsLogin } = useLogin();
+    const { setIsLogin,setMember } = useLogin();
+
     const [email, setEmail] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const [forgot, setForgot] = useState(false);
     const [validateEmail, setValidateEmail] = useState("");
     const [validate, setValidate] = useState(false);
+    const [alert,setAlert] = useState({
+        color:"",
+        msg:"",
+        status:false,
+    })
     const memberRef = useRef(null);
     const navigate = useNavigate();
     let isRemember = localStorage.getItem("remember");
@@ -39,7 +47,7 @@ export default function LoginModal({ closeModal }) {
         if (isRemember) {
             memberRef.current.checked = true
             // 防止被偵測未填寫
-            setValue("loginEmail", localStorage.getItem("email"))
+            setValue("Email", localStorage.getItem("email"))
             //email帶值到畫面
             setEmail(localStorage.getItem("email"))
             //isRemember = true
@@ -63,7 +71,28 @@ export default function LoginModal({ closeModal }) {
         }else{
             setForgot(false);
             setValidate(false);
-            console.log(data);
+            setIsLoading(true);
+            axios.post("https://localhost:7095/api/login",data).then((res)=>{
+                setAlert({
+                    color:res.data.color,
+                    msg:res.data.message,
+                    status:true
+                });
+                if(res.data.color==="success"){
+                    setMember(res.data.existEmail) //登入成功取得會員資料
+                }
+                setIsLoading(false);
+                setTimeout(() => {
+                    setAlert({
+                        color:"",
+                        msg:"",
+                        status:false
+                    });
+                }, 2000);
+            }).catch((err)=>{
+                console.log(err);
+                setIsLoading(false);
+            })
             closeModal();
             setIsLogin(true); //判斷登入
         }
@@ -72,11 +101,6 @@ export default function LoginModal({ closeModal }) {
         } else {
             reset();
         } 
-        
-        setIsLoading(true);
-        setTimeout(() => {
-            setIsLoading(false);
-        }, 2000);
     }
 
     const forgotPw = (e) => {
@@ -103,6 +127,7 @@ export default function LoginModal({ closeModal }) {
 
     return (
         <>
+            <Alert color={alert.color} alertTxt={alert.msg} status={alert.status}/>
             <Loading isLoading={isLoading} />
             <div className="modal fade" id='loginModal' data-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered">
@@ -162,7 +187,7 @@ export default function LoginModal({ closeModal }) {
                                 <form onSubmit={handleSubmit(onSubmit)}>
                                     <Input
                                         type='email'
-                                        id='loginEmail'
+                                        id='Email'
                                         lableName='Email'
                                         placeholder='請輸入信箱'
                                         errors={errors}
@@ -179,7 +204,7 @@ export default function LoginModal({ closeModal }) {
                                     />
                                     <Input
                                         type='password'
-                                        id='loginPassword'
+                                        id='pw'
                                         lableName='密碼'
                                         placeholder='請輸入密碼'
                                         errors={errors}

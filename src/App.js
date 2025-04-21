@@ -1,6 +1,7 @@
 import './style/all.scss';
 import './style/pages.scss';
 import "bootstrap-icons/font/bootstrap-icons.css";
+import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'animate.css';
 
 import { Routes, Route } from 'react-router-dom';
@@ -15,7 +16,6 @@ import RoomDetail from './pages/front/RoomDetail';
 import Favorite from './pages/front/Favorite';
 import MemberLaout from './pages/front/MemberLayout';
 import { MemberInfo,EditPassword, EditInfo, AddRoom, EditRoom } from './pages/front/MemberPages';
-import PersonalInfo  from './pages/front/PersonalInfo';
 import NotFound from './pages/NotFound';
 import Contact from './pages/front/Contact';
 import AOS from 'aos';
@@ -26,6 +26,7 @@ import Dashboard from './pages/admin/Dashboard';
 import AdminArticle from './pages/admin/AdminArticle';
 import AdminMemeber from './pages/admin/AdminMember';
 import AdminRoom from './pages/admin/AdminRoom';
+import Test from './pages/admin/Test';
 
 
 function App() {
@@ -47,7 +48,6 @@ function App() {
             <Route path='articles/:id' element={<ArticleDetail />}></Route>
             <Route path='rooms' element={<Rooms />}></Route>
             <Route path='rooms/:id' element={<RoomDetail />}></Route>
-            <Route path='/:id' element={<PersonalInfo />}></Route>
             <Route path='member' element={<MemberLaout />}>
               <Route path='' element={<MemberInfo />} />
               <Route path='editPassword' element={<EditPassword />} />
@@ -59,11 +59,12 @@ function App() {
 
 
           {/* 後台 */}
-          <Route path='/login' element={< Login />}></Route>
+          <Route path='/adminLogin' element={< Login />}></Route>
           <Route path='/admin' element={<Dashboard />}>
             <Route path='articles' element={<AdminArticle />} />
             <Route path='members' element={<AdminMemeber />} />
             <Route path='rooms' element={<AdminRoom />} />
+            <Route path='test' element={<Test />} />
           </Route>
 
           {/* 404 */}

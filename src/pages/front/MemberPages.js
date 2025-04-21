@@ -7,6 +7,9 @@ import Loading from "../../components/Loading/Loading";
 import DefaultAvatar from '../../assets/images/peopleImg.png';
 import { Select } from "../../components/Select/Select";
 import { Link } from 'react-router-dom';
+import { useLogin } from "../../store/dataStore";
+import axios from "axios";
+
 
 export function MemberInfo() {
     const invitionData = [
@@ -127,6 +130,7 @@ export function MemberInfo() {
 }
 
 export function EditPassword() {
+    const {member} = useLogin();
     const {
         register,
         handleSubmit,
@@ -142,15 +146,15 @@ export function EditPassword() {
         password: ''
     })
 
-    useEffect(() => {
-        const getPw = {
-            'email': localStorage.getItem("email"),
-            'password': '123456'
-        }
-        setTempData(getPw);
-        setValue('email', getPw.email);
-        setValue('password', getPw.password);
-    }, [setValue])
+    // useEffect(() => {
+    //     const getPw = {
+    //         'email': localStorage.getItem("email"),
+    //         'password': '123456'
+    //     }
+    //     setTempData(getPw);
+    //     setValue('email', getPw.email);
+    //     setValue('password', getPw.password);
+    // }, [setValue])
 
     const handleEdit = (e) => {
         const { name, value } = e.target;
@@ -166,15 +170,21 @@ export function EditPassword() {
     const onSubmit = (data) => {
         console.log(data)
         setIsLoading(true)
+        const newData={email:member.email,newPw:data.newPw}
+        axios.put(`https://localhost:7095/api/member/editPassword`,newData).then((res)=>{
+            console.log(res);
+            setIsLoading(false)
+        }).catch((err)=>{
+            console.log(err)
+        })
+        // setTimeout(() => {
+        //     setIsLoading(false);
+        //     setShowAlert(true);
+        // }, 2000);
 
-        setTimeout(() => {
-            setIsLoading(false);
-            setShowAlert(true);
-        }, 2000);
-
-        setTimeout(() => {
-            setShowAlert(false);
-        }, 4000);
+        // setTimeout(() => {
+        //     setShowAlert(false);
+        // }, 4000);
     }
 
     return (
@@ -182,26 +192,16 @@ export function EditPassword() {
             <PageTitle title={'修改密碼'} />
             <Alert alertTxt={'修改成功'} color={'success'} status={showAlert} />
             <Loading isLoading={isLoading} />
+            <div className="mb-3">
+                <label htmlFor="email" className="form-label">Email</label>
+                <input type="email" className="form-control" value={member.email} disabled/>
+            </div>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <Input
-                    type='email'
-                    id='email'
-                    lableName={'Email'}
-                    errors={errors}
-                    register={register}
-                    rules={{
-                        required: 'Email 為必填',
-                        pattern: {
-                            value: /^\S+@\S+$/i,
-                            message: 'Email 格式不正確',
-                        }
-                    }}
-                    onChange={handleEdit}
-                ></Input>
-                <Input
                     type='password'
-                    id='password'
-                    lableName={'密碼'}
+                    id='newPw'
+                    lableName={'新密碼'}
+                    placeholder = '請輸入最少6位數新密碼'
                     errors={errors}
                     register={register}
                     rules={{
@@ -216,13 +216,13 @@ export function EditPassword() {
                 <Input
                     type='password'
                     id='checkPW'
-                    lableName={'確認密碼'}
-                    placeholder='最少6位數密碼'
+                    lableName={'確認新密碼'}
+                    placeholder='請再次輸入最少6位數新密碼'
                     errors={errors}
                     register={register}
                     rules={{
                         validate: (match) => {
-                            const password = getValues('password');
+                            const password = getValues('newPw');
                             return match === password || '與密碼不符合'
                         }
                     }}
@@ -238,6 +238,7 @@ export function EditPassword() {
 
 
 export function EditInfo() {
+    const {member} = useLogin();
     const [showAlert, setShowAlert] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const [photo, setPhoto] = useState(DefaultAvatar);
@@ -263,12 +264,12 @@ export function EditInfo() {
     useEffect(() => {
         const getInfo = {
             'avatar': DefaultAvatar,
-            'name': 'Allen',
-            'nickName': 'Allen粉多錢',
-            'birth': '1999-01-01',
-            'gender': '男',
-            'phone': '0912345678',
-            'introduction': '我是Allen'
+            'name': member.name,
+            'nickName': member.nickName,
+            'birth': member.birth,
+            'gender': member.gender==="male"?"男性":"女性",
+            'phone': member.phone,
+            'introduction': member.intro
         }
         setTempData(getInfo);
         setValue('avatar', getInfo.avatar);
@@ -327,7 +328,6 @@ export function EditInfo() {
                 <div className="avatar d-flex justify-content-center mb-3">
                     <input type="file" accept="image/*" id="avatar" name="avatar" className="d-none" onChange={(e) => {
                         editPhoto(e);
-                        //handleEdit(e);
                     }} />
                     <figure className="avatar-figure">
                         <img src={photo} alt="" className="rounded-circle object-cover w-100 h-100" />
@@ -378,7 +378,7 @@ export function EditInfo() {
                         className={`form-control`}
                         id='birth'
                         value={tempData.birth}
-                        readOnly
+                        disabled
                     ></input>
                 </div>
                 <div className="mb-3">
@@ -388,7 +388,7 @@ export function EditInfo() {
                         className={`form-control`}
                         id='gender'
                         value={tempData.gender}
-                        readOnly
+                        disabled
                     ></input>
                 </div>
                 <Input
@@ -1028,7 +1028,6 @@ export function AddRoom() {
                                                 ><i className="bi bi-x" style={{ fontSize: "16px" }}></i></button>
                                             </div>
                                         </div>
-
                                     )
                                 })}
                                 <input type="file" accept="image/*" id="roomPhotos" name="roomPhotos" multiple="multiple" className="d-none" {...register("roomPhotos")}
@@ -1039,8 +1038,6 @@ export function AddRoom() {
                                     <i className="fa fa-plus text-light" aria-hidden="true" style={{ fontSize: '50px' }}></i>
                                     <p className="text-light">新增房間圖片</p>
                                 </label>
-
-
                             </div>
                         </div>
 
