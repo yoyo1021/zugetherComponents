@@ -9,7 +9,7 @@ export default function AdminMemeber() {
         setMembers(res.data);
     }
     useEffect(() => {
-        getData()
+        //getData()
     }, [])
     return (
         <>

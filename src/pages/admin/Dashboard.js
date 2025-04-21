@@ -2,7 +2,7 @@ import { Link,useNavigate,Outlet } from "react-router-dom";
 export default function Dashboard() {
     const navigate = useNavigate()
     function logout(){
-        navigate('/login')
+        navigate('/adminLogin')
     }
     return (
         <><nav className='navbar navbar-expand-lg bg-primary'>

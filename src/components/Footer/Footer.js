@@ -15,6 +15,7 @@ export default function Footer() {
                         <li className="px-3 py-3"><a href="mailto:a1234@gmail.com"><i className="bi bi-envelope me-3"></i>a1234@gmail.com</a></li>
                         <li className="px-3 py-3"><p >地址 :台中市公益路二段51號18樓</p></li>
                     </ul>
+                    <NavLink to='/adminLogin' className='px-4 py-3'>後臺管理</NavLink>
                 </div>
             </footer>
         </>

@@ -15,7 +15,6 @@ import RoomDetail from './pages/front/RoomDetail';
 import Favorite from './pages/front/Favorite';
 import MemberLaout from './pages/front/MemberLayout';
 import { MemberInfo,EditPassword, EditInfo, AddRoom, EditRoom } from './pages/front/MemberPages';
-import PersonalInfo  from './pages/front/PersonalInfo';
 import NotFound from './pages/NotFound';
 import Contact from './pages/front/Contact';
 import AOS from 'aos';
@@ -47,19 +46,18 @@ function App() {
             <Route path='articles/:id' element={<ArticleDetail />}></Route>
             <Route path='rooms' element={<Rooms />}></Route>
             <Route path='rooms/:id' element={<RoomDetail />}></Route>
-            <Route path='/:id' element={<PersonalInfo />}></Route>
             <Route path='member' element={<MemberLaout />}>
               <Route path='' element={<MemberInfo />} />
               <Route path='editPassword' element={<EditPassword />} />
               <Route path='editInfo' element={<EditInfo />} />
               <Route path='addRoom' element={<AddRoom />} />
-              <Route path='eDITRoom' element={<EditRoom />} />
+              <Route path='editRoom' element={<EditRoom />} />
             </Route>
           </Route>
 
 
           {/* 後台 */}
-          <Route path='/login' element={< Login />}></Route>
+          <Route path='/adminLogin' element={< Login />}></Route>
           <Route path='/admin' element={<Dashboard />}>
             <Route path='articles' element={<AdminArticle />} />
             <Route path='members' element={<AdminMemeber />} />
