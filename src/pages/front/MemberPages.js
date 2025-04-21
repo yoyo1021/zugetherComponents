@@ -1161,19 +1161,7 @@ export function EditRoom() {
             <Alert alertTxt={'修改成功'} color={'success'} status={showAlert} />
             <Loading isLoading={isLoading} />
             <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="d-flex justify-content-between align-items-center mb-3">
-                    <div style={{ marginBottom: "-16px" }}>
-                        <Checkbox
-                            id={'enabled'}
-                            labelName={"上架"}
-                            errors={errors}
-                            register={register}
-                        ></Checkbox>
-                    </div>
-                    {/* <button type="button" className="btn btn-danger w-25"
-                        onClick={handleDelete}
-                    >刪除</button> */}
-                </div>
+                
                 <div className="row row-cols-1 row-cols-md-2">
                     <div className="col">
                         <Input
